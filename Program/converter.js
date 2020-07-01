@@ -137,8 +137,8 @@ const ConvData = [ // min, max, target, debug description (unused)
 function extractMemoryAndValue(lineInput) {
 	let line = lineInput.toLowerCase();
 	let args, type, unused1, unused2, val, mem, comment;
-	if(/comment\W*\(\".*\"\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\)/.test(line)) { // Comment trigger
-		args = line.match(/\(\"(.*)\"\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\)/);
+	if(/comment *\(\".*\" *, *[0-9\-x]+ *, *[0-9\-x]+ *, *[0-9\-x]+ *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // Comment trigger
+		args = line.match(/\(\"(.*)\" *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		type = parseInt(args[6]);
 		switch(type) {
 			case 1:
@@ -164,8 +164,8 @@ function extractMemoryAndValue(lineInput) {
 			return null;
 		}
 	}
-	else if(/comment\W*\(\".*\"\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\)/.test(line)) { // Old Comment trigger
-		args = line.match(/\(\"(.*)\"\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\)/);
+	else if(/comment *\(\".*\" *, *[0-9\-x]+ *, *[0-9\-x]+ *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // Old Comment trigger
+		args = line.match(/\(\"(.*)\" *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		type = parseInt(args[5]);
 		val = parseInt(args[4]);
 		mem = parseInt(args[3]);
@@ -174,16 +174,20 @@ function extractMemoryAndValue(lineInput) {
 		return [mem, val, type, 0];
 	}
 	else if(/pause ?game/.test(line)) { // PauseGame trigger
-		let args = line.match(/\(([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\)/);
+		let args = line.match(/\(([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		val = parseInt(args[3]);
 		mem = parseInt(args[2]);
 		type = 3;
 		return [mem, val, type, 0];
 	}
-	else if(/set ?deaths\W*\(\W*player [0-9]+\W*,\W*(set to|add|subtract)\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\)/.test(line)) { // EUD
-		let args = line.match(/\(\W*player ([0-9]+)\W*,\W*(set to|add|subtract)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\)/);
+	else if(/set ?deaths *\( *player [0-9]+ *, *(set to|add|subtract) *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // EUD
+		let args = line.match(/\( *player ([0-9]+) *, *(set to|add|subtract) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		let player = parseInt(args[1]) - 1;
 		let unit = parseInt(args[4]);
+		console.log(line, args);
+		if(unit < 0) {
+			unit += 65536;
+		}
 		let effPlayer = 12 * unit + player;
 		if(effPlayer < 2800) { // not EUD
 			return null;
@@ -194,10 +198,13 @@ function extractMemoryAndValue(lineInput) {
 		type = 3;
 		return [mem, val, type, dir];
 	}
-	else if(/setdeaths\W*\(\W*[0-9]+\W*,\W*(set to|add|subtract)\W*,\W*[0-9\-x]+\W*,\W*[0-9\-x]+\)/.test(line)) { // EPD
-		let args = line.match(/\(\W*([0-9]+)\W*,\W*(set to|add|subtract)\W*,\W*([0-9\-x]+)\W*,\W*([0-9\-x]+)\)/);
+	else if(/setdeaths *\( *[0-9]+ *, *(set to|add|subtract) *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // EPD
+		let args = line.match(/\( *([0-9]+) *, *(set to|add|subtract) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		let player = parseInt(args[1]);
 		let unit = parseInt(args[4]);
+		if(unit < 0) {
+			unit += 65536;
+		}
 		let effPlayer = 12 * unit + player;
 		if(effPlayer < 2736) { // not EUD
 			return null;
