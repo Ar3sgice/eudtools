@@ -198,7 +198,7 @@ function extractMemoryAndValue(lineInput) {
 		type = 3;
 		return [mem, val, type, dir];
 	}
-	else if(/setdeaths *\( *[0-9]+ *, *(set to|add|subtract) *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // EPD
+	else if(/set ?deaths *\( *[0-9]+ *, *(set to|add|subtract) *, *[0-9\-x]+ *, *[0-9\-x]+\)/.test(line)) { // EPD
 		let args = line.match(/\( *([0-9]+) *, *(set to|add|subtract) *, *([0-9\-x]+) *, *([0-9\-x]+)\)/);
 		let player = parseInt(args[1]);
 		let unit = parseInt(args[4]);
@@ -212,6 +212,40 @@ function extractMemoryAndValue(lineInput) {
 		mem = 0x51398C + 4 * effPlayer;
 		val = parseInt(args[3]);
 		dir = (args[2] == "add") ? 1 : ((args[2] == "subtract") ? 2 : 0);
+		type = 3;
+		return [mem, val, type, dir];
+	}
+	else if(/deaths *\( *player [0-9]+ *, *(exactly|at least|at most) *, *[0-9\-x]+ *,[unit ]*[0-9\-x]+\)/.test(line)) { // EUD Cond
+		let args = line.match(/\( *player ([0-9]+) *, *(exactly|at least|at most) *, *([0-9\-x]+) *,[unit ]*([0-9\-x]+)\)/);
+		let player = parseInt(args[1]) - 1;
+		let unit = parseInt(args[4]);
+		if(unit < 0) {
+			unit += 65536;
+		}
+		let effPlayer = 12 * unit + player;
+		if(effPlayer < 2800) { // not EUD
+			return null;
+		}
+		mem = 0x51398C + 4 * effPlayer;
+		val = parseInt(args[3]);
+		dir = (args[2] == "at least") ? 5 : ((args[2] == "at most") ? 6 : 4);
+		type = 3;
+		return [mem, val, type, dir];
+	}
+	else if(/deaths *\( *[0-9]+ *, *(exactly|at least|at most) *, *[0-9\-x]+ *,[unit ]*[0-9\-x]+\)/.test(line)) { // EPD Cond
+		let args = line.match(/\( *([0-9]+) *, *(set to|add|subtract) *, *([0-9\-x]+) *,[unit ]*([0-9\-x]+)\)/);
+		let player = parseInt(args[1]);
+		let unit = parseInt(args[4]);
+		if(unit < 0) {
+			unit += 65536;
+		}
+		let effPlayer = 12 * unit + player;
+		if(effPlayer < 2736) { // not EUD
+			return null;
+		}
+		mem = 0x51398C + 4 * effPlayer;
+		val = parseInt(args[3]);
+		dir = (args[2] == "at least") ? 5 : ((args[2] == "at most") ? 6 : 4);
 		type = 3;
 		return [mem, val, type, dir];
 	}
@@ -233,6 +267,7 @@ function convertMemory(mem) {
 function convertToTrigger(memory, value, type, direction) { // will always use Masked regardless of settings
 	var triggerPattern = "MemoryAddr(^1, Set To, ^2);";
 	var triggerPattern_masked = "Masked MemoryAddr(^1, Set To, ^2, ^3);";
+	var dirValues = ["Set To", "Add", "Subtract", "Unknown", "Exactly", "At least", "At most"];
 
 	let byteOrder = 0;
 	let mask = 0xFFFFFFFF;
@@ -240,7 +275,7 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 	let nextValue = 0;
 	let nextByteCount = 0;
 	let nextMask = 0;
-	let dir = (direction == 1 ? "Add" : (direction == 2) ? "Subtract" : "Set To");
+	let dir = dirValues[direction] || "Set To";
 	if(memory % 4 != 0 && type == 3) {
 		byteOrder = memory % 4;
 		memory -= byteOrder;
@@ -255,8 +290,8 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 		if(nextMask < 0) {
 			nextMask += 0x100000000;
 		}
-		let trigger1 = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask);
-		let trigger2 = triggerPattern_masked.replace(/\^1/g, nextMemory).replace(/\^2/g, nextValue).replace(/\^3/g, nextMask);
+		let trigger1 = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask).replace(/Set To/g, dir);
+		let trigger2 = triggerPattern_masked.replace(/\^1/g, nextMemory).replace(/\^2/g, nextValue).replace(/\^3/g, nextMask).replace(/Set To/g, dir);
 		return [trigger1, trigger2].join("\n");
 	}
 	else if(type == 4) {
@@ -267,7 +302,7 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 		if(mask < 0) {
 			mask += 0x100000000;
 		}
-		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask);
+		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask).replace(/Set To/g, dir);
 		return trigger + "\n";
 	}
 	else if(type == 25) {
@@ -289,11 +324,11 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 		if(mask < 0) {
 			mask += 0x100000000;
 		}
-		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask);
+		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask).replace(/Set To/g, dir);
 		return trigger + "\n";
 	}
 	else if(memory % 4 == 0 && type == 3) {
-		let trigger = triggerPattern.replace(/\^1/g, memory).replace(/\^2/g, value);
+		let trigger = triggerPattern.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/Set To/g, dir);
 		return trigger;
 	}
 	else {
@@ -309,7 +344,7 @@ function convert108Triggers() {
 			let [mem, val, type, dir] = extr;
 			let newMem = convertMemory(mem);
 			if(newMem) {
-				return convertToTrigger(newMem, val, type);
+				return convertToTrigger(newMem, val, type, dir);
 			}
 			else {
 				return line + " // UNSUPPORTED EUD";
