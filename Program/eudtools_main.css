@@ -6,6 +6,9 @@
 	top: 75px;
 	left: 20px;
 }
+input[type="text"] {
+	width: 133px;
+}
 .option_category
 {
 }.select_memory
