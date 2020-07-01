@@ -1,0 +1,45 @@
+Max number of units that can be created at a location without barriers:
+
+Terran
+SCV: 78
+Marine: 91
+Firebat: 82
+Ghost: 171
+Medic: 91
+Vulture, Tank, Goliath: 57
+Wraith: 49
+Dropship: 27
+Science Vessel: 18
+Battlecruiser: 16
+Valkyrie: 27
+
+Protoss
+Probe: 78
+Zealot: 82
+Dragoon, Archon, Dark Archon, Reaver: 57
+HT: 93
+DT: 86
+Shuttle: 43
+Observer: 57
+Scout: 41
+Corsair: 41
+Carrier: 13
+Arbiter: 25
+
+Zerg
+Drone: 78
+Zergling: 253
+Overlord: 24
+Hydralisk: 82
+Lurker: 57
+Mutalisk, Guardian, Devourer: 25
+Scourge: 93
+Queen: 21
+Ultralisk: 41
+Defiler: 75
+Broodling: 86
+Infested Terran: 91
+
+Neutral
+Kakaru: 57
+All Critters: 57

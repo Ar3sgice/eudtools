@@ -1,0 +1,47 @@
+This is an EUD tool made 10 years ago, at which time people were doing EUD for starcraft v1.08
+Only changed offsets to 1.16/remastered based on http://farty1billion.dyndns.org/EUDDB/
+
+Basic usage:
+- click the "v" button to calculate memory and generate trigger
+- click the "v" button to the right to expand the help area
+
+Option "use MaskedMemory":
+if checked, it uses "Masked MemoryAddr" trigger which works only on remastered
+otherwise, it uses normal trigger with Add/Subtract which will need original values
+
+Setting an address to a string:
+- put "string" (with "") in Value input
+
+Setting an address to a hexstring:
+- put 'hex' (with '') in Value input
+- hex must not have spaces
+
+Buttons:
+- since writing the original buttons memory region often causes conflicts with other units, here we put new buttons at offset 0x590000 (an unused section) and direct pointers to them
+- each button takes 20 bytes of memory (the 8 fields)
+- set "Unit Buttons - Total Buttons" to number of buttons
+- set "Unit Buttons - Button Offset" to 0x590000 + 20 * (button object ID)
+
+However, for the buttons to actually work, "Requirements" is also needed
+- set the requirement corresponding to "Act Function" and "Act Variable"
+- value <ID> 00 FF FF gives free requirement (all units can use it)
+- for example firebat (unit 32) write address 0x51420C of 0xFFFF0020 (20 00 ff ff)
+- then every building can make firebat if they have the buttons
+- also you can set each opcode to all "must be broodwar" or things like that
+- might make a requirement opcode parser if I'm really bored to that level
+- also there is a pointer to requirement offset in the dat files, it shows up as 65535 in datedit but ingame it is set to half the offset from the requirement header
+
+Option "IceCC parser":
+- iscript doesn't work on remastered, but the parser works pretty nice so i kept it here
+- better only parse iscripts of units you edit (from .headerstart until next unit), not the entire script
+
+Stat_txt.tbl editing:
+- the address (the pointer 0x6D1238 points to) is 0x19184660, where the strings can be directly edited
+- since it is a 'simulator', it must be a fixed address?
+- but if it's still dynamic space, things would get more complicated
+- for example use binary tests to read out the real address, then edit the trigger table to set to the correct address using the seemingly working http://www.staredit.net/topic/17546/
+- in theory iscript would be also possible with this method. korean mappers missed a chance (or it doesn't really work)
+
+Others:
+- I understand that no one plays this game anymore. I program only for my own entertainment and feeling of accomplishment
+- In other words I was terribly bored

@@ -1,0 +1,32 @@
++08 Init - Initial animation
++10 Death - Death animation
++12 GndAttkInit - Initial ground attack animation
++14 AirAttkInit - Initial air attack animation
++16 Unused1 - Unknown/unused animation
++18 GndAttkRpt - Repeated ground attack animation
++20 AirAttkRpt - Repeated air attack animation
++22 CastSpell - Spell casting animation
++24 GndAttkToIdle - Animation for returning to an idle state after a ground attack
++26 AirAttkToIdle - Animation for returning to an idle state after an air attack
++28 Unused2 - Unknown/unused animation
++30 Walking - Walking/moving animation
++32 WalkingToIdle - Animation for returning to an idle state after walking/moving
++34 SpecialState1 - Some sort of category of special animations, in some cases an in-transit animation,
+      sometimes used for special orders, sometimes having to do with the animation when something finishes morphing,
+      or the first stage of a construction animation
++36 SpecialState2 - Some sort of category of special animations, in some cases a burrowed animation,
+      sometimes used for special orders, sometimes having to do with the animation when canceling a morph,
+      or the second stage of a construction animation
++38 AlmostBuilt - An animation for one part of the building process
++40 Built - Final animation before finishing being built
++42 Landing - Landing animation
++44 LiftOff - Lifting off animation
++46 IsWorking - Animation for when researching an upgr/tech or training/building units and some other animations for some sort of work being done.
++48 WorkingToIdle - Animation for returning to an idle state after IsWorking
++50 WarpIn - Warping in animation
++52 Unused3 - Unknown/unused animation
++54 StarEditInit - Previously called InitTurret, this is actually an alternate initial animation for StarEdit.
++56 Disable - Animation for becoming disabled, either through the "Set Doodad State" or by not being in the psi field of any pylons
++58 Burrow - Burrowing animation
++60 UnBurrow - Unburrowing animation
++62 Enable - Animation for becoming enabled, either through the "Set Doodad State" or by being in the psi field of a pylon

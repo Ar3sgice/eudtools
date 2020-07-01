@@ -1,0 +1,23 @@
+0x6D5A6C Cheat Address
+
+00000001 Black Sheep Wall
+00000002 Operation CWAL
+00000004 Power Overwhelming
+00000008 Something For Nothing
+00000010 Show me the Money
+00000020
+00000040 Game Over Man
+00000080 There is no Cow Level
+00000100 Staying Alive
+00000200 Ophelia
+00000400
+00000800 The Gathering
+00001000 Medieval Man
+00002000 Modify the Phase Variance
+00004000 War Aint What It Used To Be
+00008000
+00010000
+00020000 Food For Thought
+00040000 Whats Mine Is Mine
+00080000 Breathe Deep
+20000000 Noglues

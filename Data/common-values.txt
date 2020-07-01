@@ -1,0 +1,16 @@
+Upgrades:
+FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+
+Explosion Type:
+1, normal
+2, splash (All)
+3, splash (Enemy)
+5, nuke
+7, broodling
+
+Behavior:
+0, no follow
+1, follow
+7, bounce
+8, attack 3x3 area
+9, go to max range

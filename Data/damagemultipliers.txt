@@ -1,0 +1,43 @@
+0x00515B84 Damage type/factor multipliers vs unit size
+
+Independent damage [2+x]
+0x515B88 vs independent - 0
+0x515B8C vs small - 0
+0x515B90 vs medium - 0
+0x515B94 vs large - 0
+Explosive damage [7+x]
+0x515B9C vs independent - 0
+0x515BA0 vs small - 128
+0x515BA4 vs medium - 192
+0x515BA8 vs large - 256
+Concussive damage [12+x]
+0x515BB0 vs independent - 0
+0x515BB4 vs small - 256
+0x515BB8 vs medium - 128
+0x515BBC vs large - 64
+Normal damage [17+x]
+0x515BC4 vs independent - 0
+0x515BC8 vs small - 256
+0x515BCC vs medium - 256
+0x515BD0 vs large - 256
+Ignore armor [22+x]
+0x515BD8 vs independent - 0
+0x515BDC vs small - 256
+0x515BE0 vs medium - 256
+0x515BE4 vs large - 256 
+
+Weapon damage type, against each unit size
+
+struct {
+int id;
+int multipliers[4]; // independant = 0, small = 1, medium = 2, large = 3
+} dmgMultiplier;
+
+dmgMultiplier weaponDamageTypes[5]; // Independent, Explosive, Concussive, Normal, Ignore Armor
+
+Values are represented as a fraction of 256, so 256 = 100% damage, 512 = 200% damage, 64 = 25% damage.
+
+The minimum amount of damage able to be done is 0.5, so a 0 multiplier means any attack will do .5 damage. Independent is the the unit size used for powerups
+such as data disc, and hence this is why they take 0.5 damage from each hit and take a long time to kill.
+
+Weapon factor is applied after subtracting unit armor from the weapon's damage.

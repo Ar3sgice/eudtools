@@ -1,0 +1,209 @@
+0, Scourge
+1, Broodling
+2, Infested Terran
+3, Guardian Cocoon
+4, Defiler
+5, Drone
+6, Egg
+7, Guardian
+8, Hydralisk
+9, Infested Kerrigan
+10, Larva
+11, Mutalisk
+12, Overlord
+13, Queen
+14, Ultralisk
+15, Zergling
+16, Cerebrate
+17, Infested Command Center
+18, Spawning Pool
+19, Mature Chrysalis
+20, Evolution Chamber
+21, Creep Colony
+22, Hatchery
+23, Hive
+24, Lair
+25, Sunken Colony
+26, Greater Spire
+27, Defiler Mound
+28, Queen's Nest
+29, Nydus Canal
+30, Overmind With Shell
+31, Overmind Without Shell
+32, Ultralisk Cavern
+33, Extractor
+34, Hydralisk Den
+35, Spire
+36, Spore Colony
+37, Arbiter
+38, Archon Energy
+39, Carrier
+40, Dragoon
+41, Interceptor
+42, Probe
+43, Scout
+44, Shuttle
+45, High Templar
+46, Dark Templar (Hero)
+47, Reaver
+48, Scarab
+49, Zealot
+50, Observer
+51, Templar Archives
+52, Assimilator
+53, Observatory
+54, Citadel of Adun
+55, Forge
+56, Gateway
+57, Cybernetics Core
+58, Khaydarin Crystal Formation
+59, Nexus
+60, Photon Cannon
+61, Arbiter Tribunal
+62, Pylon
+63, Robotics Facility
+64, Shield Battery
+65, Stargate
+66, Stasis Cell/Prison
+67, Robotics Support Bay
+68, Protoss Temple
+69, Fleet Beacon
+70, Battlecruiser
+71, Civilian
+72, Dropship
+73, Firebat
+74, Ghost
+75, Goliath Base
+76, Goliath Turret
+77, Sarah Kerrigan
+78, Marine
+79, Scanner Sweep
+80, Wraith
+81, SCV
+82, Siege Tank (Tank) Base
+83, Siege Tank (Tank) Turret
+84, Siege Tank (Siege) Base
+85, Siege Tank (Siege) Turret
+86, Science Vessel (Base)
+87, Science Vessel (Turret)
+88, Vulture
+89, Spider Mine
+90, Academy
+91, Barracks
+92, Armory
+93, Comsat Station
+94, Command Center
+95, Supply Depot
+96, Control Tower
+97, Factory
+98, Covert Ops
+99, Ion Cannon
+100, Machine Shop
+101, Missile Turret (Base)
+102, Crashed Battlecruiser
+103, Physics Lab
+104, Bunker
+105, Refinery
+106, Immobile Barracks
+107, Science Facility
+108, Nuke Silo
+109, Nuclear Missile
+110, Starport
+111, Engineering Bay
+112, Terran Construction (Large)
+113, Terran Construction (Small)
+114, Ragnasaur (Ashworld)
+115, Rhynadon (Badlands)
+116, Bengalaas (Jungle)
+117, Vespene Geyser
+118, Mineral Field Type1
+119, Mineral Field Type2
+120, Mineral Field Type3
+121, Independent Starport (Unused)
+122, Zerg Beacon
+123, Terran Beacon
+124, Protoss Beacon
+125, Dark Swarm
+126, Flag
+127, Young Chrysalis
+128, Psi Emitter
+129, Data Disc
+130, Khaydarin Crystal
+131, Mineral Chunk Type1
+132, Mineral Chunk Type2
+133, Protoss Gas Orb Type1
+134, Protoss Gas Orb Type2
+135, Zerg Gas Sac Type1
+136, Zerg Gas Sac Type2
+137, Terran Gas Tank Type1
+138, Terran Gas Tank Type2
+139, Map Revealer
+140, Start Location
+141, Fusion Cutter Hit
+142, Gauss Rifle Hit
+143, C-10 Canister Rifle Hit
+144, Gemini Missiles
+145, Fragmentation Grenade
+146, Lockdown/LongBolt/Hellfire Missile
+147, Unused Lockdown
+148, ATS/ATA Laser Battery
+149, Burst Lasers
+150, Arclite Shock Cannon Hit
+151, EMP Missile
+152, Dual Photon Blasters Hit
+153, Particle Beam Hit
+154, Anti-Matter Missile
+155, Pulse Cannon
+156, Psionic Shockwave Hit
+157, Psionic Storm
+158, Yamato Gun
+159, Phase Disruptor
+160, STA/STS Cannon Overlay
+161, Sunken Colony Tentacle
+162, Venom (Unused Zerg Weapon)
+163, Acid Spore
+164, Plasma Drip Hit (Unused)
+165, Glave Wurm
+166, Seeker Spores
+167, Queen Spell Carrier
+168, Plague Cloud
+169, Consume
+170, Ensnare
+171, Needle Spine Hit
+172, White Circle (Invisible)
+173, Left Upper Level Door
+174, Right Upper Level Door
+175, Substructure Left Door
+176, Substructure Right Door
+177, Substructure Opening Hole
+178, Floor Gun Trap
+179, Floor Missile Trap
+180, Wall Missile Trap
+181, Wall Missile Trap2
+182, Wall Flame Trap
+183, Wall Flame Trap2
+184, Lurker Egg
+185, Devourer
+186, Lurker
+187, Dark Archon Energy
+188, Dark Templar (Unit)
+189, Medic
+190, Valkyrie
+191, Corsair
+192, Disruption Web
+193, Overmind Cocoon
+194, Psi Disrupter
+195, Warp Gate
+196, Power Generator
+197, Xel'Naga Temple
+198, Scantid (Desert)
+199, Kakaru (Twilight)
+200, Ursadon (Ice)
+201, Optical Flare Grenade
+202, Halo Rockets
+203, Subterranean Spines
+204, Corrosive Acid Shot
+205, Corrosive Acid Hit
+206, Neutron Flare
+207, Uraj
+208, Khalis

@@ -1,0 +1,131 @@
+0, Gauss Rifle (Normal)
+1, Gauss Rifle (Jim Raynor-Marine)
+2, C-10 Concussion Rifle (Normal)
+3, C-10 Concussion Rifle (Sarah Kerrigan)
+4, Fragmentation Grenade (Normal)
+5, Fragmentation Grenade (Jim Raynor-Vulture)
+6, Spider Mines
+7, Twin Autocannons (Normal)
+8, Hellfire Missile Pack (Normal)
+9, Twin Autocannons (Alan Schezar)
+10, Hellfire Missile Pack (Alan Schezar)
+11, Arclite Cannon (Normal)
+12, Arclite Cannon (Edmund Duke)
+13, Fusion Cutter
+14, Fusion Cutter (Harvest)
+15, Gemini Missiles (Normal)
+16, Burst Lasers (Normal)
+17, Gemini Missiles (Tom Kazansky)
+18, Burst Lasers (Tom Kazansky)
+19, ATS Laser Battery (Normal)
+20, ATA Laser Battery (Normal)
+21, ATS Laser Battery (Norad II+Mengsk+DuGalle)
+22, ATA Laser Battery (Norad II+Mengsk+DuGalle)
+23, ATS Laser Battery (Hyperion)
+24, ATA Laser Battery (Hyperion)
+25, Flame Thrower (Normal)
+26, Flame Thrower (Gui Montag)
+27, Arclite Shock Cannon (Normal)
+28, Arclite Shock Cannon (Edmund Duke)
+29, Longbolt Missiles
+30, Yamato Gun
+31, Nuclear Missile
+32, Lockdown
+33, EMP Shockwave
+34, Irradiate
+35, Claws (Normal)
+36, Claws (Devouring One)
+37, Claws (Infested Kerrigan)
+38, Needle Spines (Normal)
+39, Needle Spines (Hunter Killer)
+40, Kaiser Blades (Normal)
+41, Kaiser Blades (Torrasque)
+42, Toxic Spores (Broodling)
+43, Spines
+44, Spines (Harvest)
+45, Acid Spray (Unused)
+46, Acid Spore (Normal)
+47, Acid Spore (Kukulza-Guardian)
+48, Glave Wurm (Normal)
+49, Glave Wurm (Kukulza-Mutalisk)
+50, Venom (Unused-Defiler)
+51, Venom (Unused-Defiler Hero)
+52, Seeker Spores
+53, Subterranean Tentacle
+54, Suicide (Infested Terran)
+55, Suicide (Scourge)
+56, Parasite
+57, Spawn Broodlings
+58, Ensnare
+59, Dark Swarm
+60, Plague
+61, Consume
+62, Particle Beam
+63, Particle Beam (Harvest)
+64, Psi Blades (Normal)
+65, Psi Blades (Fenix-Zealot)
+66, Phase Disruptor (Normal)
+67, Phase Disruptor (Fenix-Dragoon)
+68, Psi Assault (Normal-Unused)
+69, Psi Assault (Tassadar+Aldaris)
+70, Psionic Shockwave (Normal)
+71, Psionic Shockwave (Tassadar/Zeratul Archon)
+72, Unknown72
+73, Dual Photon Blasters (Normal)
+74, Anti-matter Missiles (Normal)
+75, Dual Photon Blasters (Mojo)
+76, Anti-matter Missiles (Mojo)
+77, Phase Disruptor Cannon (Normal)
+78, Phase Disruptor Cannon (Danimoth)
+79, Pulse Cannon
+80, STS Photon Cannon
+81, STA Photon Cannon
+82, Scarab
+83, Stasis Field
+84, Psi Storm
+85, Warp Blades (Zeratul)
+86, Warp Blades (Dark Templar Hero)
+87, Missiles (Unused)
+88, Laser Battery1 (Unused)
+89, Tormentor Missiles (Unused)
+90, Bombs (Unused)
+91, Raider Gun (Unused)
+92, Laser Battery2 (Unused)
+93, Laser Battery3 (Unused)
+94, Dual Photon Blasters (Unused)
+95, Flechette Grenade (Unused)
+96, Twin Autocannons (Floor Trap)
+97, Hellfire Missile Pack (Wall Trap)
+98, Flame Thrower (Wall Trap)
+99, Hellfire Missile Pack (Floor Trap)
+100, Neutron Flare
+101, Disruption Web
+102, Restoration
+103, Halo Rockets
+104, Corrosive Acid
+105, Mind Control
+106, Feedback
+107, Optical Flare
+108, Maelstrom
+109, Subterranean Spines
+110, Gauss Rifle0 (Unused)
+111, Warp Blades (Normal)
+112, C-10 Concussion Rifle (Samir Duran)
+113, C-10 Concussion Rifle (Infested Duran)
+114, Dual Photon Blasters (Artanis)
+115, Anti-matter Missiles (Artanis)
+116, C-10 Concussion Rifle (Alexei Stukov)
+117, Unknown117
+118, Unknown118
+119, Unknown119
+120, Unknown120
+121, Unknown121
+122, Unknown122
+123, Unknown123
+124, Unknown124
+125, Unknown125
+126, Unknown126
+127, Unknown127
+128, Unknown128
+129, Unknown129
+130, None

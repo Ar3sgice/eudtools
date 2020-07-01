@@ -1,0 +1,18 @@
+weapon224 scourge(target)
+weapon181,184 scourge(player)
+
+weapon198,206,208,212,214,216,218,220,220,226 stone(target)
+weapon197,199~205,207,211,213,215,217,219,221,223 stone(player)
+
+weapon164,166,167,169,170,173~175,177,178,182,183,185,186,188~194 attack but doesnt do anything
+weapon163 attack but doesnt do anything
+
+weapon163 has a Ghost icon!
+
+weapon180 Machine Shop appeared at attacker
+weapon179 Sunken Colony appeared at attacker
+weapon172 Scarab appeared at attacker
+weapon171 Photon Cannon appeared at attacker
+weapon165 Overmind appeared at attacker
+
+weapon130 gives error message when attacking any unit (NoWeapon)
