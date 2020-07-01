@@ -1,0 +1,659 @@
+.select_category
+{
+	width: 85px;
+	height: 196px;
+	position: absolute;
+	top: 75px;
+	left: 20px;
+}
+.option_category
+{
+}.select_memory
+{
+	width: 250px;
+	height: 196px;
+	position: absolute;
+	top: 75px;
+	left: 120px;
+}
+.option_memory
+{
+}
+.select_data
+{
+	width: 125px;
+	height: 196px;
+	position: absolute;
+	top: 75px;
+	left: 780px;
+}
+.option_data
+{
+}
+#label_buttonfunction
+{
+	top: 288px;
+	left: 578px;
+}
+.select_bf
+{
+	width: 325px;
+	height: 196px;
+	position: absolute;
+	top: 288px;
+	left: 680px;
+}
+.option_bf1
+{
+}
+.option_bf2
+{
+	background:#333333;
+}
+#data_output
+{
+	position: absolute;
+	top: 75px;
+	left: 925px;
+	font-family: "courier new";
+	font-size: 14px;
+	color: #EBEE80;
+	width: 425px;
+	height: 196px;
+}
+#data_output.expanded
+{
+	width: 465px;
+	height: 598px;
+}
+#trigger_output
+{
+	width: 500px;
+	height: 385px;
+	position: absolute;
+	top: 288px;
+	left: 20px;
+	font-family: "courier new";
+	font-size: 14px;
+	color: #EBEE80;
+}
+.labels
+{
+	font-family: "trebuchet ms";
+	font-size: 16px;
+	color: #9DFFFF;
+	position: absolute;
+}
+#label_offset
+{
+	top: 75px;
+	left: 387px;
+}
+#input_offset
+{
+	position: absolute;
+	top: 75px;
+	left: 460px;
+}
+#label_length
+{
+	top: 100px;
+	left: 387px;
+}
+#input_length
+{
+	position: absolute;
+	top: 100px;
+	left: 460px;
+}
+#label_object
+{
+	top: 125px;
+	left: 387px;
+}
+#input_object
+{
+	position: absolute;
+	top: 125px;
+	left: 460px;
+}
+#label_memory
+{
+	top: 165px;
+	left: 387px;
+}
+#input_memory
+{
+	position: absolute;
+	top: 165px;
+	left: 460px;
+}
+#label_hex
+{
+	top: 190px;
+	left: 387px;
+}
+#input_hex
+{
+	position: absolute;
+	top: 190px;
+	left: 460px;
+}
+#label_value
+{
+	top: 215px;
+	left: 387px;
+}
+#input_value
+{
+	position: absolute;
+	top: 215px;
+	left: 460px;
+}
+#label_origvalue
+{
+	top: 240px;
+	left: 387px;
+}
+#input_origvalue
+{
+	position: absolute;
+	top: 240px;
+	left: 460px;
+}
+#label_upg_player
+{
+	top: 100px;
+	left: 628px;
+}
+#input_upg_player
+{
+	position: absolute;
+	top: 100px;
+	left: 702px;
+	width: 30px;
+}
+#label_upg_uid
+{
+	top: 125px;
+	left: 628px;
+}
+#input_upg_uid
+{
+	position: absolute;
+	top: 125px;
+	left: 702px;
+	width: 30px;
+}
+#label_req
+{
+	top: 125px;
+	left: 628px;
+}
+#input_req
+{
+	position: absolute;
+	top: 125px;
+	left: 695px;
+	width: 35px;
+}
+#label_icecc
+{
+	top: 288px;
+	left: 569px;
+}
+#label_icecc2
+{
+	top: 314px;
+	left: 574px;
+}
+#inputarea_icecc
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 570px;
+	height: 359px;
+}
+#input_icecc_trigbase
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+}
+#parse_icecc
+{
+	position: absolute;
+	top: 637px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+#label_mapstr_sid
+{
+	top: 288px;
+	left: 599px;
+}
+#label_mapstr_ofs
+{
+	top: 314px;
+	left: 603px;
+}
+#label_mapstr_cont
+{
+	top: 340px;
+	left: 603px;
+}
+#input_mapstr_sid
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+}
+#input_mapstr_ofs
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 570px;
+}
+#inputarea_mapstr
+{
+	position: absolute;
+	top: 340px;
+	left: 680px;
+	width: 570px;
+	height: 373px;
+}
+#parse_mapstr
+{
+	position: absolute;
+	top: 677px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+#label_etg_base
+{
+	top: 288px;
+	left: 575px;
+}
+#label_etg_ofs
+{
+	top: 314px;
+	left: 619px;
+}
+#label_etg_cont
+{
+	top: 340px;
+	left: 594px;
+}
+#input_etg_base
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+}
+#input_etg_ofs
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 570px;
+}
+#inputarea_etg
+{
+	position: absolute;
+	top: 340px;
+	left: 680px;
+	width: 570px;
+	height: 333px;
+}
+#parse_etg
+{
+	position: absolute;
+	top: 637px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+#label_textstack_text
+{
+	top: 288px;
+	left: 567px;
+}
+#input_textstack_text
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+}
+#label_textstack_unit
+{
+	top: 314px;
+	left: 588px;
+}
+#input_textstack_unit
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 570px;
+}
+#label_textstack_disp
+{
+	top: 340px;
+	left: 575px;
+}
+#input_textstack_disp
+{
+	position: absolute;
+	top: 340px;
+	left: 680px;
+	width: 570px;
+}
+#label_textstack_objs
+{
+	top: 366px;
+	left: 584px;
+}
+#input_textstack_objs
+{
+	position: absolute;
+	top: 366px;
+	left: 680px;
+	width: 570px;
+}
+#label_textstack_desc
+{
+	top: 392px;
+	left: 581px;
+}
+#input_textstack_desc
+{
+	position: absolute;
+	top: 392px;
+	left: 680px;
+	width: 570px;
+}
+#label_trigconv_area
+{
+	top: 288px;
+	left: 607px;
+}
+#inputarea_trigconv
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+	height: 385px;
+}
+#parse_trigconv
+{
+	position: absolute;
+	top: 637px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+#label_trigdupl_count
+{
+	top: 288px;
+	left: 617px;
+}
+#label_trigdupl_area
+{
+	top: 314px;
+	left: 607px;
+}
+#input_trigdupl_count
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 570px;
+}
+#inputarea_trigdupl
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 334px;
+	height: 359px;
+}
+#inputarea_trigdupl_arrays
+{
+	position: absolute;
+	top: 314px;
+	left: 1020px;
+	width: 230px;
+	height: 359px;
+}
+#parse_trigdupl
+{
+	position: absolute;
+	top: 637px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+#label_playercolor_id
+{
+	top: 288px;
+	left: 617px;
+}
+#label_playercolor_colors
+{
+	top: 314px;
+	left: 617px;
+}
+#label_playercolor_colors2
+{
+	top: 522px;
+	left: 602px;
+}
+#playercolor_imgcontainer
+{
+	position: absolute;
+	top: 288px;
+	left: 764px;
+	width: 384px;
+	height: 384px;
+	overflow: hidden;
+	border: solid 1px #666666;
+	cursor: pointer;
+	padding: none;
+}
+#playercolor_img
+{
+	position: absolute;
+	top: -1px;
+	left: -1px;
+}
+#input_playercolor_id
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 64px;
+}
+.playercolor_i
+{
+	position: absolute;
+	width: 37px;
+	left: 680px;
+}
+.playercolor_d
+{
+	position: absolute;
+	left: 722px;
+	width: 22px;
+	height: 22px;
+	border: solid 1px #bbbbbb;
+	background: #000000;
+}
+#input_playercolor1, #div_playercolor1 {top: 314px;}
+#input_playercolor2, #div_playercolor2 {top: 340px;}
+#input_playercolor3, #div_playercolor3 {top: 366px;}
+#input_playercolor4, #div_playercolor4 {top: 392px;}
+#input_playercolor5, #div_playercolor5 {top: 418px;}
+#input_playercolor6, #div_playercolor6 {top: 444px;}
+#input_playercolor7, #div_playercolor7 {top: 470px;}
+#input_playercolor8, #div_playercolor8 {top: 496px;}
+#input_playercolor0, #div_playercolor0 {top: 522px;}
+#input_playercolor0 {color: #B0EC75;}
+.playercolor_select
+{
+	width: 88px;
+	height: 196px;
+	position: absolute;
+	top: 288px;
+	left: 1162px;
+}
+.playercolor_option
+{
+}
+#parse_playercolor
+{
+	position: absolute;
+	top: 635px;
+	left: 680px;
+	padding: 8px 11px 10px 11px;
+}
+#upg_area {display: none;}
+#req_area {display: none;}
+#buttonfunction_area {display: none;}
+#icecc_area {display: none;}
+#mapstr_area {display: none;}
+#etg_area {display: none;}
+#textstack_area {display: none;}
+#trigdupl_area {display: none;}
+#trigconv_area {display: none;}
+#playercolor_area {display: none;}
+#make_memory
+{
+	position: absolute;
+	top: 123px;
+	left: 600px;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	background: #666666;
+	font-size: 12px;
+	line-height: 20px;
+}
+#make_trigger
+{
+	position: absolute;
+	top: 213px;
+	left: 600px;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	background: #666666;
+	font-size: 12px;
+	line-height: 20px;
+}
+#expand_data_output
+{
+	position: absolute;
+	top: 252px;
+	left: 1360px;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	background: #666666;
+	font-size: 12px;
+	line-height: 20px;
+}
+#expand_data_output.expanded
+{
+	top: 654px;
+	left: 1400px;
+	width: 20px;
+	height: 20px;
+}
+#saf_floating
+{
+	display: none;
+	position: absolute;
+	left: 265px;
+	top: 242px;
+	border: solid 2px #99d6ff;
+	padding: 10px 12px 12px 5px;
+	z-index: 2;
+	background: #222222;
+}
+#saf_close
+{
+	display: block;
+	text-align: right;
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+#saf_floating input
+{
+	border: none;
+}
+#saf_floating td
+{
+	font-family: "trebuchet ms";
+	font-size:16px;
+	color: #FFC48E;
+	text-align: left;
+}
+#saf_text
+{
+	border:solid 1px #bbbbbb !important;
+	margin-top:5px;
+}
+#saf_div1
+{
+	text-align:center;
+	font-size:16px;
+}
+#saf_div2
+{
+	text-align:center;
+	margin-top:11px;
+}
+
+#settings_floating
+{
+	display: none;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top: 142px;
+	width: 600px;
+	height: 400px;
+	left: 0;
+	right: 0;
+	border: solid 2px #99d6ff;
+	padding: 10px 12px 12px 5px;
+	z-index: 2;
+	background: #222222;
+}
+#settings_close
+{
+	display: block;
+	text-align: right;
+	position: absolute;
+	top: 8px;
+	right: 10px;
+}
+#settings_floating input
+{
+	border: none;
+}
+#settings_div1
+{
+	text-align:center;
+	font-size:16px;
+}
+
+#title_text
+{
+	text-align:center;
+}
