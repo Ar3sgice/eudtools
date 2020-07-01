@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html><head><title>Ar3's EUD Tools v1.12</title>
+<meta charset="gbk" />
+<link rel="stylesheet" type="text/css" href="Program/common.css" />
+<link rel="stylesheet" type="text/css" href="Program/eudtools_main.css" />
+<script src="Program/common.js" type="text/javascript"></script>
+<script src="Program/eudtools_data.js" type="text/javascript"></script>
+<script src="Program/eudtools_main.js" type="text/javascript"></script>
+<script src="Program/icecc.js" type="text/javascript"></script>
+<script src="Program/overlap.js" type="text/javascript"></script>
+<script src="Program/trigger_duplicator.js" type="text/javascript"></script>
+<script src="Program/converter.js" type="text/javascript"></script>
+<script src="Program/playercolors.js" type="text/javascript"></script>
+</head>
+<body id="eudtools_body">
+
+<div id="title_text" class="c_title">Ar3's EUD Tools! v1.12</div>
+
+<div class="floatboard" id="saf_floating">
+	<a class="changelink" id="saf_close">X</a>
+	<div id="saf_div1" class="c_title">&nbsp;&nbsp;Unit Special Ability Flags Generator</div>
+	<div id="saf_div2">
+		<table border="0">
+			<tr>
+				<td><input type="checkbox" id="saf_check1" class="input_ckb" />Building</td>
+				<td><input type="checkbox" id="saf_check2" class="input_ckb" />Addon</td>
+				<td><input type="checkbox" id="saf_check3" class="input_ckb" />Flyer</td>
+				<td><input type="checkbox" id="saf_check4" class="input_ckb" />Worker</td>
+				<td><input type="checkbox" id="saf_check5" class="input_ckb" />Subunit</td>
+				<td><input type="checkbox" id="saf_check6" class="input_ckb" />Flying Building</td>
+			</tr><tr>
+				<td><input type="checkbox" id="saf_check7" class="input_ckb" />Hero</td>
+				<td><input type="checkbox" id="saf_check8" class="input_ckb" />Regeneration</td>
+				<td><input type="checkbox" id="saf_check9" class="input_ckb" />Animated Idle</td>
+				<td><input type="checkbox" id="saf_check10" class="input_ckb" />Cloakable</td>
+				<td><input type="checkbox" id="saf_check11" class="input_ckb" />2 units in 1 Egg</td>
+				<td><input type="checkbox" id="saf_check12" class="input_ckb" />Single Entity</td>
+			</tr><tr>
+				<td><input type="checkbox" id="saf_check13" class="input_ckb" />Resource Depot</td>
+				<td><input type="checkbox" id="saf_check14" class="input_ckb" />Resource Container</td>
+				<td><input type="checkbox" id="saf_check15" class="input_ckb" />Robotic</td>
+				<td><input type="checkbox" id="saf_check16" class="input_ckb" />Detector</td>
+				<td><input type="checkbox" id="saf_check17" class="input_ckb" />Organic</td>
+				<td><input type="checkbox" id="saf_check18" class="input_ckb" />Creep Building</td>
+			</tr><tr>
+				<td><input type="checkbox" id="saf_check19" class="input_ckb" />Unused</td>
+				<td><input type="checkbox" id="saf_check20" class="input_ckb" />Requires Psi Field</td>
+				<td><input type="checkbox" id="saf_check21" class="input_ckb" />Burrowable</td>
+				<td><input type="checkbox" id="saf_check22" class="input_ckb" />Mana bar</td>
+				<td><input type="checkbox" id="saf_check23" class="input_ckb" />Permanent cloak</td>
+				<td><input type="checkbox" id="saf_check24" class="input_ckb" />Pickup Item</td>
+			</tr><tr>
+				<td><input type="checkbox" id="saf_check25" class="input_ckb" />Ignore Supply Check</td>
+				<td><input type="checkbox" id="saf_check26" class="input_ckb" />Medium Overlays</td>
+				<td><input type="checkbox" id="saf_check27" class="input_ckb" />Large Overlays</td>
+				<td><input type="checkbox" id="saf_check28" class="input_ckb" />Full Auto-Attack</td>
+				<td><input type="checkbox" id="saf_check29" class="input_ckb" />Battle Reactions</td>
+				<td><input type="checkbox" id="saf_check30" class="input_ckb" />Invincible</td>
+			</tr><tr>
+				<td><input type="checkbox" id="saf_check31" class="input_ckb" />Mechanical</td>
+				<td><input type="checkbox" id="saf_check32" class="input_ckb" />Produces Units</td>
+			</tr>
+		</table>
+		<input type="text" id="saf_text" value="0" size="27" class="input_text" />
+	</div>
+</div>
+
+<div class="floatboard" id="settings_floating">
+	<a class="changelink" id="settings_close">X</a>
+	<div id="settings_div1" class="c_title">Settings</div>
+	<table>
+		<tr>
+			<td>
+				<div class="labels" id="settings_label_offset">Use MaskedMemory: <input type="checkbox" id="settings_usemasked" class="input_ckb" /></div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div id="container">
+	<div id="category_container"></div>
+	<div id="select_container"></div>
+	<div class="labels" id="label_offset">Offset: </div>
+	<input type="text" id="input_offset" value="0" />
+	<div class="labels" id="label_length">Length: </div>
+	<input type="text" id="input_length" value="1" />
+	<div class="labels" id="label_object">Object: </div>
+	<input type="text" id="input_object" value="0" />
+	<div class="labels" id="label_memory">Memory: </div>
+	<input type="text" id="input_memory" value="0" />
+	<div class="labels" id="label_hex">Hex: </div>
+	<input type="text" id="input_hex" value="0" />
+	<div class="labels" id="label_value">Value: </div>
+	<input type="text" id="input_value" value="0" />
+	<div class="labels" id="label_origvalue">Original: </div>
+	<input type="text" id="input_origvalue" value="0" />
+	<div id="upg_area">
+		<div class="labels" id="label_upg_player">Player: </div>
+		<input type="text" id="input_upg_player" value="1" />
+		<div class="labels" id="label_upg_uid">Upgrade: </div>
+		<input type="text" id="input_upg_uid" value="0" />
+	</div>
+	<div id="req_area">
+		<div class="labels" id="label_req">Req. ID: </div>
+		<input type="text" id="input_req" value="0" />
+	</div>
+	<div id="buttonfunction_area">
+		<div class="labels" id="label_buttonfunction">Function ID: </div>
+		<div id="buttonfunction_select_container"></div>
+	</div>
+	<div id="icecc_area">
+		<div class="labels" id="label_icecc">Trigger Base: </div>
+		<div class="labels" id="label_icecc2">IceCC Code: </div>
+		<textarea id="inputarea_icecc"></textarea>
+		<input type="text" id="input_icecc_trigbase" value="Comment(&quot;Iscript&quot;, 0, ^1, ^2, 0, 7);" />
+		<div class="divbutton" id="parse_icecc">Parse</div>
+	</div>
+	<div id="etg_area">
+		<div class="labels" id="label_etg_base">Trigger Base: </div>
+		<input type="text" id="input_etg_base" value="MemoryAddr(^1, Set To, ^2);" />
+		<div class="labels" id="label_etg_ofs">Offset: </div>
+		<input type="text" id="input_etg_ofs" value="0" />
+		<div class="labels" id="label_etg_cont">Hex Code: </div>
+		<textarea id="inputarea_etg"></textarea>
+		<div class="divbutton" id="parse_etg">Parse</div>
+	</div>
+	<div id="textstack_area">
+		<div class="labels" id="label_textstack_text">Text to Stack: </div>
+		<input type="text" id="input_textstack_text" value="" />
+		<div class="labels" id="label_textstack_unit">Unit Name: </div>
+		<input type="text" id="input_textstack_unit" value="" />
+		<div class="labels" id="label_textstack_disp">Display Text: </div>
+		<input type="text" id="input_textstack_disp" value="" />
+		<div class="labels" id="label_textstack_objs">Objectives: </div>
+		<input type="text" id="input_textstack_objs" value="" />
+		<div class="labels" id="label_textstack_desc">Description: </div>
+		<input type="text" id="input_textstack_desc" value="" />
+	</div>
+	<div id="trigdupl_area">
+		<div class="labels" id="label_trigdupl_count">Count: </div>
+		<input type="text" id="input_trigdupl_count" value="0" />
+		<div class="labels" id="label_trigdupl_area">Trigger: </div>
+		<textarea id="inputarea_trigdupl"></textarea>
+		<textarea id="inputarea_trigdupl_arrays"></textarea>
+		<div class="divbutton" id="parse_trigdupl">Parse</div>
+	</div>
+	<div id="trigconv_area">
+		<div class="labels" id="label_trigconv_area">Triggers: </div>
+		<textarea id="inputarea_trigconv"></textarea>
+		<div class="divbutton" id="parse_trigconv">Parse</div>
+	</div>
+	<div id="playercolor_area">
+		<div class="labels" id="label_playercolor_id">Player: </div>
+		<input type="text" id="input_playercolor_id" value="1" />
+		<div class="labels" id="label_playercolor_colors">Colors: </div>
+		<div class="labels" id="label_playercolor_colors2">Minimap: </div>
+		<input class="playercolor_i" type="text" id="input_playercolor1" value="111" />
+		<input class="playercolor_i" type="text" id="input_playercolor2" value="23" />
+		<input class="playercolor_i" type="text" id="input_playercolor3" value="23" />
+		<input class="playercolor_i" type="text" id="input_playercolor4" value="98" />
+		<input class="playercolor_i" type="text" id="input_playercolor5" value="94" />
+		<input class="playercolor_i" type="text" id="input_playercolor6" value="171" />
+		<input class="playercolor_i" type="text" id="input_playercolor7" value="170" />
+		<input class="playercolor_i" type="text" id="input_playercolor8" value="168" />
+		<input class="playercolor_i" type="text" id="input_playercolor0" value="111" />
+		<div class="playercolor_d" id="div_playercolor1"></div>
+		<div class="playercolor_d" id="div_playercolor2"></div>
+		<div class="playercolor_d" id="div_playercolor3"></div>
+		<div class="playercolor_d" id="div_playercolor4"></div>
+		<div class="playercolor_d" id="div_playercolor5"></div>
+		<div class="playercolor_d" id="div_playercolor6"></div>
+		<div class="playercolor_d" id="div_playercolor7"></div>
+		<div class="playercolor_d" id="div_playercolor8"></div>
+		<div class="playercolor_d" id="div_playercolor0"></div>
+		<div id="playercolor_imgcontainer">
+			<img src="Include/colors.png" id="playercolor_img" />
+		</div>
+		<div id="playercolor_select_container"></div>
+		<div class="divbutton" id="parse_playercolor">Parse</div>
+	</div>
+	<div id="mapstr_area">
+		<div class="labels" id="label_mapstr_sid">String ID: </div>
+		<input type="text" id="input_mapstr_sid" value="0" />
+		<div class="labels" id="label_mapstr_ofs">Offset: </div>
+		<input type="text" id="input_mapstr_ofs" value="0" />
+		<div class="labels" id="label_mapstr_cont">Content: </div>
+		<textarea id="inputarea_mapstr"></textarea>
+		<div class="divbutton" id="parse_mapstr">Parse</div>
+	</div>
+	<div class="divbutton" id="make_memory">v</div>
+	<div class="divbutton" id="make_trigger">v</div>
+	<div class="divbutton" id="expand_data_output">v</div>
+	<textarea id="data_output" spellcheck="false"></textarea>
+	<textarea id="trigger_output" spellcheck="false"></textarea>
+</div>
+
+<script>
+	init();
+</script>
+
+</body>
+</html>
