@@ -68,6 +68,9 @@ function hexstrToTrig(str,startOffset,trgBase)
 	}
 	return out;
 }
+function leftPad(str, n, pad) {
+	return pad.repeat(Math.max(0, n-str.length)) + str;
+}
 function useCategory(k, evt)
 {
 	// select category
@@ -112,14 +115,17 @@ function useOption(evt)
 
 	// default areas to display:none
 	$("upg_area").style.display = "none";
+	$("selgroup_area").style.display = "none";
 	$("req_area").style.display = "none";
 	$("buttonfunction_area").style.display = "none";
 	$("icecc_area").style.display = "none";
 	$("etg_area").style.display = "none";
 	$("textstack_area").style.display = "none";
 	$("trigdupl_area").style.display = "none";
+	$("trigslice_area").style.display = "none";
 	$("playercolor_area").style.display = "none";
 	$("trigconv_area").style.display = "none";
+	$("stattbl_area").style.display = "none";
 
 	switch(memorylist[optID][2])
 	{
@@ -206,9 +212,17 @@ function useOption(evt)
 			$("input_offset").value = 0;
 			$("trigdupl_area").style.display = "block";
 			break;
+			case 0x519E50:
+			$("input_offset").value = 0;
+			$("trigslice_area").style.display = "block";
+			break;
 			case 0x51398C:
 			$("input_offset").value = 0;
 			$("trigconv_area").style.display = "block";
+			break;
+			case 0x6D1238:
+			$("input_offset").value = 0;
+			$("stattbl_area").style.display = "block";
 			break;
 		}
 		break;
@@ -220,6 +234,12 @@ function useOption(evt)
 		case 13: // player alliance self
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1] + "/13";
+		break;
+		case 14: // selection group
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1];
+		$("selgroup_area").style.display = "block";
+		break;
 		default:
 	}
 	if(currentHighlight)
@@ -473,6 +493,13 @@ function upgUpdate()
 	}
 	updateMemory();
 }
+function selgroupUpdate() {
+	$("input_object").value = (parseInt($("input_selgroup_player").value) - 1) * 12 + parseInt($("input_selgroup_id").value) - 1;
+	updateMemory();
+}
+function selgroupUpdate2() {
+	$("input_value").value = parseInt($("input_selgroup_unit").value) * 336 + 0x59CCA8;
+}
 function reqUpdate()
 {
 	switch(memorylist[currentSelected][0])
@@ -583,7 +610,7 @@ function toTrigger()
 			var hexValue = "";
 			for(var i=0;i<s_value.length;i++)
 			{
-				hexValue += toHex(s_value.charCodeAt(i));
+				hexValue += leftPad(s_value.charCodeAt(i).toString(16), 2, "0");
 			}
 			hexValue += "00"; // null string terminator
 			$("trigger_output").value += hexstrToTrig(hexValue, memory, triggerPattern_4 + "\r\n");
@@ -678,6 +705,9 @@ function init()
 	$("saf_text").onclick = selectMe;
 	$("input_upg_player").onkeydown = function(){setTimeout(upgUpdate,25);};
 	$("input_upg_uid").onkeydown = function(){setTimeout(upgUpdate,25);};
+	$("input_selgroup_player").onkeydown = function(){setTimeout(selgroupUpdate,25);};
+	$("input_selgroup_id").onkeydown = function(){setTimeout(selgroupUpdate,25);};
+	$("input_selgroup_unit").onkeydown = function(){setTimeout(selgroupUpdate2,25);};
 	$("input_req").onkeydown = function(){setTimeout(reqUpdate,25);};
 	$("input_textstack_text").onkeydown = function(){setTimeout(stackTextUpdate,25);};
 	$("input_textstack_text").onpaste = function(){setTimeout(stackTextUpdate,25);};
@@ -686,7 +716,9 @@ function init()
 	$("input_textstack_objs").onclick = selectMe;
 	$("input_textstack_desc").onclick = selectMe;
 	duplicatorInit();
+	slicerInit();
 	converterInit();
+	stattblInit();
 	playerColorsInit();
 	loadSettings();
 	$("saf_close").onclick = function(){document.getElementById('saf_floating').style.display='none';return false;};
