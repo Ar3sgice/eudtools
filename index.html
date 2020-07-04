@@ -9,8 +9,11 @@
 <script src="Program/icecc.js" type="text/javascript"></script>
 <script src="Program/overlap.js" type="text/javascript"></script>
 <script src="Program/trigger_duplicator.js" type="text/javascript"></script>
+<script src="Program/trigger_slicer.js" type="text/javascript"></script>
 <script src="Program/converter.js" type="text/javascript"></script>
+<script src="Program/stattbl.js" type="text/javascript"></script>
 <script src="Program/playercolors.js" type="text/javascript"></script>
+<script src="Program/iconv-lite-browserify.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body id="eudtools_body">
 
@@ -100,6 +103,14 @@
 		<div class="labels" id="label_upg_uid">Upgrade: </div>
 		<input type="text" id="input_upg_uid" value="0" />
 	</div>
+	<div id="selgroup_area">
+		<div class="labels" id="label_selgroup_player">Player: </div>
+		<input type="text" id="input_selgroup_player" value="1" />
+		<div class="labels" id="label_selgroup_id">Group #: </div>
+		<input type="text" id="input_selgroup_id" value="1" />
+		<div class="labels" id="label_selgroup_unit">Unit: </div>
+		<input type="text" id="input_selgroup_unit" value="0" />
+	</div>
 	<div id="req_area">
 		<div class="labels" id="label_req">Req. ID: </div>
 		<input type="text" id="input_req" value="0" />
@@ -144,10 +155,40 @@
 		<textarea id="inputarea_trigdupl_arrays"></textarea>
 		<div class="divbutton" id="parse_trigdupl">Parse</div>
 	</div>
+	<div id="trigslice_area">
+		<div class="labels" id="label_trigslice_player">Player: </div>
+		<input type="text" id="input_trigslice_player" value="Player 8" />
+		<div class="labels" id="label_trigslice_cond">Conditions: </div>
+		<textarea id="inputarea_trigslice_cond"></textarea>
+		<div class="labels" id="label_trigslice_act">Actions: </div>
+		<textarea id="inputarea_trigslice_act"></textarea>
+		<div class="divbutton" id="parse_trigslice">Parse</div>
+	</div>
 	<div id="trigconv_area">
+		<div class="labels" id="label_trigconv_buttonoffset">Button Offset: </div>
+		<input type="text" id="input_trigconv_buttonoffset" value="0x590000" />
 		<div class="labels" id="label_trigconv_area">Triggers: </div>
 		<textarea id="inputarea_trigconv"></textarea>
 		<div class="divbutton" id="parse_trigconv">Parse</div>
+	</div>
+	<div id="stattbl_area">
+		<div class="labels" id="label_stattbl_player">CPT Player: </div>
+		<input type="text" id="input_stattbl_player" value="1" />
+		<div class="labels" id="label_stattbl_cond">Conditions: </div>
+		<textarea id="inputarea_stattbl_cond"></textarea>
+		<div class="divbutton" id="parse_stattbl_cpt">CPT</div>
+		<hr id="hr_stattbl" />
+		<div class="labels" id="label_stattbl_offset">Offset: </div>
+		<input type="text" id="input_stattbl_offset" value="27380" />
+		<div class="labels" id="label_stattbl_str1">String1: </div>
+		<input type="text" id="input_stattbl_str1" value="" />
+		<div class="labels" id="label_stattbl_str2">String2: </div>
+		<input type="text" id="input_stattbl_str2" value="" />
+		<div class="labels" id="label_stattbl_content1">Content1: </div>
+		<input type="text" id="input_stattbl_content1" value="" />
+		<div class="labels" id="label_stattbl_content2">Content2: </div>
+		<input type="text" id="input_stattbl_content2" value="" />
+		<div class="divbutton" id="parse_stattbl">Parse</div>
 	</div>
 	<div id="playercolor_area">
 		<div class="labels" id="label_playercolor_id">Player: </div>
