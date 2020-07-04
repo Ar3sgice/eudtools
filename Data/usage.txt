@@ -25,8 +25,8 @@ Buttons:
 However, for the buttons to actually work, "Requirements" is also needed
 - set the requirement corresponding to "Act Function" and "Act Variable"
 - value <ID> 00 FF FF gives free requirement (all units can use it)
-- for example firebat (unit 32) write address 0x51420C of 0xFFFF0020 (20 00 ff ff)
-- then every building can make firebat if they have the buttons
+- ex: firebat (unit 32) write address 0x51420C of 0xFFFF0020 (20 00 ff ff)
+- then every building can make firebat if had the buttons
 - also you can set each opcode to all "must be broodwar" or things like that
 - might make a requirement opcode parser if I'm really bored to that level
 - also there is a pointer to requirement offset in the dat files, it shows up as 65535 in datedit but ingame it is set to half the offset from the requirement header
@@ -35,12 +35,23 @@ Option "IceCC parser":
 - iscript doesn't work on remastered, but the parser works pretty nice so i kept it here
 - better only parse iscripts of units you edit (from .headerstart until next unit), not the entire script
 
-Stat_txt.tbl editing:
-- the address (the pointer 0x6D1238 points to) is 0x19184660, where the strings can be directly edited
-- since it is a 'simulator', it must be a fixed address?
-- but if it's still dynamic space, things would get more complicated
-- for example use binary tests to read out the real address, then edit the trigger table to set to the correct address using the seemingly working http://www.staredit.net/topic/17546/
-- in theory iscript would be also possible with this method. korean mappers missed a chance (or it doesn't really work)
+Option "Stat_txt.tbl Edits":
+- you have to edit 2 strings at the same time
+- you can use color codes like it's in SCMDraft
+
+- first generate CPT triggers
+- it defaults to condition switch 164, make sure you set it
+- then generate each string edit section
+- fill in the PUT STRING EDITS HERE section
+
+- it uses "CP Trick" to edit the dynamic (?) pointer memory
+- 2 strings same time for there is no "Masked Set CurrentPlayer Deaths"
+- personally I think it's not really dynamic since it's a simulator anyways
+- my address is 0x19184660 tell me if yours is different
+- and don't rename your marines
+
+- it's definitely possible to edit iscript in this way
+- korean mappers missed a big chance
 
 Others:
 - I understand that no one plays this game anymore. I program only for my own entertainment and feeling of accomplishment
