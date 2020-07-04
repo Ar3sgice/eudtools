@@ -50,9 +50,6 @@ Option "Stat_txt.tbl Edits":
 - my address is 0x19184660 tell me if yours is different
 - and don't rename your marines
 
-- it's definitely possible to edit iscript in this way
-- korean mappers missed a big chance
-
 Others:
 - I understand that no one plays this game anymore. I program only for my own entertainment and feeling of accomplishment
 - In other words I was terribly bored
