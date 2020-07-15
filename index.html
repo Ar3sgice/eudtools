@@ -12,6 +12,7 @@
 <script src="Program/trigger_slicer.js" type="text/javascript"></script>
 <script src="Program/converter.js" type="text/javascript"></script>
 <script src="Program/stattbl.js" type="text/javascript"></script>
+<script src="Program/reqwriter.js" type="text/javascript"></script>
 <script src="Program/playercolors.js" type="text/javascript"></script>
 <script src="Program/iconv-lite-browserify.js" charset="utf-8" type="text/javascript"></script>
 </head>
@@ -170,6 +171,26 @@
 		<div class="labels" id="label_trigconv_area">Triggers: </div>
 		<textarea id="inputarea_trigconv"></textarea>
 		<div class="divbutton" id="parse_trigconv">Parse</div>
+	</div>
+	<div id="reqwrite_area">
+		<div class="labels" id="label_reqwrite_type">Type: </div>
+		<select type="text" id="select_reqwrite_type">
+			<option id="input_reqwrite_reqtype_units" value="1">Units</option>
+			<option id="input_reqwrite_reqtype_upgrades" value="2">Upgrades</option>
+			<option id="input_reqwrite_reqtype_researchtech" value="3">Research Tech</option>
+			<option id="input_reqwrite_reqtype_usetech" value="4">Use Tech</option>
+			<option id="input_reqwrite_reqtype_orders" value="5">Orders</option>
+		</select>
+		<div class="labels" id="label_reqwrite_uid">For ID: </div>
+		<input type="text" id="input_reqwrite_uid" value="0" />
+		<div class="labels" id="label_reqwrite_offset">Req Offset: </div>
+		<input type="text" id="input_reqwrite_offset" value="0" />
+		<div class="labels" id="label_reqwrite_add">Opcodes: </div>
+		<select type="text" id="select_reqwrite_add">
+		</select>
+		<div class="labels" id="label_reqwrite_area"></div>
+		<textarea id="inputarea_reqwrite"></textarea>
+		<div class="divbutton" id="parse_reqwrite">Parse</div>
 	</div>
 	<div id="stattbl_area">
 		<div class="labels" id="label_stattbl_player">CPT Player: </div>
