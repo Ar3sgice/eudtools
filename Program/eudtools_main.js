@@ -126,6 +126,7 @@ function useOption(evt)
 	$("playercolor_area").style.display = "none";
 	$("trigconv_area").style.display = "none";
 	$("stattbl_area").style.display = "none";
+	$("reqwrite_area").style.display = "none";
 
 	switch(memorylist[optID][2])
 	{
@@ -175,6 +176,7 @@ function useOption(evt)
 		$("input_length").value = memorylist[optID][1];
 		$("input_req").value = 0;
 		$("req_area").style.display = "block";
+		$("reqwrite_area").style.display = "block";
 		break;
 		case 8: // unitnode
 		$("input_offset").value = memorylist[optID][0];
@@ -239,6 +241,10 @@ function useOption(evt)
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1];
 		$("selgroup_area").style.display = "block";
+		break;
+		case 15: // unit dims
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1] + "/8";
 		break;
 		default:
 	}
@@ -395,6 +401,9 @@ function selectMe(evt)
 var hexCodeStr = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 function toHex(num,ord)
 {
+	if(!isFinite(num)) {
+		return toHex(0, ord);
+	}
 	ord = ord || 16;
 	if(num < ord)
 	{
@@ -506,18 +515,43 @@ function reqUpdate()
 	{
 		case 0x514178:
 		$("input_offset").value = array_units[$("input_req").value];
+		if(array_units[$("input_req").value] > 0) {
+			$("select_reqwrite_type").selectedIndex = 0;
+			$("input_reqwrite_uid").value = $("input_req").value;
+			$("input_reqwrite_offset").value = (array_units[$("input_req").value] - 0x514178) >>> 1;
+		}
 		break;
 		case 0x5145C0:
 		$("input_offset").value = array_upgrades[$("input_req").value];
+		if(array_upgrades[$("input_req").value] > 0) {
+			$("select_reqwrite_type").selectedIndex = 1;
+			$("input_reqwrite_uid").value = $("input_req").value;
+			$("input_reqwrite_offset").value = (array_upgrades[$("input_req").value] - 0x5145C0) >>> 1;
+		}
 		break;
 		case 0x514908:
 		$("input_offset").value = array_upgtech[$("input_req").value];
+		if(array_upgtech[$("input_req").value] > 0) {
+			$("select_reqwrite_type").selectedIndex = 2;
+			$("input_reqwrite_uid").value = $("input_req").value;
+			$("input_reqwrite_offset").value = (array_upgtech[$("input_req").value] - 0x514908) >>> 1;
+		}
 		break;
 		case 0x514A48:
 		$("input_offset").value = array_usetech[$("input_req").value];
+		if(array_usetech[$("input_req").value] > 0) {
+			$("select_reqwrite_type").selectedIndex = 3;
+			$("input_reqwrite_uid").value = $("input_req").value;
+			$("input_reqwrite_offset").value = (array_usetech[$("input_req").value] - 0x514A48) >>> 1;
+		}
 		break;
 		case 0x514CF8:
 		$("input_offset").value = array_orders[$("input_req").value];
+		if(array_orders[$("input_req").value] > 0) {
+			$("select_reqwrite_type").selectedIndex = 4;
+			$("input_reqwrite_uid").value = $("input_req").value;
+			$("input_reqwrite_offset").value = (array_orders[$("input_req").value] - 0x514CF8) >>> 1;
+		}
 		break;
 	}
 	$("input_object").value = 0;
@@ -549,15 +583,91 @@ function retractDataOutput()
 }
 function toParseIceCC()
 {
-	$("trigger_output").value += parseIceCC($("inputarea_icecc").value, $("input_icecc_trigbase").value + "\r\n");
+	$("trigger_output").value += parseIceCC($("inputarea_icecc").value, $("input_icecc_trigbase").value + "\n");
 }
 function hexToTrigger()
 {
-	$("trigger_output").value += hexstrToTrig($("inputarea_etg").value.toString().replace(/[^0-9a-f]/gi, ""), parseInt($("input_etg_ofs").value), $("input_etg_base").value + "\r\n");
+	$("trigger_output").value += hexstrToTrig($("inputarea_etg").value.toString().replace(/[^0-9a-f]/gi, ""), parseInt($("input_etg_ofs").value), $("input_etg_base").value + "\n");
 }
 function toMapString()
 {
 	// this feature under construction (make plugin first)
+}
+function calculateTrigger(pattern, memory, value, length, useMasked, origValue) {
+	let out = "";
+	let s_value = value;
+	length = length || 4;
+	useMasked = useMasked || false;
+	let s_origvalue = origValue || 0;
+
+	let byteOrder = 0;
+	if(memory % 4 != 0 && length < 4) {
+		byteOrder = memory % 4;
+		let multiplier = 1 << (byteOrder * 8);
+		memory -= byteOrder;
+		s_value *= multiplier;
+		s_origvalue *= multiplier;
+	}
+
+	switch(length)
+	{
+		case 1:
+		if(useMasked) {
+			let bitMask = 0xFF << (8 * byteOrder);
+			out += pattern.replace(/\^1/g, memory).replace(/\^2/g, s_value).replace(/\^3/g, bitMask);
+			break;
+		}
+		case 2:
+		if(useMasked) {
+			let bitMask = 0xFFFF << (8 * byteOrder);
+			out += pattern.replace(/\^1/g, memory).replace(/\^2/g, s_value).replace(/\^3/g, bitMask);
+			break;
+		}
+		case 3:
+		if(useMasked) {
+			let bitMask = 0xFFFFFF << (8 * byteOrder);
+			out += pattern.replace(/\^1/g, memory).replace(/\^2/g, s_value).replace(/\^3/g, bitMask);
+			break;
+		}
+		out += pattern.replace(/\^1/g, memory).replace(/\^2/g, s_value - s_origvalue);
+		break;
+		case 4:
+		default:
+		if(s_value > 0x7FFFFFFF)
+		{
+			s_value -= 0x100000000;
+		}
+		out += pattern.replace(/\^1/g, memory).replace(/\^2/g, s_value);
+		break;
+		case -1:
+		break;
+	}
+	out += "\n";
+	return out;
+}
+function toTriggerEvent() {
+	if($("input_object").value.toString().indexOf(",") != -1) {
+		let resetText = $("input_object").value;
+		let resetOrigvalue = $("input_origvalue").value;
+		let objects = $("input_object").value.toString().trim().split(/, */);
+		let origvalues = null;
+		if($("input_origvalue").value.toString().indexOf(",") != -1) {
+			origvalues = $("input_origvalue").value.toString().trim().split(/, */);
+		}
+		objects.forEach((item, i) => {
+			$("input_object").value = item;
+			if(origvalues) {
+				$("input_origvalue").value = origvalues[i % origvalues.length];
+			}
+			updateMemory();
+			toTrigger();
+		});
+		$("input_object").value = resetText;
+		$("input_origvalue").value = resetOrigvalue;
+	}
+	else {
+		toTrigger();
+	}
 }
 function toTrigger()
 {
@@ -579,25 +689,7 @@ function toTrigger()
 	var s_value = parseInt($("input_value").value);
 	var s_origvalue = parseInt($("input_origvalue").value);
 	var useMasked = !!$("settings_usemasked").checked;
-	if(false && (s_offset == 5337752 || s_offset == 5337754)) // location (unused)
-	{
-		s_length = 2;
-	}
-	else if(false && s_offset >= 6662088 && s_offset <= 6662416) // area unitnode (disabled)
-	{
-		if(s_value > 0x7FFFFFFF)
-		{
-			s_value -= 0x100000000;
-		}
-		var maxUnits = 255;
-		var unitID = (memory - s_offset) / s_length;
-		var playerID = 1;
-		var locID = 63;
-		memory = s_offset - 6662088;
-		out += triggerPattern_un.replace(/\^1/g,memory).replace(/\^2/g,s_value).replace(/\^3/g,s_length)
-		                        .replace(/\^4/g,maxUnits).replace(/\^5/g,unitID).replace(/\^6/g,playerID).replace(/\^7/g,locID);
-		s_length = -1;
-	}
+
 	if(isNaN(s_value)) // invalid value
 	{
 		s_value = $("input_value").value;
@@ -613,73 +705,83 @@ function toTrigger()
 				hexValue += leftPad(s_value.charCodeAt(i).toString(16), 2, "0");
 			}
 			hexValue += "00"; // null string terminator
-			$("trigger_output").value += hexstrToTrig(hexValue, memory, triggerPattern_4 + "\r\n");
+			$("trigger_output").value += hexstrToTrig(hexValue, memory, triggerPattern_4 + "\n");
 			return;
 		}
 		else if(s_value.charAt(0) == "'" && s_value.charAt(s_value.length-1) == "'") // hex string
 		{
-			$("trigger_output").value += hexstrToTrig(s_value.substr(1, s_value.length - 2), memory, triggerPattern_4 + "\r\n");
+			$("trigger_output").value += hexstrToTrig(s_value.substr(1, s_value.length - 2), memory, triggerPattern_4 + "\n");
 			return;
 		}
 		else
 		{
-			$("trigger_output").value += triggerPattern_err.replace(/\^1/g,"Invalid value!") + "\r\n";
+			$("trigger_output").value += triggerPattern_err.replace(/\^1/g,"Invalid value!") + "\n";
 			return;
 		}
 	}
 
-	let byteOrder = 0;
-	if(memory % 4 != 0 && s_length < 4) {
-		byteOrder = memory % 4;
-		let multiplier = 1 << (byteOrder * 8);
-		memory -= byteOrder;
-		s_value *= multiplier;
-		s_origvalue *= multiplier;
+	if($("input_value").value.toString().indexOf(",") != -1) { // array
+		let arrayContent = $("input_value").value.toString().split(/, */).map(s => parseInt(s));
+		if(s_length >= 4) {
+			while(arrayContent.length >= 1) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(triggerPattern_4, memory, t_shift, 4, useMasked, 0);
+				memory += 4;
+			}
+		}
+		else if(s_length == 3) {
+			while(arrayContent.length >= 1) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(triggerPattern_4, memory, t_shift, 3, useMasked, 0);
+				memory += 3;
+			}
+		}
+		else if(s_length == 2) {
+			while(arrayContent.length >= 1 && memory % 4 != 0) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(useMasked ? triggerPattern_masked : triggerPattern_1, memory, t_shift, 2, useMasked, s_origvalue);
+				memory += 2;
+			}
+			while(arrayContent.length >= 2) {
+				let t_splice = arrayContent.splice(0, 2);
+				out += calculateTrigger(triggerPattern_4, memory, t_splice[0] + t_splice[1] * 65536, 4, useMasked, 0);
+				memory += 4;
+			}
+			while(arrayContent.length >= 1) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(useMasked ? triggerPattern_masked : triggerPattern_1, memory, t_shift, 2, useMasked, s_origvalue);
+				memory += 2;
+			}
+		}
+		else if(s_length == 1) {
+			while(arrayContent.length >= 1 && memory % 4 != 0) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(useMasked ? triggerPattern_masked : triggerPattern_1, memory, t_shift, 1, useMasked, s_origvalue);
+				memory ++;
+			}
+			while(arrayContent.length >= 4) {
+				let t_splice = arrayContent.splice(0, 4);
+				out += calculateTrigger(triggerPattern_4, memory, t_splice[0] + t_splice[1] * 256 + t_splice[2] * 65536 + t_splice[3] * 16777216, 4, useMasked, 0);
+				memory += 4;
+			}
+			while(arrayContent.length >= 1) {
+				let t_shift = arrayContent.shift();
+				out += calculateTrigger(useMasked ? triggerPattern_masked : triggerPattern_1, memory, t_shift, 1, useMasked, s_origvalue);
+				memory ++;
+			}
+		}
+		$("trigger_output").value += out;
+		return;
 	}
 
-	switch(s_length)
-	{
-		case 1:
-		if(useMasked) {
-			let bitMask = 0xFF << (8 * byteOrder);
-			out += triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, s_value).replace(/\^3/g, bitMask);
-			break;
-		}
-		case 2:
-		if(useMasked) {
-			let bitMask = 0xFFFF << (8 * byteOrder);
-			out += triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, s_value).replace(/\^3/g, bitMask);
-			break;
-		}
-		case 3:
-		out += triggerPattern_1.replace(/\^1/g,memory).replace(/\^2/g,s_value - s_origvalue);
-		break;
-		case -99902:
-		var s1 = (s_value & 0xFF00) >> 8;
-		var s0 = s_value & 0xFF;
-		out += triggerPattern_1.replace(/\^1/g,memory + 1).replace(/\^2/g,s1) + "\r\n";
-		out += triggerPattern_1.replace(/\^1/g,memory).replace(/\^2/g,s0);
-		break;
-		case -99903:
-		var s2 = (s_value & 0xFF0000) >> 16;
-		var s1 = (s_value & 0xFF00) >> 8;
-		var s0 = s_value & 0xFF;
-		out += triggerPattern_1.replace(/\^1/g,memory + 2).replace(/\^2/g,s2) + "\r\n";
-		out += triggerPattern_1.replace(/\^1/g,memory + 1).replace(/\^2/g,s1) + "\r\n";
-		out += triggerPattern_1.replace(/\^1/g,memory).replace(/\^2/g,s0);
-		break;
-		case 4:
-		default:
-		if(s_value > 0x7FFFFFFF)
-		{
-			s_value -= 0x100000000;
-		}
-		out += triggerPattern_4.replace(/\^1/g,memory).replace(/\^2/g,s_value);
-		break;
-		case -1:
-		break;
+	if(s_length <= 3) {
+		var pattern = useMasked ? triggerPattern_masked : triggerPattern_1;
 	}
-	out += "\r\n";
+	else {
+		var pattern = triggerPattern_4;
+	}
+
+	out += calculateTrigger(pattern, memory, s_value, s_length, useMasked, s_origvalue);
 	$("trigger_output").value += out;
 }
 function init()
@@ -692,7 +794,7 @@ function init()
 	$("input_memory").onclick = selectMe;
 	$("input_hex").onclick = selectMe;
 	$("make_memory").onclick = updateMemory;
-	$("make_trigger").onclick = toTrigger;
+	$("make_trigger").onclick = toTriggerEvent;
 	$("expand_data_output").onclick = expandDataOutput;
 	$("parse_icecc").onclick = toParseIceCC;
 	$("parse_etg").onclick = hexToTrigger;
@@ -719,6 +821,7 @@ function init()
 	slicerInit();
 	converterInit();
 	stattblInit();
+	reqwriterInit();
 	playerColorsInit();
 	loadSettings();
 	$("saf_close").onclick = function(){document.getElementById('saf_floating').style.display='none';return false;};

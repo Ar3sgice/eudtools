@@ -655,6 +655,79 @@
 	padding: 8px 10px 10px 10px;
 }
 
+/* ReqWrite */
+
+#label_reqwrite_type
+{
+	top: 288px;
+	left: 626px;
+}
+#label_reqwrite_uid
+{
+	position: absolute;
+	top: 288px;
+	left: 810px;
+}
+#label_reqwrite_offset
+{
+	position: absolute;
+	top: 288px;
+	left: 945px;
+}
+#label_reqwrite_add
+{
+	top: 314px;
+	left: 599px;
+}
+#label_reqwrite_area
+{
+	top: 340px;
+	left: 599px;
+}
+#input_reqwrite_uid
+{
+	position: absolute;
+	top: 288px;
+	left: 870px;
+	width: 60px;
+}
+#input_reqwrite_offset
+{
+	position: absolute;
+	top: 288px;
+	left: 1035px;
+	width: 215px;
+}
+#select_reqwrite_type
+{
+	position: absolute;
+	top: 288px;
+	left: 680px;
+	width: 120px;
+}
+#select_reqwrite_add
+{
+	position: absolute;
+	top: 314px;
+	left: 680px;
+	width: 570px;
+}
+#inputarea_reqwrite
+{
+	position: absolute;
+	top: 340px;
+	left: 680px;
+	width: 570px;
+	height: 333px;
+}
+#parse_reqwrite
+{
+	position: absolute;
+	top: 637px;
+	left: 1260px;
+	padding: 8px 10px 10px 10px;
+}
+
 /* PlayerColor */
 
 #label_playercolor_id
@@ -751,6 +824,7 @@
 #trigdupl_area {display: none;}
 #trigslice_area {display: none;}
 #trigconv_area {display: none;}
+#reqwrite_area {display: none;}
 #stattbl_area {display: none;}
 #playercolor_area {display: none;}
 #make_memory
