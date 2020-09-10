@@ -851,6 +851,24 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 	out += calculateTrigger(pattern, memory, s_value, s_length, useMasked, s_origvalue);
 	return out;
 }
+function EUD(memory, rawLength, item, value) {
+	var m_length, s_length;
+	if(typeof rawLength == "string") {
+		if(rawLength.indexOf("/") == -1) {
+			m_length = parseInt(rawLength);
+			s_length = parseInt(rawLength);
+		}
+		else {
+			m_length = parseInt(rawLength.split("/")[1]);
+			s_length = parseInt(rawLength.split("/")[0]);
+		}
+	}
+	else {
+		m_length = rawLength;
+		s_length = rawLength;
+	}
+	return generateEUDTrigger(memory + item * m_length, s_length, value, true, 0).trim();
+}
 function toTrigger()
 {
 	var triggerPattern_1 = "MemoryAddr(^1, Add, ^2);";

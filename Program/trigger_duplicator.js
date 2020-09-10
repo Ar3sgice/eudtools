@@ -97,19 +97,6 @@ function duplicateTrigger(trg, times, arrayData)
 				dat = dat.replace("[#" + m + "]", "Not Set");
 			}
 		}
-		while(dat.match(/\[\=[^\]]+\]/)) // run program
-		{
-			var m = dat.match(/\[\=([^\]]+)\]/)[1];
-			try
-			{
-				var n = eval(m);
-			}
-			catch(E)
-			{
-				var n = "";
-			}
-			dat = dat.replace("[=" + m + "]", n);
-		}
 		while(dat.match(/\[\$[a-z0-9]+\]/i)) // arrays
 		{
 			var b = dat.match(/\[\$([a-z0-9]+)\]/i)[1]
@@ -123,6 +110,19 @@ function duplicateTrigger(trg, times, arrayData)
 				var n = "";
 			}
 			dat = dat.replace("[$" + b + "]", n);
+		}
+		while(dat.match(/\[\=[^\]]+\]/)) // run program
+		{
+			var m = dat.match(/\[\=([^\]]+)\]/)[1];
+			try
+			{
+				var n = eval(m);
+			}
+			catch(E)
+			{
+				var n = "";
+			}
+			dat = dat.replace("[=" + m + "]", n);
 		}
 		out += dat + "\r\n";
 	}
