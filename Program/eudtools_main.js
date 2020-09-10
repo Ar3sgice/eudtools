@@ -653,6 +653,24 @@ function toMapString()
 {
 	// this feature under construction (make plugin first)
 }
+function bytes2word(byte1, byte2) {
+	return (byte2 << 8) + byte1;
+}
+function bytes2dword(byte1, byte2, byte3, byte4) {
+	return (byte4 << 24) + (byte3 << 16) + (byte2 << 8) + byte1;
+}
+function words2dword(word1, word2) {
+	return (word2 << 16) + word1;
+}
+function dword2bytes(dw) {
+	return [dw & 255, (dw >>> 8) & 255, (dw >>> 16) & 255, (dw >>> 24) & 255];
+}
+function word2bytes(w) {
+	return [w & 255, (w >>> 8) & 255];
+}
+function dword2words(dw) {
+	return [dw & 65535, (w >>> 16) & 65535];
+}
 function calculateTrigger(pattern, memory, value, length, useMasked, origValue) {
 	let out = "";
 	let s_value = value;
@@ -729,26 +747,13 @@ function toTriggerEvent() {
 		toTrigger();
 	}
 }
-function toTrigger()
-{
+
+function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 	var triggerPattern_1 = "MemoryAddr(^1, Add, ^2);";
 	var triggerPattern_masked = "Masked MemoryAddr(^1, Set To, ^2, ^3);";
 	var triggerPattern_4 = "MemoryAddr(^1, Set To, ^2);";
-	var triggerPattern_err = "Comment(\"Error: ^1\", 0, 0, 0, 0, 0);";
-	var triggerPattern_un = "ModifyUnitHitPoints(^4, Unit ^5, Player ^6, Location ^7, -31, ^1, ^2, ^3);";
+	var triggerPattern_err = "Comment(\"Error: ^1\");";
 	var out = "";
-	var memory = parseInt($("input_memory").value);
-	var s_offset = parseInt($("input_offset").value);
-	var rawLength = $("input_length").value;
-	if(rawLength.indexOf("/") == -1) {
-		var s_length = parseInt($("input_length").value);
-	}
-	else {
-		var s_length = parseInt($("input_length").value.split("/")[0]);
-	}
-	var s_value = parseInt($("input_value").value);
-	var s_origvalue = parseInt($("input_origvalue").value);
-	var useMasked = !!$("settings_usemasked").checked;
 
 	if(isNaN(s_value)) // invalid value
 	{
@@ -771,18 +776,15 @@ function toTrigger()
 				hexValue += leftPad(s_value.charCodeAt(i).toString(16), 2, "0");
 			}
 			hexValue += "00"; // null string terminator
-			$("trigger_output").value += hexstrToTrig(hexValue, memory, triggerPattern_4 + "\n");
-			return;
+			return hexstrToTrig(hexValue, memory, triggerPattern_4 + "\n");
 		}
 		else if(s_value.charAt(0) == "'" && s_value.charAt(s_value.length-1) == "'") // hex string
 		{
-			$("trigger_output").value += hexstrToTrig(s_value.substr(1, s_value.length - 2), memory, triggerPattern_4 + "\n");
-			return;
+			return hexstrToTrig(s_value.substr(1, s_value.length - 2), memory, triggerPattern_4 + "\n");
 		}
 		else
 		{
-			$("trigger_output").value += triggerPattern_err.replace(/\^1/g,"Invalid value!") + "\n";
-			return;
+			return triggerPattern_err.replace(/\^1/g,"Invalid value!") + "\n";
 		}
 	}
 
@@ -836,8 +838,7 @@ function toTrigger()
 				memory ++;
 			}
 		}
-		$("trigger_output").value += out;
-		return;
+		return out;
 	}
 
 	if(s_length <= 3) {
@@ -848,7 +849,30 @@ function toTrigger()
 	}
 
 	out += calculateTrigger(pattern, memory, s_value, s_length, useMasked, s_origvalue);
-	$("trigger_output").value += out;
+	return out;
+}
+function toTrigger()
+{
+	var triggerPattern_1 = "MemoryAddr(^1, Add, ^2);";
+	var triggerPattern_masked = "Masked MemoryAddr(^1, Set To, ^2, ^3);";
+	var triggerPattern_4 = "MemoryAddr(^1, Set To, ^2);";
+	var triggerPattern_err = "Comment(\"Error: ^1\");";
+	var out = "";
+	var memory = parseInt($("input_memory").value);
+	var s_offset = parseInt($("input_offset").value);
+	var rawLength = $("input_length").value;
+	if(rawLength.indexOf("/") == -1) {
+		var s_length = parseInt($("input_length").value);
+	}
+	else {
+		var s_length = parseInt($("input_length").value.split("/")[0]);
+	}
+	var s_value = parseInt($("input_value").value);
+	var s_origvalue = parseInt($("input_origvalue").value);
+	var useMasked = !!$("settings_usemasked").checked;
+
+	$("trigger_output").value += generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue);
+	return;
 }
 function init()
 {
