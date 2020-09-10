@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />
+		<title>Map String Loader</title>
+		<link rel="stylesheet" type="text/css" href="../Program/common.css" />
+		<script src="../Program/common.js" type="text/javascript"></script>
+		<script src="../Program/colorText.js" type="text/javascript"></script>
+		<style>
+		table {
+			width: 100%;
+			overflow: scroll;
+		}
+		.scrollbox {
+			width: 100%;
+			overflow-x: auto;
+		}
+		td:first-child { width: 60px;}
+		td:nth-child(2) { width: 60px;}
+		td:nth-child(3) { width: calc(50% - 140px);}
+		td:nth-child(4) { width: calc(50% - 140px);}
+		th, td {
+			background-color: #333333;
+			max-width: 300px;
+			overflow: scroll;
+			line-height: 1.4;
+		}
+		td {
+			white-space: pre;
+			vertical-align: top;
+			padding: 2px 20px 2px 2px;
+		}
+		</style>
+		<script>
+		function bytes2word(byte1, byte2) {
+			return (byte2 << 8) + byte1;
+		}
+		function bytes2dword(byte1, byte2, byte3, byte4) {
+			return (byte4 << 24) + (byte3 << 16) + (byte2 << 8) + byte1;
+		}
+		function leftPad(str, len, buffer) {
+			while(str.length < len) {
+				str = buffer + str;
+			}
+			return str;
+		}
+		function parseTbl(tblBuffer) {
+			let decoder = new TextDecoder("EUC-KR");
+			let statTxtBytes = Array.from(new Uint8Array(tblBuffer));
+			let totalStrings = bytes2word(...statTxtBytes.slice(0, 2));
+			let out = [];
+			for(let i=1; i<=totalStrings; i++) {
+				let offset = bytes2word(...statTxtBytes.slice(i * 2, i *2 + 2));
+				let j = offset;
+				let stringArray = [];
+				let c = 255;
+				while(c != 0) {
+					c = statTxtBytes[j++];
+					stringArray.push(c);
+				}
+				stringArray.pop();
+				let rawStr = decoder.decode(new Uint8Array(stringArray));
+				out.push({
+					id: i,
+					offset: offset,
+					str: rawStr.replace(/\x0d/g, "").replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : "<" + leftPad(rep.charCodeAt(0).toString(16).toUpperCase(), 2, "0") + ">"),
+					strPlain: rawStr.replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : ""),
+					strColor: rawStr.split("\n").map(str => colorText(str)).join("<br />").replace(/\x0d/g, "")
+				});
+			}
+			return out;
+		}
+	    function findChunk(array, head) {
+	        let b = [head.charCodeAt(0), head.charCodeAt(1), head.charCodeAt(2), head.charCodeAt(3)];
+	        let found = -1;
+	        for(let i=0; i<array.length; i++) {
+	            if(array[i] == b[0] && array[i+1] == b[1] && array[i+2] == b[2] && array[i+3] == b[3]) {
+	                found = i;
+	                break;
+	            }
+	        }
+	        if(found == -1) {
+	            return null;
+	        }
+	        let chunkLength = array[found+4] + (array[found+5] << 8) + (array[found+6] << 16) + (array[found+7] << 24);
+	        return {
+	            chunkPosition: found,
+	            chunkLength: chunkLength,
+	            chunkLengthTotal: chunkLength + 8,
+	            data: array.slice(found + 8, found + chunkLength + 8)
+	        };
+	    }
+		async function loadTbl(file) {
+			let fr = new FileReader();
+			let statTxtAB = await new Promise(res => {
+				fr.onload = evt => res(evt.target.result);
+				fr.readAsArrayBuffer(file);
+			}).then(data => findChunk(new Uint8Array(data), "STR ").data);
+			window.statTxtAB = statTxtAB;
+			let statTbl = parseTbl(statTxtAB);
+			window.stringTable = statTbl;
+			document.getElementById("addItemsHere").innerHTML = `
+			<tr>
+				<th>ID</th>
+				<th>Offset</th>
+				<th>Content</th>
+				<th>ColorText</th>
+			</tr>`;
+			statTbl.forEach(str => {
+				let r = document.createElement("tr");
+				let d1 = document.createElement("td");
+				d1.textContent = str.id;
+				let d2 = document.createElement("td");
+				d2.textContent = str.offset;
+				let d3 = document.createElement("td");
+				let scrollbox = document.createElement("div");
+				scrollbox.className = "scrollbox";
+				scrollbox.textContent = str.str;
+				d3.appendChild(scrollbox);
+				let d4 = document.createElement("td");
+				let scrollbox2 = document.createElement("div");
+				scrollbox2.className = "scrollbox";
+				scrollbox2.innerHTML = str.strColor;
+				d4.appendChild(scrollbox2);
+				r.appendChild(d1);
+				r.appendChild(d2);
+				r.appendChild(d3);
+				r.appendChild(d4);
+				document.getElementById("addItemsHere").appendChild(r);
+			})
+		}
+
+		function init() {
+			document.getElementById("loadFile").addEventListener("change", evt => {
+				try {
+					loadTbl(document.getElementById("loadFile").files[0]);
+					document.getElementById("status").textContent = "";
+				}
+				catch(e) {
+					document.getElementById("status").textContent = "Load failed (" + document.getElementById("loadFile").files[0].name + ")";
+				}
+			})
+		}
+		</script>
+	</head>
+	<body>
+	Map CHK: <input type="file" id="loadFile" />
+	<table>
+		<thead></thead>
+		<tbody id="addItemsHere">
+			<tr>
+				<th>ID</th>
+				<th>Offset</th>
+				<th>Content</th>
+				<th>ColorText</th>
+			</tr>
+		</tbody>
+	</table>
+	<div id="status"></div>
+	<script>
+	init();
+	</script>
+	</body>
+</html>

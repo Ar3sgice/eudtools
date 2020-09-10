@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />
+		<title>Stat Strings</title>
+		<link rel="stylesheet" type="text/css" href="../Program/common.css" />
+		<script src="../Program/common.js" type="text/javascript"></script>
+		<style>
+		th, td {
+			background-color: #333333;
+		}
+		td {
+			white-space: pre;
+			vertical-align: top;
+			padding: 2px 20px 2px 2px;
+		}
+		</style>
+		<script>
+		function bytes2word(byte1, byte2) {
+			return (byte2 << 8) + byte1;
+		}
+		function bytes2dword(byte1, byte2, byte3, byte4) {
+			return (byte4 << 24) + (byte3 << 16) + (byte2 << 8) + byte1;
+		}
+		function leftPad(str, len, buffer) {
+			while(str.length < len) {
+				str = buffer + str;
+			}
+			return str;
+		}
+		function parseTbl(tblBuffer) {
+			let decoder = new TextDecoder();
+			let statTxtBytes = Array.from(new Uint8Array(tblBuffer));
+			let totalStrings = bytes2word(...statTxtBytes.slice(0, 2));
+			let out = [];
+			for(let i=1; i<=totalStrings; i++) {
+				let offset = bytes2word(...statTxtBytes.slice(i * 2, i *2 + 2));
+				let nextOffset = (i == totalStrings) ? statTxtBytes.length : bytes2word(...statTxtBytes.slice(i * 2 + 2, i *2 + 4));
+				let j = offset;
+				let stringArray = [];
+				let c = 255;
+				while(j < nextOffset) {
+					c = statTxtBytes[j++];
+					stringArray.push(c);
+				}
+				stringArray.pop();
+				let rawStr = decoder.decode(new Uint8Array(stringArray));
+				out.push({
+					id: i-1,
+					offset: offset,
+					str: rawStr.replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : "<" + leftPad(rep.charCodeAt(0).toString(16).toUpperCase(), 2, "0") + ">"),
+					strPlain: rawStr.replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : "")
+				});
+			}
+			return out;
+		}
+		async function init() {
+			let statTxtAB = await fetch("stat_txt.tbl").then(f => f.arrayBuffer());
+			let statTbl = parseTbl(statTxtAB);
+			window.statTbl = statTbl;
+			statTbl.forEach(str => {
+				let r = document.createElement("tr");
+				let d1 = document.createElement("td");
+				d1.textContent = str.id;
+				let d2 = document.createElement("td");
+				d2.textContent = str.offset;
+				let d3 = document.createElement("td");
+				d3.textContent = str.str;
+				let d4 = document.createElement("td");
+				d4.textContent = str.strPlain;
+				r.appendChild(d1);
+				r.appendChild(d2);
+				r.appendChild(d3);
+				r.appendChild(d4);
+				document.getElementById("addItemsHere").appendChild(r);
+			})
+		}
+		</script>
+	</head>
+	<body>
+	<table>
+		<thead></thead>
+		<tbody id="addItemsHere">
+			<tr>
+				<th>ID</th>
+				<th>Offset</th>
+				<th>Content</th>
+				<th>Plaintext</th>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+	init();
+	</script>
+	</body>
+</html>
