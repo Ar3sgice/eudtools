@@ -981,6 +981,14 @@
 .playercolor_option
 {
 }
+#playercolor_select_tileset
+{
+	width: 92px;
+	height: 25px;
+	position: absolute;
+	top: 498px;
+	left: 1162px;
+}
 #parse_playercolor
 {
 	position: absolute;
