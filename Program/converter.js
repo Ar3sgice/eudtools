@@ -60,11 +60,11 @@ const ConvData = [ // min, max, target, debug description (unused)
 	[6576640, 6577476, 0x6C9EF8, "F Top Speed", 4],
 	[6577480, 6577689, 0x6C9E20, "F Turn Radius", 1],
 	[6604848, 6608844, 0x668AA0, "I GRP File", 4],
-	[6608848, 6609847, 0x669E28, "I Palette Special", 1],
+	[6608848, 6609847, 0x669A40, "I Palette Special", 1],
 	[6609848, 6613844, 0x66C538, "I Shield GFX", 4],
 	[6613848, 6617844, 0x66EC48, "I Iscript ID", 4],
 	[6629848, 6630847, 0x66C150, "I Clickable", 1],
-	[6638848, 6639847, 0x669A40, "I Palette Type", 1],
+	[6638848, 6639847, 0x669E28, "I Palette Type", 1],
 	[6641848, 6642847, 0x66E860, "I Graphic Turns", 1],
 	[6906464, 6906851, 0x665AC0, "S Selection Circle", 1],
 	[6906856, 6907890, 0x666160, "S Image Index", 2],
@@ -113,6 +113,7 @@ const ConvData = [ // min, max, target, debug description (unused)
 	[5244456, 5247264, 0x5187E8, "B Button Table", 12],
 	[5247264, 5247456, 0x5192F8, "B Button Table (Offset)", 12],
 	[5431380, 5457780, 0x590000, "B Empty Area", 4],
+	[6847104, 6857104, 0x590000, "B Empty Area 2", 4],
 	[5251768, 5252860, 0x514178, "R Units Requirements", 2],
 	[5187008, 5187846, 0x5145C0, "R Upgrades Requirements", 2],
 	[5187848, 5188166, 0x514908, "R Researches Requirements", 2],
@@ -328,6 +329,14 @@ function extractMemoryAndValue(lineInput) {
 			comment = args[1];
 			return {result: "button", button: comment, count: count, values: [mem, 0, type, 0]};
 			break;
+			case 24: // +/- old plugin
+			unused2 = parseInt(args[5]);
+			val = parseInt(args[4]);
+			mem = parseInt(args[3]);
+			unused1 = parseInt(args[2]);
+			comment = args[1];
+			return {result: "memory", values: [mem, Math.abs(val), 3, val>0 ? 1 : 2]};
+			break;
 			case 25:
 			dir = parseInt(args[5]);
 			val = parseInt(args[4]);
@@ -532,7 +541,7 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 	let nextByteCount = 0;
 	let nextMask = 0;
 	let dir = dirValues[direction] || "Set To";
-	if(memory % 4 != 0 && type == 3) {
+	if(memory % 4 != 0 && (type == 3 || type == 24)) {
 		byteOrder = memory % 4;
 		memory -= byteOrder;
 		nextMemory = memory + 4;
@@ -583,7 +592,7 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask).replace(/Set To/g, dir);
 		return trigger + "\n";
 	}
-	else if(memory % 4 == 0 && type == 3) {
+	else if(memory % 4 == 0 && (type == 3 || type == 24)) {
 		let trigger = triggerPattern.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/Set To/g, dir);
 		return trigger;
 	}

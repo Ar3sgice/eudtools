@@ -116,6 +116,7 @@ function useOption(evt)
 	// default areas to display:none
 	$("upg_area").style.display = "none";
 	$("selgroup_area").style.display = "none";
+	$("keygroup_area").style.display = "none";
 	$("req_area").style.display = "none";
 	$("buttonfunction_area").style.display = "none";
 	$("icecc_area").style.display = "none";
@@ -126,7 +127,17 @@ function useOption(evt)
 	$("playercolor_area").style.display = "none";
 	$("trigconv_area").style.display = "none";
 	$("stattbl_area").style.display = "none";
+	$("wireframes_area").style.display = "none";
 	$("reqwrite_area").style.display = "none";
+	$("plugin_area").style.display = "none";
+
+	if(typeof allPlugins == "object") {
+		for(let i in allPlugins) {
+			if(allPlugins[i].area) {
+				allPlugins[i].area.style.display = "none";
+			}
+		}
+	}
 
 	switch(memorylist[optID][2])
 	{
@@ -226,6 +237,10 @@ function useOption(evt)
 			$("input_offset").value = 0;
 			$("stattbl_area").style.display = "block";
 			break;
+			case 0x68C204:
+			$("input_offset").value = 0;
+			$("wireframes_area").style.display = "block";
+			break;
 		}
 		break;
 		case 12: // settings
@@ -237,14 +252,47 @@ function useOption(evt)
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1] + "/13";
 		break;
-		case 14: // selection group
+		case 14: // selection/hotkey group
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1];
-		$("selgroup_area").style.display = "block";
+		switch(memorylist[optID][0]) {
+			case 0x6284E8:
+			$("selgroup_area").style.display = "block";
+			break;
+			case 0x57FE60:
+			$("keygroup_area").style.display = "block";
+			break;
+		}
 		break;
 		case 15: // unit dims
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1] + "/8";
+		break;
+		case 16: // display text
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1] + "/218";
+		break;
+		case 17: // plugins
+		if(typeof allPlugins == "object" && allPlugins[memorylist[optID][0]]) {
+			$("plugin_area").style.display = "block";
+			if(typeof allPlugins[memorylist[optID][0]].resetOffset != "undefined") {
+				$("input_offset").value = allPlugins[memorylist[optID][0]].resetOffset;
+			}
+			else {
+				$("input_offset").value = memorylist[optID][0];
+			}
+			$("input_length").value = memorylist[optID][1];
+			if(allPlugins[memorylist[optID][0]].act) {
+				allPlugins[memorylist[optID][0]].act();
+			}
+			if(allPlugins[memorylist[optID][0]].area) {
+				allPlugins[memorylist[optID][0]].area.style.display = "block";
+			}
+		}
+		break;
+		case 18: // building dims
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1] + "/4";
 		break;
 		default:
 	}
@@ -509,6 +557,18 @@ function selgroupUpdate() {
 function selgroupUpdate2() {
 	$("input_value").value = parseInt($("input_selgroup_unit").value) * 336 + 0x59CCA8;
 }
+function keygroupUpdate() {
+	$("input_object").value = (parseInt($("input_keygroup_player").value) - 1) * 216 + parseInt($("input_keygroup_hotkey").value) * 12 + parseInt($("input_keygroup_id").value) - 1;
+	updateMemory();
+}
+function keygroupUpdate2() {
+	$("input_keygroup_index").value = (parseInt($("input_keygroup_unit").value) == 0) ? 0 : 1700 - parseInt($("input_keygroup_unit").value);
+	$("input_value").value = 2049 + parseInt($("input_keygroup_unit").value);
+}
+function keygroupUpdate3() {
+	$("input_keygroup_unit").value = (parseInt($("input_keygroup_index").value) == 0) ? 0 : 1700 - parseInt($("input_keygroup_index").value);
+	$("input_value").value = 2049 + parseInt($("input_keygroup_unit").value);
+}
 function reqUpdate()
 {
 	switch(memorylist[currentSelected][0])
@@ -699,6 +759,12 @@ function toTrigger()
 			s_value = s_value.replace(/<[0-9a-fA-F]+>/g, function(pat) {
 				return String.fromCharCode(parseInt(pat.substring(1, pat.length-1), 16) );
 			});
+
+			if(typeof iconv != "undefined") { // load iconv-lite-browserify to turn iconv on
+				let s_buffer1 = iconv.encode(s_value, "UTF-8"); // Display Text uses UTF-8 in SC:R
+				s_value = [...s_buffer1].map(char => String.fromCharCode(char)).join("");
+			}
+
 			var hexValue = "";
 			for(var i=0;i<s_value.length;i++)
 			{
@@ -729,7 +795,7 @@ function toTrigger()
 				memory += 4;
 			}
 		}
-		else if(s_length == 3) {
+		else if(s_length == 3) { // TODO (there is no memory with 3 probably will not do)
 			while(arrayContent.length >= 1) {
 				let t_shift = arrayContent.shift();
 				out += calculateTrigger(triggerPattern_4, memory, t_shift, 3, useMasked, 0);
@@ -810,6 +876,11 @@ function init()
 	$("input_selgroup_player").onkeydown = function(){setTimeout(selgroupUpdate,25);};
 	$("input_selgroup_id").onkeydown = function(){setTimeout(selgroupUpdate,25);};
 	$("input_selgroup_unit").onkeydown = function(){setTimeout(selgroupUpdate2,25);};
+	$("input_keygroup_player").onkeydown = function(){setTimeout(keygroupUpdate,25);};
+	$("input_keygroup_id").onkeydown = function(){setTimeout(keygroupUpdate,25);};
+	$("input_keygroup_hotkey").onkeydown = function(){setTimeout(keygroupUpdate,25);};
+	$("input_keygroup_unit").onkeydown = function(){setTimeout(keygroupUpdate2,25);};
+	$("input_keygroup_index").onkeydown = function(){setTimeout(keygroupUpdate3,25);};
 	$("input_req").onkeydown = function(){setTimeout(reqUpdate,25);};
 	$("input_textstack_text").onkeydown = function(){setTimeout(stackTextUpdate,25);};
 	$("input_textstack_text").onpaste = function(){setTimeout(stackTextUpdate,25);};
@@ -821,8 +892,21 @@ function init()
 	slicerInit();
 	converterInit();
 	stattblInit();
+	wireframesInit();
 	reqwriterInit();
 	playerColorsInit();
+
+	if(typeof allPlugins == "object") {
+		for(let i in allPlugins) {
+			if(allPlugins[i].area) {
+        		document.getElementById("plugin_area").appendChild(allPlugins[i].area);
+			}
+			if(allPlugins[i].init) {
+				allPlugins[i].init();
+			}
+		}
+	}
+
 	loadSettings();
 	$("saf_close").onclick = function(){document.getElementById('saf_floating').style.display='none';return false;};
 	$("settings_close").onclick = function(){document.getElementById('settings_floating').style.display='none';return false;};

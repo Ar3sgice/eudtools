@@ -11,8 +11,8 @@ function duplicatorInit()
 {
 	if($("inputarea_trigdupl").value == "" && $("inputarea_trigdupl_arrays").value == "")
 	{
-		$("inputarea_trigdupl").value = "use [3;2] for incremental variables;\r\n\r\n[^] for binary countoffs;\r\n\r\n[=i] for programmes;\r\n\r\n[$array1] for arrays.";
-		$("inputarea_trigdupl_arrays").value = "array1:\r\nTerran Marine\r\nTerran Firebat\r\narray2:\r\nMarine for 3$\r\nFirebat for 5$";
+		$("inputarea_trigdupl").value = "use [3;2] for incremental variables;\n\n[^] for binary countoffs;\n\n[=i] for programmes;\n\n[$array1] for arrays;\n\n[#1] for switch binaries.";
+		$("inputarea_trigdupl_arrays").value = "array1:\nTerran Marine\nTerran Firebat\narray2:\nMarine for 3$\nFirebat for 5$";
 	}
 	$("parse_trigdupl").onclick = duplicatorParse;
 }
@@ -38,6 +38,7 @@ function duplicateTrigger(trg, times, arrayData)
 	for(var i=0;i<times;i++)
 	{
 		var dat = trg;
+		var switches = 0;
 		while(dat.match(/\[[0-9;\-]+\]/)) // increments
 		{
 			var m = dat.match(/\[([0-9;\-]+)\]/)[1];
@@ -73,6 +74,28 @@ function duplicateTrigger(trg, times, arrayData)
 				n -= 0x100000000;
 			}
 			dat = dat.replace("[^" + m + "]", n);
+		}
+		while(dat.match(/\[#[0-9\-]*\]/)) // switch binary
+		{
+			var m = dat.match(/\[#([0-9\-]*)\]/)[1];
+			if(m == "")
+			{
+				var s = switches;
+			}
+			else if(isFinite(parseInt(m)))
+			{
+				var s = parseInt(m) - 1;
+			}
+			else {
+				var s = switches;
+			}
+			switches++;
+			if((i >> s) & 1) {
+				dat = dat.replace("[#" + m + "]", "Set");
+			}
+			else {
+				dat = dat.replace("[#" + m + "]", "Not Set");
+			}
 		}
 		while(dat.match(/\[\=[^\]]+\]/)) // run program
 		{
