@@ -6,14 +6,17 @@
 <script src="Program/common.js" type="text/javascript"></script>
 <script src="Program/eudtools_data.js" type="text/javascript"></script>
 <script src="Program/eudtools_main.js" type="text/javascript"></script>
+<script src="Program/datdata.js" type="text/javascript"></script>
 <script src="Program/icecc.js" type="text/javascript"></script>
 <script src="Program/overlap.js" type="text/javascript"></script>
 <script src="Program/trigger_duplicator.js" type="text/javascript"></script>
 <script src="Program/trigger_slicer.js" type="text/javascript"></script>
 <script src="Program/converter.js" type="text/javascript"></script>
 <script src="Program/stattbl.js" type="text/javascript"></script>
+<script src="Program/wireframes.js" type="text/javascript"></script>
 <script src="Program/reqwriter.js" type="text/javascript"></script>
 <script src="Program/playercolors.js" type="text/javascript"></script>
+<script src="Program/plugins.js" type="text/javascript"></script>
 <script src="Program/iconv-lite-browserify.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body id="eudtools_body">
@@ -57,8 +60,8 @@
 				<td><input type="checkbox" id="saf_check25" class="input_ckb" />Ignore Supply Check</td>
 				<td><input type="checkbox" id="saf_check26" class="input_ckb" />Medium Overlays</td>
 				<td><input type="checkbox" id="saf_check27" class="input_ckb" />Large Overlays</td>
-				<td><input type="checkbox" id="saf_check28" class="input_ckb" />Full Auto-Attack</td>
-				<td><input type="checkbox" id="saf_check29" class="input_ckb" />Battle Reactions</td>
+				<td><input type="checkbox" id="saf_check28" class="input_ckb" />Battle Reactions</td>
+				<td><input type="checkbox" id="saf_check29" class="input_ckb" />Full Auto-Attack</td>
 				<td><input type="checkbox" id="saf_check30" class="input_ckb" />Invincible</td>
 			</tr><tr>
 				<td><input type="checkbox" id="saf_check31" class="input_ckb" />Mechanical</td>
@@ -111,6 +114,18 @@
 		<input type="text" id="input_selgroup_id" value="1" />
 		<div class="labels" id="label_selgroup_unit">Unit: </div>
 		<input type="text" id="input_selgroup_unit" value="0" />
+	</div>
+	<div id="keygroup_area">
+		<div class="labels" id="label_keygroup_player">Player: </div>
+		<input type="text" id="input_keygroup_player" value="1" />
+		<div class="labels" id="label_keygroup_hotkey">Hotkey #: </div>
+		<input type="text" id="input_keygroup_hotkey" value="0" />
+		<div class="labels" id="label_keygroup_id">Group #: </div>
+		<input type="text" id="input_keygroup_id" value="1" />
+		<div class="labels" id="label_keygroup_unit">UnitNode: </div>
+		<input type="text" id="input_keygroup_unit" value="0" />
+		<div class="labels" id="label_keygroup_index">MapIndex: </div>
+		<input type="text" id="input_keygroup_index" value="0" />
 	</div>
 	<div id="req_area">
 		<div class="labels" id="label_req">Req. ID: </div>
@@ -211,6 +226,24 @@
 		<input type="text" id="input_stattbl_content2" value="" />
 		<div class="divbutton" id="parse_stattbl">Parse</div>
 	</div>
+	<div id="wireframes_area">
+		<div class="labels" id="label_wireframes_player">CPT Player: </div>
+		<input type="text" id="input_wireframes_player" value="1" />
+		<select type="text" id="select_wireframes_type">
+			<option id="option_wireframes_wirefram" value="1">wirefram.grp</option>
+			<option id="option_wireframes_grpwire" value="2">grpwire.grp</option>
+			<option id="option_wireframes_tranwire" value="3">tranwire.grp</option>
+		</select>
+		<div class="labels" id="label_wireframes_cond">Conditions: </div>
+		<textarea id="inputarea_wireframes_cond"></textarea>
+		<div class="divbutton" id="parse_wireframes_cpt">CPT</div>
+		<hr id="hr_wireframes" />
+		<div class="labels" id="label_wireframes_uid">Unit ID: </div>
+		<input type="text" id="input_wireframes_uid" value="0" />
+		<div class="labels" id="label_wireframes_target">Change to: </div>
+		<input type="text" id="input_wireframes_target" value="0" />
+		<div class="divbutton" id="parse_wireframes">Parse</div>
+	</div>
 	<div id="playercolor_area">
 		<div class="labels" id="label_playercolor_id">Player: </div>
 		<input type="text" id="input_playercolor_id" value="1" />
@@ -248,6 +281,8 @@
 		<div class="labels" id="label_mapstr_cont">Content: </div>
 		<textarea id="inputarea_mapstr"></textarea>
 		<div class="divbutton" id="parse_mapstr">Parse</div>
+	</div>
+	<div id="plugin_area">
 	</div>
 	<div class="divbutton" id="make_memory">v</div>
 	<div class="divbutton" id="make_trigger">v</div>
