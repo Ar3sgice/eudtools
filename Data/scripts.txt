@@ -1,0 +1,2 @@
+SetAll:
+var categoryType = 3;/* UNITS */memorylist.slice(categorylist[categoryType][0]+1, categorylist[categoryType][1]).forEach(memory => {console.log(memory);$("input_offset").value = memory[0];$("input_length").value = memory[1];updateMemory();toTrigger();})

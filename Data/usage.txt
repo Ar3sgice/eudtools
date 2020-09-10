@@ -48,7 +48,6 @@ Option "Stat_txt.tbl Edits":
 - 2 strings same time for there is no "Masked Set CurrentPlayer Deaths"
 - personally I think it's not really dynamic since it's a simulator anyways
 - my address is 0x19184660 tell me if yours is different
-- and don't rename your marines
 
 Others:
 - I understand that no one plays this game anymore. I program only for my own entertainment and feeling of accomplishment

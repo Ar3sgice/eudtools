@@ -1,5 +1,5 @@
 Upgrades:
-FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF 
+FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 
 Explosion Type:
 1, normal
@@ -14,3 +14,41 @@ Behavior:
 7, bounce
 8, attack 3x3 area
 9, go to max range
+
+Group Flags:
+0x01 - Zerg (Uses underlings, can build on creep)
+0x02 - Terran (Uses Supply, has sublabel, buildings will burn)
+0x04 - Protoss (Uses Psi)
+0x08 - Men
+0x10 - Building
+0x20 - Factory
+0x40 - Independant
+0x80 - Neutral
+
+Target Flags:
+0x001 Air
+0x002 Ground
+0x004 Mechanical
+0x008 Organic
+0x010 non-Building
+0x020 non-Robotic
+0x040 Terrain
+0x080 Organic or Mechanical
+0x100 Own
+
+Staredit Avail Flags:
+0x0001 - Non-Neutral
+0x0002 - Unit Listing & Palette
+0x0004 - Mission Briefing
+0x0008 - Player Settings
+0x0010 - All Races
+0x0020 - Set Doodad State
+0x0040 - Non-Location Triggers
+0x0080 - Unit&&Hero Settings
+0x0100 - Location Triggers
+0x0200 - BroodWar Only
+
+Light:
+Default 31
+Values over 31 will create interference patterns (?)
+Values over 256 will be reset to 0
