@@ -57,4 +57,4 @@ You can find it under General tab as well. It cuts triggers with more than 64 ac
 
 ### MapStrings.html
 
-[https://ar3sgice.github.io/eudtools/Include/MapStrings.html](https://ar3sgice.github.io/eudtools/Include/MapStrings.html)
+[https://ar3sgice.github.io/eudtools/Include/MapStringView.html](https://ar3sgice.github.io/eudtools/Include/MapStringView.html)
