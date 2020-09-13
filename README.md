@@ -19,6 +19,10 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 - text: put "text" in Value input (including ")
 - array of values: put numbers with commas seperated like 10,15,20,25 (mostly useful for things like Unit Size)
 
+### Modifying buttons
+
+- Of course this is not how it's *really* done. I didn't make a proper firegraft UI since no one except me really uses this tool anyways.
+
 ## Important notes
 
 - Don't use TrigEdit++ with this. it doesn't support masked memory and will break everything (or if there is a newer version that fixes that)
@@ -41,6 +45,10 @@ Secret function: \[=EUD(memory, length, object, value)\] outputs EUD trigger.
 You can find it under General tab as well. It cuts triggers with more than 64 actions into slices with at most 64 actions, keeping comment and Preserve Trigger.
 
 ## Other links
+
+### EUD Database
+
+[http://farty1billion.dyndns.org/EUDDB/](http://farty1billion.dyndns.org/EUDDB/) & [Backup page](https://ar3sgice.github.io/eudtools/Include/EUDDB.html)
 
 ### Stat_txt.tbl reference
 
