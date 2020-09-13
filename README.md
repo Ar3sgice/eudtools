@@ -54,3 +54,7 @@ You can find it under General tab as well. It cuts triggers with more than 64 ac
 ### Stat_txt.tbl reference
 
 [https://ar3sgice.github.io/eudtools/Include/StatStrings.html](https://ar3sgice.github.io/eudtools/Include/StatStrings.html)
+
+### MapStrings.html
+
+[https://ar3sgice.github.io/eudtools/Include/MapStrings.html](https://ar3sgice.github.io/eudtools/Include/MapStrings.html)
