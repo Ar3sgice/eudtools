@@ -13,40 +13,6 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 4. Press the arrow next to Value to generate text trigger.
 5. Paste text trigger in Scmdraft to make it work.
 
-### Setting data types other than numbers
-
-- hex string: put '0b114514' in Value input (including ')
-- text: put "text" in Value input (including ")
-- array of values: put numbers with commas seperated like 10,15,20,25 (mostly useful for things like Unit Size)
-- also you can batch set many objects to identical value by putting comma-separated array in the object field
-
-### Modifying buttons
-
-- Of course this is not how it's *really* done. I didn't make a proper firegraft UI since no one except me uses this tool anyways.
-
-### Important notes
-
-- Don't use TrigEdit++ with this. it doesn't support masked memory and will break everything (or if there is a newer version that fixes that)
-- It can be used together with EUD editor 3, except button requirements I think will cause conflicts
-- For EUD editor 2 I don't know since it doesn't work on my laptop
-- For some reason upgrades and techs (upgraded, disabled, enabled etc) are under the supply tab
-
-## Useful utilities
-
-### Trigger Duplicator
-
-You can find it under General tab. It duplicates triggers for a number of times, with the ability to change some variables each time.
-
-Variables support linear series, binary countoff (powers of 2), arrays, switch binaries and custom code.
-
-Secret function: \[=EUD(memory, length, object, value)\] outputs EUD trigger.
-
-### Trigger Slicer
-
-You can find it under General tab as well. It cuts triggers with more than 64 actions into slices with at most 64 actions, keeping comment and Preserve Trigger.
-
-## Other links
-
 ### EUD Database
 
 [http://farty1billion.dyndns.org/EUDDB/](http://farty1billion.dyndns.org/EUDDB/) & [Backup page](https://ar3sgice.github.io/eudtools/Include/EUDDB.html)
