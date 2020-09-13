@@ -21,7 +21,7 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 
 ### Modifying buttons
 
-- Of course this is not how it's *really* done. I didn't make a proper firegraft UI since no one except me really uses this tool anyways.
+- Of course this is not how it's *really* done. I didn't make a proper firegraft UI since no one except me uses this tool anyways.
 
 ## Important notes
 
