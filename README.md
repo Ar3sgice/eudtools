@@ -23,7 +23,7 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 
 - Of course this is not how it's *really* done. I didn't make a proper firegraft UI since no one except me uses this tool anyways.
 
-## Important notes
+### Important notes
 
 - Don't use TrigEdit++ with this. it doesn't support masked memory and will break everything (or if there is a newer version that fixes that)
 - It can be used together with EUD editor 3, except button requirements I think will cause conflicts
