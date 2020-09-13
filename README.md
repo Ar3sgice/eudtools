@@ -18,7 +18,7 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 - hex string: put '0b114514' in Value input (including ')
 - text: put "text" in Value input (including ")
 - array of values: put numbers with commas seperated like 10,15,20,25 (mostly useful for things like Unit Size)
-- also you can batch set many objects to same value by putting comma-separated array in the object field
+- also you can batch set many objects to identical value by putting comma-separated array in the object field
 
 ### Modifying buttons
 
