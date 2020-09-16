@@ -53,17 +53,17 @@ function duplicateTrigger(trg, times, arrayData)
 			}
 			dat = dat.replace("[" + m + "]", n);
 		}
-		while(dat.match(/\[\^[0-9;\-]*\]/)) // countoffs
+		while(dat.match(/\[\^[0-9;\-\.]*\]/)) // countoffs
 		{
-			var m = dat.match(/\[\^([0-9;\-]*)\]/)[1];
+			var m = dat.match(/\[\^([0-9;\-\.]*)\]/)[1];
 			if(m == "")
 			{
-				var n = Math.pow(2, times-1-i);
+				var n = Math.round(Math.pow(2, times-1-i));
 			}
 			else if(m.match(/;/)) // init;factor
 			{
 				var sp = m.split(";");
-				var n = parseInt(sp[0]) * Math.pow(parseInt(sp[1]), i);
+				var n = Math.round(parseInt(sp[0]) * Math.pow(parseFloat(sp[1]), i));
 			}
 			else // positive countoff
 			{
@@ -111,19 +111,32 @@ function duplicateTrigger(trg, times, arrayData)
 			}
 			dat = dat.replace("[$" + b + "]", n);
 		}
-		while(dat.match(/\[\=[^\]]+\]/)) // run program
-		{
-			var m = dat.match(/\[\=([^\]]+)\]/)[1];
-			try
-			{
-				var n = eval(m);
-			}
-			catch(E)
-			{
-				var n = "";
-			}
-			dat = dat.replace("[=" + m + "]", n);
-		}
+        while(dat.match(/\[\=[^\]]+\]/)) // run program
+        {
+            var m = dat.match(/\[\=([^\]]+)\]/)[1];
+            try
+            {
+                var n = eval(m);
+            }
+            catch(E)
+            {
+                var n = "";
+            }
+            dat = dat.replace("[=" + m + "]", n);
+        }
+        while(dat.match(/\[%\=[^\]]+%\]/)) // run program 2
+        {
+            var m = dat.match(/\[%\=([^\]]+)%\]/)[1];
+            try
+            {
+                var n = eval(m);
+            }
+            catch(E)
+            {
+                var n = "";
+            }
+            dat = dat.replace("[%=" + m + "%]", n);
+        }
 		out += dat + "\r\n";
 	}
 	return out;

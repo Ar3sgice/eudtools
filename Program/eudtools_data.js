@@ -458,6 +458,7 @@ var memorylist = [ /* format: memory, length, type (0:padding, 1:memory), descri
 	[0x58D6F8, 4, 1, "Elapsed Time"],
     [0x657A9C, 4, 1, "Brightness Level"],
     [0x57F1EC, 4, 1, "Vision (Bitwise)"],
+    [0x581D6A, 1, 1, "Selection Circle colors"],
 	[0x58D634, 1,13, "AllySelf (0=Enemy 1,2=Ally)"],
     [0x6284E8, 4,14, "Selection Group"],
     [0x57FE60, 4,14, "Hotkey Group"],

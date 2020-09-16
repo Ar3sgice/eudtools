@@ -337,6 +337,7 @@ function extractMemoryAndValue(lineInput) {
 			comment = args[1];
 			return {result: "memory", values: [mem, Math.abs(val), 3, val>0 ? 1 : 2]};
 			break;
+			case 9:
 			case 25:
 			dir = parseInt(args[5]);
 			val = parseInt(args[4]);
@@ -344,6 +345,7 @@ function extractMemoryAndValue(lineInput) {
 			unused1 = parseInt(args[2]);
 			comment = args[1];
 			return [mem, val, type, dir];
+			case 10:
 			case 50:
 			mem = parseInt(args[2]);
 			val = parseInt(args[3]);
@@ -570,7 +572,7 @@ function convertToTrigger(memory, value, type, direction) { // will always use M
 		let trigger = triggerPattern_masked.replace(/\^1/g, memory).replace(/\^2/g, value).replace(/\^3/g, mask).replace(/Set To/g, dir);
 		return trigger + "\n";
 	}
-	else if(type == 25) {
+	else if(type == 25 || type == 9) {
 		byteOrder = memory % 4;
 		memory -= byteOrder;
 		value <<= byteOrder * 8;

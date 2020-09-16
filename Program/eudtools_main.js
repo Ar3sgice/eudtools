@@ -671,6 +671,26 @@ function word2bytes(w) {
 function dword2words(dw) {
 	return [dw & 65535, (w >>> 16) & 65535];
 }
+function triggerFormat(trg) {
+	let lines = trg.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
+	return lines.map(line => {
+		if(line.indexOf("Trigger") == 0) {
+			return "\n" + line;
+		}
+		else if(line.indexOf("}") == 0) {
+			return line + "\n";
+		}
+		else if(line.indexOf("Conditions") == 0 || line.indexOf("Actions") == 0) {
+			return line;
+		}
+		else if(line.indexOf("/") == 0) {
+			return line;
+		}
+		else {
+			return "\t" + line;
+		}
+	}).join("\n").replace(/\n{3,}/g, "\n\n");
+}
 function calculateTrigger(pattern, memory, value, length, useMasked, origValue) {
 	let out = "";
 	let s_value = value;
@@ -755,9 +775,8 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 	var triggerPattern_err = "Comment(\"Error: ^1\");";
 	var out = "";
 
-	if(isNaN(s_value)) // invalid value
+	if(isNaN(parseInt(s_value))) // invalid value
 	{
-		s_value = $("input_value").value;
 		if(s_value.charAt(0) == "\"" && s_value.charAt(s_value.length-1) == "\"") // input string
 		{
 			s_value = s_value.substr(1, s_value.length - 2);
@@ -768,6 +787,7 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 			if(typeof iconv != "undefined") { // load iconv-lite-browserify to turn iconv on
 				let s_buffer1 = iconv.encode(s_value, "UTF-8"); // Display Text uses UTF-8 in SC:R
 				s_value = [...s_buffer1].map(char => String.fromCharCode(char)).join("");
+				s_values = [...s_buffer1];
 			}
 
 			var hexValue = "";
@@ -776,7 +796,9 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 				hexValue += leftPad(s_value.charCodeAt(i).toString(16), 2, "0");
 			}
 			hexValue += "00"; // null string terminator
-			return hexstrToTrig(hexValue, memory, triggerPattern_4 + "\n");
+
+			s_values.push(0); // null string terminator
+			return generateEUDTrigger(memory, 1, s_values.join(","), useMasked, s_origvalue);
 		}
 		else if(s_value.charAt(0) == "'" && s_value.charAt(s_value.length-1) == "'") // hex string
 		{
@@ -788,8 +810,8 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 		}
 	}
 
-	if($("input_value").value.toString().indexOf(",") != -1) { // array
-		let arrayContent = $("input_value").value.toString().split(/, */).map(s => parseInt(s));
+	if(s_value.indexOf(",") != -1) { // array
+		let arrayContent = s_value.split(/, */).map(s => parseInt(s));
 		if(s_length >= 4) {
 			while(arrayContent.length >= 1) {
 				let t_shift = arrayContent.shift();
@@ -848,7 +870,7 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 		var pattern = triggerPattern_4;
 	}
 
-	out += calculateTrigger(pattern, memory, s_value, s_length, useMasked, s_origvalue);
+	out += calculateTrigger(pattern, memory, parseInt(s_value), s_length, useMasked, s_origvalue);
 	return out;
 }
 function EUD(memory, rawLength, item, value) {
@@ -885,7 +907,7 @@ function toTrigger()
 	else {
 		var s_length = parseInt($("input_length").value.split("/")[0]);
 	}
-	var s_value = parseInt($("input_value").value);
+	var s_value = $("input_value").value.toString();
 	var s_origvalue = parseInt($("input_origvalue").value);
 	var useMasked = !!$("settings_usemasked").checked;
 
