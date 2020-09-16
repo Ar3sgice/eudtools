@@ -11,7 +11,9 @@
 }
 .option_category
 {
-}.select_memory
+	font-family: 'arial';
+}
+.select_memory
 {
 	width: 250px;
 	height: 196px;
@@ -21,6 +23,7 @@
 }
 .option_memory
 {
+	font-family: 'arial';
 }
 .select_data
 {
@@ -32,6 +35,7 @@
 }
 .option_data
 {
+	font-family: 'arial';
 }
 #label_buttonfunction
 {
