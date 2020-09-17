@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />
+		<title>Iscript Decompiler</title>
+		<link rel="stylesheet" type="text/css" href="../Program/common.css" />
+		<script src="../Program/common.js" type="text/javascript"></script>
+		<script src="../Program/icedc.js" type="text/javascript"></script>
+		<style>
+		table {
+			width: auto;
+			overflow: scroll;
+		}
+		.scrollbox {
+			width: 100%;
+			overflow-x: auto;
+		}
+		td:first-child { width: 100px;}
+		td:nth-child(2) { width: 100px;}
+		td:nth-child(3) { width: 200px;}
+		td:nth-child(4) { width: calc(100% - 400px);}
+		th, td {
+			background-color: #333333;
+			max-width: 300px;
+			overflow: hidden;
+			line-height: 1.4;
+		}
+		td {
+			white-space: pre;
+			vertical-align: top;
+			padding: 2px 20px 2px 2px;
+		}
+		#controller {
+			line-height: 1.6;
+		}
+		</style>
+		<script>
+		const idc = new IceDC();
+		var iscriptData = {};
+		function showOffsetIscript(offset) {
+			var table = document.querySelector("#addItemsHere");
+			table.innerHTML = "";
+
+			var isc = iscriptData.readIscript(offset);
+			var iscHtml = isc.map(line => {
+				let grids = line.split("\t");
+				let tr = document.createElement("tr");
+				grids.forEach(t => {
+					let td = document.createElement("td");
+					td.innerHTML = t.replace(/\[([0-9xa-f]+)\]/ig, "<a onclick='showOffsetIscript($1); return false'>$1</a>");
+					tr.appendChild(td);
+				});
+				return tr;
+			}).forEach(tr => table.appendChild(tr));
+
+			document.querySelector("#input_currentOffset").value = offset;
+			return isc.join("\n");
+		}
+		function showDecompiledIscript(id, anim) {
+			var offset = iscriptData.getHeaderAnimationOffset(iscriptData.headerOffsets[id], anim);
+			return showOffsetIscript(offset);
+		}
+		function updateScript() {
+			if(!iscriptData.mainCode) {
+				return;
+			}
+			let id = parseInt(document.querySelector("#input_iscriptID").value);
+			let anim = parseInt(document.querySelector("#input_animation").value);
+			showDecompiledIscript(id, anim);
+		}
+		async function init() {
+			iscriptData = await idc.readIscriptFile("iscript.bin");
+			let iscriptIDListText = await fetch("IscriptIDList.txt").then(t => t.text());
+			let iscriptIDList = iscriptIDListText.split(/\r?\n/);
+
+			iscriptIDList.forEach(iscID => {
+				let opt = document.createElement("option");
+				opt.textContent = iscID;
+				document.querySelector("#select_iscriptID").appendChild(opt);
+			});
+			idc.animationNames.forEach(anim => {
+				let opt = document.createElement("option");
+				opt.textContent = anim;
+				document.querySelector("#select_animation").appendChild(opt);
+			});
+			document.querySelector("#input_iscriptID").addEventListener("keyup", evt => {
+				if(parseInt(document.querySelector("#input_iscriptID").value) < 412) {
+					document.querySelector("#select_iscriptID").selectedIndex = parseInt(document.querySelector("#input_iscriptID").value);
+				}
+				updateScript();
+			});
+			document.querySelector("#input_iscriptID").addEventListener("keydown", evt => {
+				if(evt.key == "ArrowUp" || evt.key == "+") {
+					document.querySelector("#input_iscriptID").value = parseInt(document.querySelector("#input_iscriptID").value) + 1;
+					evt.preventDefault();
+				}
+				if(evt.key == "ArrowDown" || evt.key == "-") {
+					document.querySelector("#input_iscriptID").value = parseInt(document.querySelector("#input_iscriptID").value) - 1;
+					evt.preventDefault();
+				}
+			});
+			document.querySelector("#select_iscriptID").addEventListener("change", evt => {
+				document.querySelector("#input_iscriptID").value = document.querySelector("#select_iscriptID").selectedIndex;
+				updateScript();
+			});
+			document.querySelector("#input_animation").addEventListener("keyup", evt => {
+				if(parseInt(document.querySelector("#input_animation").value) < 28) {
+					document.querySelector("#select_animation").selectedIndex = parseInt(document.querySelector("#input_animation").value);
+				}
+				updateScript();
+			});
+			document.querySelector("#input_animation").addEventListener("keydown", evt => {
+				if(evt.key == "ArrowUp" || evt.key == "+") {
+					document.querySelector("#input_animation").value = parseInt(document.querySelector("#input_animation").value) + 1;
+					evt.preventDefault();
+				}
+				if(evt.key == "ArrowDown" || evt.key == "-") {
+					document.querySelector("#input_animation").value = parseInt(document.querySelector("#input_animation").value) - 1;
+					evt.preventDefault();
+				}
+			});
+			document.querySelector("#select_animation").addEventListener("change", evt => {
+				document.querySelector("#input_animation").value = document.querySelector("#select_animation").selectedIndex;
+				updateScript();
+			});
+			document.querySelector("#input_currentOffset").addEventListener("keyup", evt => {
+				showOffsetIscript(parseInt(document.querySelector("#input_currentOffset").value));
+			});
+			document.querySelector("#input_iscriptID").value = 0;
+			document.querySelector("#select_iscriptID").selectedIndex = 0;
+			document.querySelector("#input_animation").value = 0;
+			document.querySelector("#select_animation").selectedIndex = 0;
+		}
+		</script>
+	</head>
+	<body>
+	<div id="container">
+	<div id="controller">
+	IscriptID: <input type="text" id="input_iscriptID" value="0" /> <select id="select_iscriptID"></select><br />
+	Animation: <input type="text" id="input_animation" value="0" /> <select id="select_animation"></select><br />
+	CurrentOffset: <input type="text" id="input_currentOffset" value="0" /></div>
+	</div>
+	<table>
+		<thead></thead>
+		<tbody id="addItemsHere">
+		</tbody>
+	</table>
+	</div>
+	<script>
+	init();
+	</script>
+	</body>
+</html>
