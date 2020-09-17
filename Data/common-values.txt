@@ -2,18 +2,43 @@ Upgrades:
 FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF
 
 Explosion Type:
-1, normal
-2, splash (All)
-3, splash (Enemy)
-5, nuke
-7, broodling
+0 = None
+1 = Normal Hit
+2 = Splash (Radial)
+3 = Splash (Enemy)
+4 = Lockdown
+5 = Nuclear Missile
+6 = Parasite
+7 = Broodlings
+8 = EMP Shockwave
+9 = Irradiate
+10 = Ensnare
+11 = Plague
+12 = Stasis Field
+13 = Dark Swarm
+14 = Consume
+15 = Yamato Gun
+16 = Restoration
+17 = Disruption Web
+18 = Corrosive Acid
+19 = Mind Control
+20 = Feedback
+21 = Optical Flare
+22 = Maelstrom
+23 = Unused (Crash)
+24 = Splash (Air)
 
 Behavior:
-0, no follow
-1, follow
-7, bounce
-8, attack 3x3 area
-9, go to max range
+1 = Fly & Don't Follow Target
+2 = Fly & Follow Target
+3 = Appear on Target Unit
+4 = Persist on Target Site
+5 = Appear on Target Site
+6 = Appear on Attacker
+7 = Attack & Self-Destruct
+8 = Bounce
+9 = Attack Target 3x3 Area
+10 = Go to Max. Range
 
 Group Flags:
 0x01 - Zerg (Uses underlings, can build on creep)

@@ -1,0 +1,190 @@
+0,Die
+1,Stop
+2,Guard (Normal)
+3,Guard (Player)
+4,Guard (Subunit)
+5,Guard (Bunker)
+6,Ignore (Normal)
+7,Stop (Reaver)
+8,Attack
+9,Attack (Obscured)
+10,Attack Unit (Normal)
+11,Attack In Range
+12,Attack Ground (Unused)
+13,Hover (Unused)
+14,Attack Move
+15,Building Is Being Infested
+16,Nothing 1 (Unused)
+17,Power-Up (Unused)
+18,Guard (Building)
+19,Attack (Building)
+20,Script (Spider Mine)
+21,Stay In Range
+22,Attack (Subunit)
+23,Nothing 2 (Normal)
+24,Nothing 3 (Unused)
+25,Drone Start Mutate
+26,Drone Mutate
+27,Use Ability (Infest 1)
+28,Use Ability (Infest 2)
+29,Infest (Queen)
+30,Build (SCV)
+31,Build (Probe)
+32,Create Building (Probe)
+33,Is Building (SCV)
+34,Repair Unit (SCV)
+35,Repair Unit (Obscured)
+36,Place Add-On
+37,Build Add-On
+38,Train (Normal)
+39,Rally to Visible Unit
+40,Rally to Ground Tile
+41,Zerg Birth
+42,Unit Morph
+43,Building Morph
+44,Building Is Constructed (Terran)
+45,Zerg Build Self
+46,Build (Nydus Canal Exit)
+47,Enter (Nydus Canal)
+48,Building Is Constructed (Protoss)
+49,Follow
+50,Idle (Carrier)
+51,Move (Carrier&Reaver)
+52,Stop (Carrier)
+53,Attack (Carrier)
+54,Attack Obscured (Carrier)
+55,Ignore 2 (Carrier)
+56,Attack Unit (Carrier)
+57,Hold Position (Carrier)
+58,Idle (Reaver)
+59,Attack (Reaver)
+60,Attack Obscured (Reaver)
+61,Attack Unit (Reaver)
+62,Hold Position (Reaver)
+63,Training (Subunit)
+64,Move&Attack (Interceptor)
+65,Move&Attack (Scarab)
+66,Recharge Shields (Unit)
+67,Recharge Shields (Global)
+68,Shield Battery Is Recharging
+69,Return To Parent (Interceptor)
+70,Land (Drone)
+71,Land (Building)
+72,Lift Off (Building)
+73,Lift Off (Drone)
+74,Is Lifting Off
+75,Is Researching Technology
+76,Is Performing Upgrade
+77,Idle (Larva)
+78,Is Spawning Larva
+79,Move to Harvest
+80,Move to Harvest Obscured
+81,Move to Harvest Gas
+82,Can Enter Gas Mine
+83,Enter/Exit Gas Mine
+84,Return Gas
+85,Move to Harvest Minerals
+86,Can Harvest Minerals
+87,Harvesting Minerals
+88,Harvesting Minerals Interrupted
+89,Harvest 4 (Unknown)
+90,Return Minerals
+91,Harvesting Interrupted - Recharge Shields
+92,Move/Enter Transport
+93,Idle (Transport)
+94,Load Unit (Mobile Transport)
+95,Load Unit (Bunker)
+96,Load Unit (Unknown)
+97,Idle (Power-Up)
+98,Siege Mode
+99,Tank Mode
+100,Watch Target
+101,Script (Starting Creep Growth)
+102,Script (Spread Creep&Spawn Larva)
+103,Script (Stopping Creep Growth)
+104,Guardian Aspect (Unused)
+105,Move and Morph Archon
+106,Completing Archon Summon
+107,Hold Position (Normal)
+108,Hold Position (Queen)
+109,Cloak
+110,Decloak
+111,Unload Unit (Transport)
+112,Move&Unload Unit (Transport)
+113,Use Ability (Yamato Gun)
+114,Use Ability  On Obscured (Yamato Gun)
+115,Use Ability  (Lockdown)
+116,Burrow
+117,Idle (Burrowed)
+118,Unburrow
+119,Use Ability (Dark Swarm)
+120,Use Ability (Parasite)
+121,Use Ability (Spawn Broodling)
+122,Use Ability (EMP Shockwave)
+123,Unknown
+124,Idle (Nuclear Silo)
+125,Attack (Nuke)
+126,Move&Paint Nuke Target
+127,Attack Unit (Nuke)
+128,Attack Ground (Nuke)
+129,Nuke Track (Ghost)
+130,Script (Cloak Nearby Units)
+131,Cloak Nearby Units (Freezes the casting unit)
+132,Place Spider Mine
+133,Script (Right-Click Action)
+134,Attack Unit (Infested Terran)
+135,Attack Ground (Infested Terran)
+136,Hold Position (Suicide Units)
+137,Use Ability (Recall)
+138,Teleport To Location (Freezes the casting unit)
+139,Use Ability (Scanner Sweep)
+140,Idle (Scanner Sweep)
+141,Use Ability (Defensive Matrix)
+142,Use Ability (Psionic Storm)
+143,Use Ability (Irradiate)
+144,Use Ability (Plague)
+145,Use Ability (Consume)
+146,Use Ability (Ensnare)
+147,Use Ability (Stasis Field)
+148,Use Ability (Hallucination)
+149,Script (Hallucination)
+150,Reset Collision (2 Units)
+151,Reset Collision (Harvester&Mine)
+152,Patrol (Normal)
+153,CTF COP (Initialize)
+154,Idle (CTF COP)
+155,Unknown CTF COP 2
+156,Script (Computer)
+157,Attack Move (Computer)
+158,Move (Harass)
+159,Patrol (Computer)
+160,Guard (Computer)
+161,Idle (Rescuable)
+162,Idle (Neutral)
+163,Return To Base (Computer)
+164,Script (PSI Provider)
+165,Fatal (Scarab)
+166,Idle (Critter)
+167,Idle (Trap)
+168,Open Door
+169,Close Door
+170,Stop (Trap)
+171,Attack (Trap)
+172,Enable Doodad
+173,Disable Doodad
+174,Warp In (Unused)
+175,Idle (Medic)
+176,Use Ability (Heal)
+177,Move (Medic)
+178,Hold Position&Heal (Medic)
+179,Return To Idle After Heal
+180,Use Ability (Restoration)
+181,Use Ability (Disruption Web)
+182,Use Ability (Mind Control)
+183,Dark Archon Meld
+184,Use Ability (Feedback)
+185,Use Ability (Optical Flare)
+186,Use Ability (Maelstrom)
+187,Move (Junk Yard Dog)
+188,Fatal
+189,None

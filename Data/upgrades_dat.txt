@@ -1,62 +1,62 @@
-0, Terran Infantry Armor
-1, Terran Vehicle Plating
-2, Terran Ship Plating
-3, Zerg Carapace
-4, Zerg Flyer Caparace
-5, Protoss Armor
-6, Protoss Plating
-7, Terran Infantry Weapons
-8, Terran Vehicle Weapons
-9, Terran Ship Weapons
-10, Zerg Melee Attacks
-11, Zerg Missile Attacks
-12, Zerg Flyer Attacks
-13, Protoss Ground Weapons
-14, Protoss Air Weapons
-15, Protoss Plasma Shields
-16, U-238 Shells
-17, Ion Thrusters
-18, Burst Lasers (Unused)
-19, Titan Reactor (SV +50)
-20, Ocular Implants
-21, Moebius Reactor (Ghost +50)
-22, Apollo Reactor (Wraith +50)
-23, Colossus Reactor (BC +50)
-24, Ventral Sacs
-25, Antennae
-26, Pneumatized Carapace
-27, Metabolic Boost
-28, Adrenal Glands
-29, Muscular Augments
-30, Grooved Spines
-31, Gamete Meiosis (Queen +50)
-32, Metasynaptic Node (Defiler +50)
-33, Singularity Charge
-34, Leg Enhancements
-35, Scarab Damage
-36, Reaver Capacity
-37, Gravitic Drive
-38, Sensor Array
-39, Gravitic Boosters
-40, Khaydarin Amulet (HT +50)
-41, Apial Sensors
-42, Gravitic Thrusters
-43, Carrier Capacity
-44, Khaydarin Core (Arbiter +50)
-45, Unused Upgrade45
-46, Unused Upgrade46
-47, Argus Jewel (Corsair +50)
-48, Unused Upgrade48
-49, Argus Talisman (DA +50)
-50, Unused Upgrade50
-51, Caduceus Reactor (Medic +50)
-52, Chitinous Plating
-53, Anabolic Synthesis
-54, Charon Booster
-55, Unused Upgrade 55
-56, Unused Upgrade 56
-57, Unused Upgrade 57
-58, Unused Upgrade 58
-59, Unused Upgrade 59
-60, GLOBAL UPGRADE (unused 60)
-61, [None]
+0,Terran Infantry Armor
+1,Terran Vehicle Plating
+2,Terran Ship Plating
+3,Zerg Carapace
+4,Zerg Flyer Caparace
+5,Protoss Armor
+6,Protoss Plating
+7,Terran Infantry Weapons
+8,Terran Vehicle Weapons
+9,Terran Ship Weapons
+10,Zerg Melee Attacks
+11,Zerg Missile Attacks
+12,Zerg Flyer Attacks
+13,Protoss Ground Weapons
+14,Protoss Air Weapons
+15,Protoss Plasma Shields
+16,U-238 Shells
+17,Ion Thrusters
+18,Burst Lasers (Unused)
+19,Titan Reactor (SV +50)
+20,Ocular Implants
+21,Moebius Reactor (Ghost +50)
+22,Apollo Reactor (Wraith +50)
+23,Colossus Reactor (BC +50)
+24,Ventral Sacs
+25,Antennae
+26,Pneumatized Carapace
+27,Metabolic Boost
+28,Adrenal Glands
+29,Muscular Augments
+30,Grooved Spines
+31,Gamete Meiosis (Queen +50)
+32,Metasynaptic Node (Defiler +50)
+33,Singularity Charge
+34,Leg Enhancements
+35,Scarab Damage
+36,Reaver Capacity
+37,Gravitic Drive
+38,Sensor Array
+39,Gravitic Boosters
+40,Khaydarin Amulet (HT +50)
+41,Apial Sensors
+42,Gravitic Thrusters
+43,Carrier Capacity
+44,Khaydarin Core (Arbiter +50)
+45,Unused Upgrade45
+46,Unused Upgrade46
+47,Argus Jewel (Corsair +50)
+48,Unused Upgrade48
+49,Argus Talisman (DA +50)
+50,Unused Upgrade50
+51,Caduceus Reactor (Medic +50)
+52,Chitinous Plating
+53,Anabolic Synthesis
+54,Charon Booster
+55,Unused Upgrade 55
+56,Unused Upgrade 56
+57,Unused Upgrade 57
+58,Unused Upgrade 58
+59,Unused Upgrade 59
+60,GLOBAL UPGRADE (unused 60)
+61,[None]
