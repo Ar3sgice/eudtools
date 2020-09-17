@@ -13,9 +13,17 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 4. Press the arrow next to Value to generate text trigger
 5. Paste text trigger in Scmdraft to make it work.
 
+### Advanced usage & EUD Tutorials
+
+Please refer to the [wiki](https://github.com/Ar3sgice/eudtools/wiki).
+
 ### EUD Database
 
 [http://farty1billion.dyndns.org/EUDDB/](http://farty1billion.dyndns.org/EUDDB/) & [Backup page](https://ar3sgice.github.io/eudtools/Include/EUDDB.html)
+
+### Iscript reference
+
+[https://ar3sgice.github.io/eudtools/Include/IceDC.html](https://ar3sgice.github.io/eudtools/Include/IceDC.html)
 
 ### Stat_txt.tbl reference
 
