@@ -47,7 +47,6 @@ var memorylist = [ /* format: memory, length, type (0:padding, 1:memory), descri
 	[5776116,4,1,"Kill Score"],
 	[5775012,4,1,"Total Kills"],
 	[6641380,4,1,"Latency"],
-	[6556504,4,1,"Latency Change Count"],
 	[0       , 0, 0, ""],
 	[0       , 0, 0, "-----General-----"],
 	[0x6D1200, 4,11, "IceCC Code Parser"],
