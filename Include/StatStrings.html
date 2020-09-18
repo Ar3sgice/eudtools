@@ -48,7 +48,7 @@
 				stringArray.pop();
 				let rawStr = decoder.decode(new Uint8Array(stringArray));
 				out.push({
-					id: i-1,
+					id: i,
 					offset: offset,
 					str: rawStr.replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : "<" + leftPad(rep.charCodeAt(0).toString(16).toUpperCase(), 2, "0") + ">"),
 					strPlain: rawStr.replace(/[\x00-\x1f]/g, rep => rep=="\x0a" ? "\n" : "")
