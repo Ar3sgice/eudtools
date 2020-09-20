@@ -1,3 +1,24 @@
+#container {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1520px;
+	height: auto;
+}
+@media (min-width: 1450px) and (max-width: 1520px) {
+	#container {
+		width: 1400px;
+	}
+}
+@media (min-width: 1370px) and (max-width: 1450px) {
+	#container {
+		width: 1350px;
+	}
+}
 .select_category
 {
 	width: 85px;
@@ -8,6 +29,15 @@
 }
 #container>input[type="text"] {
 	width: 133px;
+}
+textarea
+{
+	font-family: 'courier new';
+	font-size: 14px;
+}
+.divoption
+{
+	font-family: 'arial';
 }
 .option_category
 {
@@ -31,7 +61,7 @@
 	height: 196px;
 	position: absolute;
 	top: 75px;
-	left: 780px;
+	left: 760px;
 }
 .option_data
 {
@@ -60,18 +90,19 @@
 #data_output
 {
 	position: absolute;
-	top: 75px;
-	left: 925px;
+	top: 74px;
+	left: 900px;
 	font-family: "courier new";
 	font-size: 14px;
 	color: #EBEE80;
-	width: 425px;
+	width: 400px;
 	height: 196px;
 }
 #data_output.expanded
 {
-	width: 465px;
-	height: 598px;
+	left: 800px;
+	width: 500px;
+	height: 600px;
 }
 #trigger_output
 {
@@ -293,6 +324,22 @@
 {
 	position: absolute;
 	top: 175px;
+	left: 712px;
+	width: 30px;
+}
+
+/* UnitNodeHelper */
+
+
+#label_unitnodehelper
+{
+	top: 125px;
+	left: 628px;
+}
+#input_unitnodehelper
+{
+	position: absolute;
+	top: 125px;
 	left: 712px;
 	width: 30px;
 }
@@ -1001,13 +1048,71 @@
 	padding: 8px 11px 10px 11px;
 }
 
+/* Flags */
+
+#label_flags_table {
+	position: absolute;
+	top: 294px;
+	left: 627px;
+}
+#flags_table_wrapper
+{
+	position: absolute;
+	top: 288px;
+	left: 673px;
+	width: 660px;
+	height: 360px;
+}
+#flags_table td {
+	height: 25px;
+	line-height: 25px;
+}
+#flags_table td:nth-child(2),
+#flags_table td:nth-child(4),
+#flags_table td:nth-child(6),
+#flags_table td:nth-child(8) {
+}
+#label_flags_value
+{
+	position: absolute;
+	top: 650px;
+	left: 627px;
+}
+#label_flags_mode
+{
+	position: absolute;
+	top: 650px;
+	left: 880px;
+}
+#input_flags_value
+{
+	position: absolute;
+	top: 650px;
+	left: 680px;
+	width: 180px;
+}
+#select_flags_mode
+{
+	position: absolute;
+	top: 650px;
+	left: 935px;
+	width: 230px;
+}
+#parse_flags
+{
+	position: absolute;
+	top: 630px;
+	left: 1180px;
+	padding: 8px 11px 10px 11px;
+}
+
 /* Plugins */
 
 #plugin_area {
 	position: absolute;
 	top: 288px;
 	left: 530px;
-	display: block;
+	display: none;
 	width: 850px;
 	height: 400px;
 }
@@ -1015,6 +1120,7 @@
 #upg_area {display: none;}
 #selgroup_area {display: none;}
 #keygroup_area {display: none;}
+#unitnodehelper_area {display: none;}
 #req_area {display: none;}
 #buttonfunction_area {display: none;}
 #icecc_area {display: none;}
@@ -1028,6 +1134,7 @@
 #stattbl_area {display: none;}
 #wireframes_area {display: none;}
 #playercolor_area {display: none;}
+#flags_area {display: none;}
 #make_memory
 {
 	position: absolute;
@@ -1056,7 +1163,7 @@
 {
 	position: absolute;
 	top: 252px;
-	left: 1360px;
+	left: 1310px;
 	width: 20px;
 	height: 20px;
 	padding: 0;
@@ -1067,7 +1174,7 @@
 #expand_data_output.expanded
 {
 	top: 654px;
-	left: 1400px;
+	left: 1310px;
 	width: 20px;
 	height: 20px;
 }

@@ -32,6 +32,9 @@ function Plugin(memory, length, title, paramObj) {
     if(paramObj.defaultDisplay) {
         this.defaultDisplay = paramObj.defaultDisplay;
     }
+    if(paramObj.unlisted) {
+        this.unlisted = paramObj.unlisted;
+    }
     if(typeof paramObj.offset != "undefined") {
         this.resetOffset = paramObj.offset;
     }
@@ -45,6 +48,9 @@ function registerPlugin(plugin) {
         if(!plugin.defaultDisplay) {
             elem.style.display = "none";
         }
+        else {
+            $("plugin_area").style.display = "block";
+        }
         plugin.area = elem;
     }
     if(plugin.css) {
@@ -56,6 +62,9 @@ function registerPlugin(plugin) {
     }
     allPlugins[plugin.memory] = plugin;
 
+    if(plugin.unlisted) {
+        return;
+    }
     if(pluginInListOffset == -1) {
         memorylist.push([0, 0, 0, ""]);
         memorylist.push([0, 0, 0, "-----Plugins-----"]);

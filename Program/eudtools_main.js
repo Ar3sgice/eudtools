@@ -117,6 +117,7 @@ function useOption(evt)
 	$("upg_area").style.display = "none";
 	$("selgroup_area").style.display = "none";
 	$("keygroup_area").style.display = "none";
+	$("unitnodehelper_area").style.display = "none";
 	$("req_area").style.display = "none";
 	$("buttonfunction_area").style.display = "none";
 	$("icecc_area").style.display = "none";
@@ -129,6 +130,7 @@ function useOption(evt)
 	$("stattbl_area").style.display = "none";
 	$("wireframes_area").style.display = "none";
 	$("reqwrite_area").style.display = "none";
+	$("flags_area").style.display = "none";
 	$("plugin_area").style.display = "none";
 
 	if(typeof allPlugins == "object") {
@@ -177,10 +179,10 @@ function useOption(evt)
 		$("input_length").value = memorylist[optID][1];
 		$("upg_area").style.display = "block";
 		break;
-		case 6: // special ability flags
+		case 6: // special ability flags (unused)
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1];
-		$("saf_floating").style.display = "block";
+		// $("saf_floating").style.display = "block";
 		break;
 		case 7: // requirements
 		$("input_offset").value = memorylist[optID][0];
@@ -192,6 +194,7 @@ function useOption(evt)
 		case 8: // unitnode
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1] + "/336";
+		$("unitnodehelper_area").style.display = "block";
 		break;
 		case 9: // locations
 		$("input_offset").value = memorylist[optID][0];
@@ -293,6 +296,25 @@ function useOption(evt)
 		case 18: // building dims
 		$("input_offset").value = memorylist[optID][0];
 		$("input_length").value = memorylist[optID][1] + "/4";
+		break;
+		case 19: // flags
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1];
+		$("flags_area").style.display = "block";
+		flagsCall();
+		break;
+		case 20: // unitnode + flags
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1] + "/336";
+		$("unitnodehelper_area").style.display = "block";
+		$("flags_area").style.display = "block";
+		flagsCall();
+		break;
+		case 21: // locations + flags
+		$("input_offset").value = memorylist[optID][0];
+		$("input_length").value = memorylist[optID][1] + "/20";
+		$("flags_area").style.display = "block";
+		flagsCall();
 		break;
 		default:
 	}
@@ -462,41 +484,6 @@ function toHex(num,ord)
 		return toHex((num - (num % ord)) / ord) + toHex(num % ord);
 	}
 }
-function safUpdate()
-{
-	var sum=0;
-	for(var i=0;i<32;i++)
-	{
-		sum+=(!!$("saf_check" + (1+i)).checked) * (1 << i);
-	}
-	$("saf_text").value = sum;
-	$("input_value").value = sum;
-}
-function safUpdate2()
-{
-	var code = parseInt($("saf_text").value);
-	if(code > 0xFFFFFFFF)
-	{
-		$("saf_text").value &= 0xFFFFFFFF;
-		safUpdate2();
-	}
-	else if(code < 0)
-	{
-		$("saf_text").value = (code & 0xFFFFFFFF) + 0x100000000;
-		safUpdate2();
-	}
-	for(var i=0;i<32;i++)
-	{
-		if(code & (1 << i))
-		{
-			$("saf_check" + (1+i)).checked = true;
-		}
-		else
-		{
-			$("saf_check" + (1+i)).checked = false;
-		}
-	}
-}
 function settingsUpdate() {
 	var useMasked = !!$("settings_usemasked").checked;
 	if(useMasked) {
@@ -568,6 +555,10 @@ function keygroupUpdate2() {
 function keygroupUpdate3() {
 	$("input_keygroup_unit").value = (parseInt($("input_keygroup_index").value) == 0) ? 0 : 1700 - parseInt($("input_keygroup_index").value);
 	$("input_value").value = 2049 + parseInt($("input_keygroup_unit").value);
+}
+function unitnodehelperUpdate() {
+	$("input_object").value = (parseInt($("input_unitnodehelper").value) == 0) ? 0 : 1700 - parseInt($("input_unitnodehelper").value);
+	updateMemory();
 }
 function reqUpdate()
 {
@@ -669,7 +660,7 @@ function word2bytes(w) {
 	return [w & 255, (w >>> 8) & 255];
 }
 function dword2words(dw) {
-	return [dw & 65535, (w >>> 16) & 65535];
+	return [dw & 65535, (dw >>> 16) & 65535];
 }
 function triggerFormat(trg) {
 	let lines = trg.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0);
@@ -802,7 +793,7 @@ function generateEUDTrigger(memory, s_length, s_value, useMasked, s_origvalue) {
 		}
 		else if(s_value.charAt(0) == "'" && s_value.charAt(s_value.length-1) == "'") // hex string
 		{
-			return hexstrToTrig(s_value.substr(1, s_value.length - 2), memory, triggerPattern_4 + "\n");
+			return hexstrToTrig(s_value.substr(1, s_value.length - 2).replace(/[^0-9a-f]/gi, ""), memory, triggerPattern_4 + "\n");
 		}
 		else
 		{
@@ -928,13 +919,7 @@ function init()
 	$("expand_data_output").onclick = expandDataOutput;
 	$("parse_icecc").onclick = toParseIceCC;
 	$("parse_etg").onclick = hexToTrigger;
-	for(var i=0;i<32;i++)
-	{
-		$("saf_check" + (1+i)).onclick = function(){setTimeout(safUpdate,25);};
-	}
 	$("settings_usemasked").onchange = settingsUpdate;
-	$("saf_text").onkeydown = function(){setTimeout(safUpdate2,25);};
-	$("saf_text").onclick = selectMe;
 	$("input_upg_player").onkeydown = function(){setTimeout(upgUpdate,25);};
 	$("input_upg_uid").onkeydown = function(){setTimeout(upgUpdate,25);};
 	$("input_selgroup_player").onkeydown = function(){setTimeout(selgroupUpdate,25);};
@@ -945,6 +930,7 @@ function init()
 	$("input_keygroup_hotkey").onkeydown = function(){setTimeout(keygroupUpdate,25);};
 	$("input_keygroup_unit").onkeydown = function(){setTimeout(keygroupUpdate2,25);};
 	$("input_keygroup_index").onkeydown = function(){setTimeout(keygroupUpdate3,25);};
+	$("input_unitnodehelper").onkeydown = function(){setTimeout(unitnodehelperUpdate,25);};
 	$("input_req").onkeydown = function(){setTimeout(reqUpdate,25);};
 	$("input_textstack_text").onkeydown = function(){setTimeout(stackTextUpdate,25);};
 	$("input_textstack_text").onpaste = function(){setTimeout(stackTextUpdate,25);};
@@ -959,6 +945,7 @@ function init()
 	wireframesInit();
 	reqwriterInit();
 	playerColorsInit();
+	flagsInit();
 
 	if(typeof allPlugins == "object") {
 		for(let i in allPlugins) {
@@ -972,7 +959,6 @@ function init()
 	}
 
 	loadSettings();
-	$("saf_close").onclick = function(){document.getElementById('saf_floating').style.display='none';return false;};
 	$("settings_close").onclick = function(){document.getElementById('settings_floating').style.display='none';return false;};
 	setTimeout(function(){$("data_output").value = "";},25);
 }

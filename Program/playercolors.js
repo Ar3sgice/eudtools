@@ -13,9 +13,7 @@ var playerColorsComboList = [
 															["","#E1FF68","61 61 166 166 186 101 209 207 220"],
 															["","#F0F0F0","255 255 255 255 84 244 241 71 66"],
 															["","#9A9A9A","241 241 213 70 69 236 67 140 64"],
-															["","#FC9468","115 115 113 110 108 102 95 90 216"],
-															["RGB","#222222","255 111 117 53 61 128 164 255 0"],
-															["Blink","#222222","248 248 248 249 249 250 250 251 251"]
+															["","#FC9468","115 115 113 110 108 102 95 90 216"]
 														];
 
 var _plC_rawRgbData = [
@@ -37,26 +35,18 @@ function _plC_imgInit(tileset) {
 		c2.push(c1.splice(0, 4));
 	}
 	_plC_rgbData = c2;
-	c2.forEach(item => {
+	c2.forEach((item, i) => {
 		let elem = document.createElement("div");
 		elem.className = "playercolor_imgGrid";
 		elem.style.background = "rgb(" + item[0] + ", " + item[1] + ", " + item[2] + ")";
+		elem.addEventListener("click", _plC_selColorEvt.bind(null, i));
 		$("playercolor_imgcontainer").appendChild(elem);
 	});
 }
 
-function selectColor(evt)
-{
-	evt = evt || window.event;
-	var elem = evt.srcElement || evt.target;
-	var divElem = $("playercolor_imgcontainer"); // img element uses absolute position, and cannot have access to offsetLeft/offsetTop.
-	var xOffset = evt.clientX - divElem.offsetLeft;
-	var yOffset = evt.clientY - divElem.offsetTop;
-	var colorCode = Math.floor(yOffset / 24) * 16 + Math.floor(xOffset / 24);
+function _plC_selColorEvt(colorCode, evt) {
 	$("input_playercolor" + _plC_sel).value = colorCode;
 	_plC_BG(_plC_sel);
-	// _plC_sel = (_plC_sel+1) % 9;
-	// $("input_playercolor" + _plC_sel).select();
 	_plC_sel = (_plC_sel+1) % 2;
 	$("input_playercolor" + _plC_sel).select();
 }
@@ -188,7 +178,6 @@ function _plC_Tls(evt) {
 
 function playerColorsInit()
 {
-	$("playercolor_imgcontainer").onclick = selectColor;
 	$("parse_playercolor").onclick = playerColorsToTrigger;
 	$("playercolor_select_tileset").onchange = _plC_Tls;
 	for(var i=0;i<9;i++)
