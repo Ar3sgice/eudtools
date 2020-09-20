@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><title>Ar3's EUD Tools v1.12</title>
-<meta charset="gbk" />
+<meta charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="Program/common.css" />
 <link rel="stylesheet" type="text/css" href="Program/eudtools_main.css" />
 <script src="Program/common.js" type="text/javascript"></script>
@@ -16,61 +16,13 @@
 <script src="Program/wireframes.js" type="text/javascript"></script>
 <script src="Program/reqwriter.js" type="text/javascript"></script>
 <script src="Program/playercolors.js" type="text/javascript"></script>
+<script src="Program/flags.js" type="text/javascript"></script>
 <script src="Program/plugins.js" type="text/javascript"></script>
 <script src="Program/iconv-lite-browserify.js" charset="utf-8" type="text/javascript"></script>
 </head>
 <body id="eudtools_body">
 
 <div id="title_text" class="c_title">Ar3's EUD Tools! v1.12</div>
-
-<div class="floatboard" id="saf_floating">
-	<a class="changelink" id="saf_close">X</a>
-	<div id="saf_div1" class="c_title">&nbsp;&nbsp;Unit Special Ability Flags Generator</div>
-	<div id="saf_div2">
-		<table border="0">
-			<tr>
-				<td><input type="checkbox" id="saf_check1" class="input_ckb" />Building</td>
-				<td><input type="checkbox" id="saf_check2" class="input_ckb" />Addon</td>
-				<td><input type="checkbox" id="saf_check3" class="input_ckb" />Flyer</td>
-				<td><input type="checkbox" id="saf_check4" class="input_ckb" />Worker</td>
-				<td><input type="checkbox" id="saf_check5" class="input_ckb" />Subunit</td>
-				<td><input type="checkbox" id="saf_check6" class="input_ckb" />Flying Building</td>
-			</tr><tr>
-				<td><input type="checkbox" id="saf_check7" class="input_ckb" />Hero</td>
-				<td><input type="checkbox" id="saf_check8" class="input_ckb" />Regeneration</td>
-				<td><input type="checkbox" id="saf_check9" class="input_ckb" />Animated Idle</td>
-				<td><input type="checkbox" id="saf_check10" class="input_ckb" />Cloakable</td>
-				<td><input type="checkbox" id="saf_check11" class="input_ckb" />2 units in 1 Egg</td>
-				<td><input type="checkbox" id="saf_check12" class="input_ckb" />Single Entity</td>
-			</tr><tr>
-				<td><input type="checkbox" id="saf_check13" class="input_ckb" />Resource Depot</td>
-				<td><input type="checkbox" id="saf_check14" class="input_ckb" />Resource Container</td>
-				<td><input type="checkbox" id="saf_check15" class="input_ckb" />Robotic</td>
-				<td><input type="checkbox" id="saf_check16" class="input_ckb" />Detector</td>
-				<td><input type="checkbox" id="saf_check17" class="input_ckb" />Organic</td>
-				<td><input type="checkbox" id="saf_check18" class="input_ckb" />Creep Building</td>
-			</tr><tr>
-				<td><input type="checkbox" id="saf_check19" class="input_ckb" />Unused</td>
-				<td><input type="checkbox" id="saf_check20" class="input_ckb" />Requires Psi Field</td>
-				<td><input type="checkbox" id="saf_check21" class="input_ckb" />Burrowable</td>
-				<td><input type="checkbox" id="saf_check22" class="input_ckb" />Mana bar</td>
-				<td><input type="checkbox" id="saf_check23" class="input_ckb" />Permanent cloak</td>
-				<td><input type="checkbox" id="saf_check24" class="input_ckb" />Pickup Item</td>
-			</tr><tr>
-				<td><input type="checkbox" id="saf_check25" class="input_ckb" />Ignore Supply Check</td>
-				<td><input type="checkbox" id="saf_check26" class="input_ckb" />Medium Overlays</td>
-				<td><input type="checkbox" id="saf_check27" class="input_ckb" />Large Overlays</td>
-				<td><input type="checkbox" id="saf_check28" class="input_ckb" />Battle Reactions</td>
-				<td><input type="checkbox" id="saf_check29" class="input_ckb" />Full Auto-Attack</td>
-				<td><input type="checkbox" id="saf_check30" class="input_ckb" />Invincible</td>
-			</tr><tr>
-				<td><input type="checkbox" id="saf_check31" class="input_ckb" />Mechanical</td>
-				<td><input type="checkbox" id="saf_check32" class="input_ckb" />Produces Units</td>
-			</tr>
-		</table>
-		<input type="text" id="saf_text" value="0" size="27" class="input_text" />
-	</div>
-</div>
 
 <div class="floatboard" id="settings_floating">
 	<a class="changelink" id="settings_close">X</a>
@@ -126,6 +78,10 @@
 		<input type="text" id="input_keygroup_unit" value="0" />
 		<div class="labels" id="label_keygroup_index">MapIndex: </div>
 		<input type="text" id="input_keygroup_index" value="0" />
+	</div>
+	<div id="unitnodehelper_area">
+		<div class="labels" id="label_unitnodehelper">MapIndex: </div>
+		<input type="text" id="input_unitnodehelper" value="0" />
 	</div>
 	<div id="req_area">
 		<div class="labels" id="label_req">Req. ID: </div>
@@ -292,6 +248,22 @@
 		<div class="labels" id="label_mapstr_cont">Content: </div>
 		<textarea id="inputarea_mapstr"></textarea>
 		<div class="divbutton" id="parse_mapstr">Parse</div>
+	</div>
+	<div id="flags_area">
+		<div class="labels" id="label_flags_table">Flags: </div>
+		<div id="flags_table_wrapper">
+			<table id="flags_table"><tbody id="flags_tbody"></tbody></table>
+		</div>
+		<div class="labels" id="label_flags_value">Value: </div>
+		<input type="text" id="input_flags_value" value="0" />
+		<div class="labels" id="label_flags_mode">Mode: </div>
+		<select type="text" id="select_flags_mode">
+			<option id="select_flags_mode_0" selected="selected">Set All</option>
+			<option id="select_flags_mode_1">Set Selected</option>
+			<option id="select_flags_mode_2">Clear Selected</option>
+			<option id="select_flags_mode_2">Clear Unselected</option>
+		</select>
+		<div class="divbutton" id="parse_flags">Parse</div>
 	</div>
 	<div id="plugin_area">
 	</div>
