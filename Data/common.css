@@ -1,0 +1,24 @@
+a{color:#FBFDB0;font-family:verdana;cursor:pointer;text-decoration:none;font-weight:bold;}
+.changelink{color:#FBFDB0;font-family:verdana;font-size:12px;cursor:pointer;text-decoration:none;font-weight:bold;}
+.changelink7{color:#FBFDB0;font-family:verdana;font-size:12;cursor:pointer;text-decoration:none;margin-left:35px;font-weight:bold;}
+.c_title{font-family: tahoma;font-size: 25px;color:#86EE59;font-weight:bold}
+h3{font-family: tahoma;font-size: 25px;color:#86EE59;font-weight:bold}
+.input_radio{border:none !important;}
+input{background:#222222;color:#99D6FF;border:solid 1px #bbbbbb;font-family:'trebuchet ms'}
+select{background:#222222;color:#99D6FF;border:solid 1px #bbbbbb;font-family:'trebuchet ms'}
+textarea{background:#222222;color:#99D6FF}
+.output_text{font-family: "courier new";font-size: 14px;color:#EBEE80}
+.output_body{background:#000000;}
+.eudtrig_desc{font-family: tahoma;font-size: 12px;color:#EEEEEE}
+.sa_desc{font-family: tahoma;font-size: 12px;color:#EEEEEE}
+.openwindow_title{font-family: tahoma;font-size: 28px}
+.openwindow_output{font-family: verdana;font-size: 14px}
+.openwindow_output_b{font-family: verdana;font-size: 16px;font-weight:bold}
+iframe{background:#000001;border:solid 1px #bbbbbb}
+
+body{background:#000001;color:#99D6FF;font-family:verdana;font-size:16px;}
+
+.floating{position:absolute;background-color:#222222;border:solid 2px #99d6ff;overflow-x:hidden;overflow-y:hidden;}
+.divbutton{position:absolute;background:#444444;color:#FBFDB0;font-family:verdana;font-size:12;cursor:pointer;text-decoration:none;font-weight:bold;text-align:center;vertical-align:center;border:solid 2px #99d6ff;overflow-x:hidden;overflow-y:hidden;}
+.divselect{background:#222222;color:#99D6FF;overflow-x:hidden;overflow-y:scroll;border:solid 2px #ffffff;cursor:cursor;}
+.divoption{background:#222222;color:#99D6FF;font-family:"arial";font-size:13px;cursor:pointer;padding-left:1px;padding-top:1px;text-decoration:none;}
