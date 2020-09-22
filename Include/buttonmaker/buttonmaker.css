@@ -60,6 +60,8 @@
 }
 
 select {
+	font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+	font-size: 14px;
 	overflow: hidden;
 	min-width: 30px;
 }
