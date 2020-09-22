@@ -226,7 +226,7 @@
 225,Zerg Vespene Gas Sac Type 2
 226,Terran Vespene Gas Tank Type 1
 227,Terran Vespene Gas Tank Type 2
-228,[None (228)]
+228,None (228)
 
 [FiregraftExtra]
 229,Cancel

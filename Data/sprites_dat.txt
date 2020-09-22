@@ -1,517 +1,517 @@
-1,2/38 Ash
-2,2/39 Ash
-3,2/41 Ash
-4,2/40 Ash
-5,2/42 Ash
-6,2/43 Ash
-7,2/44 Ash 
-8,2/1 Ash
-9,2/4 Ash
-10,2/5 Ash
-11,2/30 Ash
-12,2/28 Ash
-13,2/29 Ash
-14,4/1 Ash 
-15,4/2 Ash
-16,4/3 Ash
-17,4/56 Jungle
-18,4/57 Jungle
-19,4/58 Jungle
-20,4/59 Jungle
-21,9/5 Jungle
-22,9/6 Jungle
-23,9/7 Jungle
-24,4/51 Jungle
-25,4/52 Jungle
-26,4/54 Jungle
-27,4/53 Jungle
-28,9/1 Jungle
-29,9/2 Jungle
-30,9/3 Jungle
-31,9/4 Jungle
-32,4/12 Jungle
-33,4/13 Jungle
-34,4/1 Jungle
-35,4/3 Jungle
-36,4/2 Jungle
-37,4/5 Jungle
-38,4/4 Jungle
-39,4/9 Jungle
-40,4/10 Jungle
-41,5/5 Jungle
-42,5/7 Jungle
-43,5/6 Jungle
-44,5/9 Jungle
-45,5/8 Jungle
-46,4/6 Jungle
-47,4/7 Jungle
-48,4/17 Jungle
-49,13/4 Jungle
-50,11/5 Jungle
-51,11/6 Jungle
-52,11/7 Jungle
-53,11/8 Jungle
-54,11/10 Jungle
-55,11/11 Jungle
-56,11/12 Jungle
-57,7/4 Platform
-58,7/5 Platform
-59,7/6 Platform
-60,7/1 Platform
-61,7/2 Platform
-62,7/3 Platform
-63,7/9 Platform
-64,7/10 Platform
-65,7/8 Platform
-66,7/7 Platform
-67,7/26 Platform
-68,7/24 Platform
-69,7/28 Platform
-70,7/27 Platform
-71,7/25 Platform
-72,7/29 Platform
-73,7/30 Platform
-74,7/31 Platform
-75,12/1 Platform
-76,9/27 Platform
-77,5/54 Badlands
-78,5/55 Badlands
-79,5/56 Badlands
-80,5/57 Badlands
-81,6/16 Badlands
-82,6/17 Badlands
-83,6/20 Badlands
-84,6/21 Badlands
-85,5/10 Badlands
-86,5/50 Badlands
-87,5/52 Badlands
-88,5/53 Badlands
-89,5/51 Badlands
-90,6/3 Badlands
-91,11/3 Badlands
-92,11/8 Badlands
-93,11/6 Badlands
-94,11/7 Badlands
-95,11/9 Badlands
-96,11/10 Badlands
-97,11/11 Badlands
-98,11/12 Badlands
-99,11/13 Badlands
-100,11/14 Badlands
-101,1/13 Badlands
-102,1/9 Badlands
-103,1/11 Badlands
-104,1/14 Badlands
-105,1/10 Badlands
-106,1/12 Badlands
-107,1/15 Badlands
-108,1/7 Badlands
-109,1/5 Badlands
-110,1/16 Badlands
-111,1/8 Badlands
-112,1/6 Badlands1
-113,1/6 Badlands2
-114,1/6 Badlands3
-115,1/6 Badlands4
-116,1/6 Badlands5
-117,1/6 Badlands6
-118,1/6 Badlands7
-119,1/6 Badlands8
-120,4/15 Installation1
-121,4/15 Installation2
-122,3/9 Installation
-123,3/10 Installation
-124,3/11 Installation
-125,3/12 Installation
-126,1/6 Badlands9
-127,1/6 Badlands10
-128,3/1 Installation
-129,3/2 Installation
-130,1/6 Badlands11
-131,Scourge
-132,Scourge Death
-133,Scourge Explosion
-134,Broodling
-135,Broodling Remnants
-136,Infested Terran
-137,Infested Terran Explosion
-138,Guardian Cocoon
-139,Defiler
-140,Defiler Remnants
-141,Drone
-142,Drone Remnants
-143,Egg
-144,Egg Remnants
-145,Guardian
-146,Guardian Death
-147,Hydralisk
-148,Hydralisk Remnants
-149,Infested Kerrigan
-150,Larva
-151,Larva Remnants
-152,Mutalisk
-153,Mutalisk Death
-154,Overlord
-155,Overlord Death
-156,Queen
-157,Queen Death
-158,Ultralisk
-159,Ultralisk Remnants
-160,Zergling
-161,Zergling Remnants
-162,Cerebrate
-163,Infested Command Center
-164,Spawning Pool
-165,Mature Chrysalis
-166,Evolution Chamber
-167,Creep Colony
-168,Hatchery
-169,Hive
-170,Lair
-171,Sunken Colony
-172,Greater Spire
-173,Defiler Mound
-174,Queen's Nest
-175,Nydus Canal
-176,Overmind With Shell
-177,Overmind Without Shell
-178,Ultralisk Cavern
-179,Extractor
-180,Hydralisk Den
-181,Spire
-182,Spore Colony
-183,Zerg Building Spawn (Small)
-184,Zerg Building Spawn (Medium)
-185,Zerg Building Spawn (Large)
-186,Zerg Building Explosion
-187,Zerg Building Rubble (Small)
-188,Zerg Building Rubble (Large)
-189,Arbiter
-190,Archon Energy
-191,Carrier
-192,Dragoon
-193,Dragoon Remnants
-194,Interceptor
-195,Probe
-196,Scout
-197,Shuttle
-198,High Templar
-199,Dark Templar (Hero)
-200,Reaver
-201,Scarab
-202,Zealot
-203,Observer
-204,Templar Archives
-205,Assimilator
-206,Observatory
-207,Citadel of Adun
-208,Forge
-209,Gateway
-210,Cybernetics Core
-211,Khaydarin Crystal Formation
-212,Nexus
-213,Photon Cannon
-214,Arbiter Tribunal
-215,Pylon
-216,Robotics Facility
-217,Shield Battery
-218,Stargate
-219,Stasis Cell/Prison
-220,Robotics Support Bay
-221,Protoss Temple
-222,Fleet Beacon
-223,Explosion (Large)
-224,Protoss Building Rubble (Small)
-225,Protoss Building Rubble (Large)
-226,Battlecruiser
-227,Civilian
-228,Dropship
-229,Firebat
-230,Ghost
-231,Ghost Remnants
-232,Nuke Target Dot
-233,Goliath Base
-234,Goliath Turret
-235,Sarah Kerrigan
-236,Marine
-237,Marine Remnants
-238,Scanner Sweep
-239,Wraith
-240,SCV
-241,Siege Tank (Tank) Base
-242,Siege Tank (Tank) Turret
-243,Siege Tank (Siege) Base
-244,Siege Tank (Siege) Turret
-245,Vulture
-246,Spider Mine
-247,Science Vessel (Base)
-248,Science Vessel (Turret)
-249,Terran Academy
-250,Barracks
-251,Armory
-252,Comsat Station
-253,Command Center
-254,Supply Depot
-255,Control Tower
-256,Factory
-257,Covert Ops
-258,Ion Cannon
-259,Machine Shop
-260,Missile Turret (Base)
-261,Crashed Batlecruiser
-262,Physics Lab
-263,Bunker
-264,Refinery
-265,Science Facility
-266,Nuclear Silo
-267,Nuclear Missile
-268,Nuke Hit
-269,Starport
-270,Engineering Bay
-271,Terran Construction (Large)
-272,Terran Construction (Small)
-273,Building Explosion (Large)
-274,Terran Building Rubble (Small)
-275,Terran Building Rubble (Large)
-276,Vespene Geyser
-277,Ragnasaur (Ash)
-278,Rhynadon (Badlands)
-279,Bengalaas (Jungle)
-280,Mineral Field Type1
-281,Mineral Field Type2
-282,Mineral Field Type3
-283,Independent Starport (Unused)
-284,Zerg Beacon
-285,Terran Beacon
-286,Protoss Beacon
-287,Dark Swarm
-288,Flag
-289,Young Chrysalis
-290,Psi Emitter
-291,Data Disc
-292,Khaydarin Crystal
-293,Mineral Chunk Type1
-294,Mineral Chunk Type2
-295,Protoss Gas Orb Type1
-296,Protoss Gas Orb Type2
-297,Zerg Gas Sac Type1
-298,Zerg Gas Sac Type2
-299,Terran Gas Tank Type1
-300,Terran Gas Tank Type2
-301,White Circle (Invisible)
-302,Start Location
-303,Map Revealer
-304,Floor Gun Trap
-305,Wall Missile Trap
-306,Wall Missile Trap2
-307,Wall Flame Trap
-308,Wall Flame Trap2
-309,Floor Missile Trap
-310,Longbolt/Gemini Missiles Trail
-311,Grenade Shot Smoke
-312,Vespene Geyser Smoke1
-313,Vespene Geyser Smoke2
-314,Vespene Geyser Smoke3
-315,Vespene Geyser Smoke4
-316,Vespene Geyser Smoke5
-317,Small Explosion (Unused)
-318,Double Explosion
-319,Cursor Marker
-320,Egg Spawn
-321,High Templar Glow
-322,Psi Field (Right Upper)
-323,Burrowing Dust
-324,Building Landing Dust Type1
-325,Building Landing Dust Type2
-326,Building Landing Dust Type3
-327,Building Landing Dust Type4
-328,Building Landing Dust Type5
-329,Building Lifting Dust Type1
-330,Building Lifting Dust Type2
-331,Building Lifting Dust Type3
-332,Building Lifting Dust Type4
-333,Needle Spines
-334,Dual Photon Blasters Hit
-335,Particle Beam Hit
-336,Anti-Matter Missile
-337,Pulse Cannon
-338,Phase Disruptor
-339,STA/STS Photon Cannon Overlay
-340,Psionic Storm
-341,Fusion Cutter Hit
-342,Gauss Rifle Hit
-343,Gemini Missiles
-344,Fragmentation Grenade
-345,Magna Pulse (Unused)
-346,Lockdown/LongBolt/Hellfire Missile
-347,C-10 Canister Rifle Hit
-348,ATS/ATA Laser Battery
-349,Burst Lasers
-350,Arclite Shock Cannon Hit
-351,Yamato Gun
-352,Yamato Gun Trail
-353,EMP Shockwave Missile
-354,Needle Spine Hit
-355,Plasma Drip Hit (Unused)
-356,Sunken Colony Tentacle
-357,Venom (Unused Zerg Weapon)
-358,Acid Spore
-359,Glave Wurm
-360,Seeker Spores
-361,Queen Spell Holder
-362,Stasis Field Hit
-363,Plague Cloud
-364,Consume
-365,Ensnare
-366,Glave Wurm/Seeker Spores Hit
-367,Psionic Shockwave Hit
-368,Glave Wurm Trail
-369,Seeker Spores Overlay
-370,Phase Disruptor (Unused)
-371,White Circle
-372,Acid Spray (Unused)
-373,Plasma Drip (Unused)
-374,Scarab/Anti-Matter Missile Overlay
-375,Hallucination Death1
-376,Hallucination Death2
-377,Hallucination Death3
-378,Bunker Overlay
-379,FlameThrower
-380,Recall Field
-381,Scanner Sweep Hit
-382,Left Upper Level Door
-383,Right Upper Level Door
-384,Substructure Left Door
-385,Substructure Right Door
-386,Substructure Opening Hole
-387,7/13 Twilight
-388,7/14 Twilight
-389,7/16 Twilight
-390,7/15 Twilight
-391,7/19 Twilight
-392,7/20 Twilight
-393,7/21 Twilight
-394,Unknown Twilight
-395,7/17 Twilight
-396,6/1 Twilight
-397,6/2 Twilight
-398,6/3 Twilight
-399,6/4 Twilight
-400,6/5 Twilight
+0,2/38 Ash
+1,2/39 Ash
+2,2/41 Ash
+3,2/40 Ash
+4,2/42 Ash
+5,2/43 Ash
+6,2/44 Ash 
+7,2/1 Ash
+8,2/4 Ash
+9,2/5 Ash
+10,2/30 Ash
+11,2/28 Ash
+12,2/29 Ash
+13,4/1 Ash 
+14,4/2 Ash
+15,4/3 Ash
+16,4/56 Jungle
+17,4/57 Jungle
+18,4/58 Jungle
+19,4/59 Jungle
+20,9/5 Jungle
+21,9/6 Jungle
+22,9/7 Jungle
+23,4/51 Jungle
+24,4/52 Jungle
+25,4/54 Jungle
+26,4/53 Jungle
+27,9/1 Jungle
+28,9/2 Jungle
+29,9/3 Jungle
+30,9/4 Jungle
+31,4/12 Jungle
+32,4/13 Jungle
+33,4/1 Jungle
+34,4/3 Jungle
+35,4/2 Jungle
+36,4/5 Jungle
+37,4/4 Jungle
+38,4/9 Jungle
+39,4/10 Jungle
+40,5/5 Jungle
+41,5/7 Jungle
+42,5/6 Jungle
+43,5/9 Jungle
+44,5/8 Jungle
+45,4/6 Jungle
+46,4/7 Jungle
+47,4/17 Jungle
+48,13/4 Jungle
+49,11/5 Jungle
+50,11/6 Jungle
+51,11/7 Jungle
+52,11/8 Jungle
+53,11/10 Jungle
+54,11/11 Jungle
+55,11/12 Jungle
+56,7/4 Platform
+57,7/5 Platform
+58,7/6 Platform
+59,7/1 Platform
+60,7/2 Platform
+61,7/3 Platform
+62,7/9 Platform
+63,7/10 Platform
+64,7/8 Platform
+65,7/7 Platform
+66,7/26 Platform
+67,7/24 Platform
+68,7/28 Platform
+69,7/27 Platform
+70,7/25 Platform
+71,7/29 Platform
+72,7/30 Platform
+73,7/31 Platform
+74,12/1 Platform
+75,9/27 Platform
+76,5/54 Badlands
+77,5/55 Badlands
+78,5/56 Badlands
+79,5/57 Badlands
+80,6/16 Badlands
+81,6/17 Badlands
+82,6/20 Badlands
+83,6/21 Badlands
+84,5/10 Badlands
+85,5/50 Badlands
+86,5/52 Badlands
+87,5/53 Badlands
+88,5/51 Badlands
+89,6/3 Badlands
+90,11/3 Badlands
+91,11/8 Badlands
+92,11/6 Badlands
+93,11/7 Badlands
+94,11/9 Badlands
+95,11/10 Badlands
+96,11/11 Badlands
+97,11/12 Badlands
+98,11/13 Badlands
+99,11/14 Badlands
+100,1/13 Badlands
+101,1/9 Badlands
+102,1/11 Badlands
+103,1/14 Badlands
+104,1/10 Badlands
+105,1/12 Badlands
+106,1/15 Badlands
+107,1/7 Badlands
+108,1/5 Badlands
+109,1/16 Badlands
+110,1/8 Badlands
+111,1/6 Badlands1
+112,1/6 Badlands2
+113,1/6 Badlands3
+114,1/6 Badlands4
+115,1/6 Badlands5
+116,1/6 Badlands6
+117,1/6 Badlands7
+118,1/6 Badlands8
+119,4/15 Installation1
+120,4/15 Installation2
+121,3/9 Installation
+122,3/10 Installation
+123,3/11 Installation
+124,3/12 Installation
+125,1/6 Badlands9
+126,1/6 Badlands10
+127,3/1 Installation
+128,3/2 Installation
+129,1/6 Badlands11
+130,Scourge
+131,Scourge Death
+132,Scourge Explosion
+133,Broodling
+134,Broodling Remnants
+135,Infested Terran
+136,Infested Terran Explosion
+137,Guardian Cocoon
+138,Defiler
+139,Defiler Remnants
+140,Drone
+141,Drone Remnants
+142,Egg
+143,Egg Remnants
+144,Guardian
+145,Guardian Death
+146,Hydralisk
+147,Hydralisk Remnants
+148,Infested Kerrigan
+149,Larva
+150,Larva Remnants
+151,Mutalisk
+152,Mutalisk Death
+153,Overlord
+154,Overlord Death
+155,Queen
+156,Queen Death
+157,Ultralisk
+158,Ultralisk Remnants
+159,Zergling
+160,Zergling Remnants
+161,Cerebrate
+162,Infested Command Center
+163,Spawning Pool
+164,Mature Chrysalis
+165,Evolution Chamber
+166,Creep Colony
+167,Hatchery
+168,Hive
+169,Lair
+170,Sunken Colony
+171,Greater Spire
+172,Defiler Mound
+173,Queen's Nest
+174,Nydus Canal
+175,Overmind With Shell
+176,Overmind Without Shell
+177,Ultralisk Cavern
+178,Extractor
+179,Hydralisk Den
+180,Spire
+181,Spore Colony
+182,Zerg Building Spawn (Small)
+183,Zerg Building Spawn (Medium)
+184,Zerg Building Spawn (Large)
+185,Zerg Building Explosion
+186,Zerg Building Rubble (Small)
+187,Zerg Building Rubble (Large)
+188,Arbiter
+189,Archon Energy
+190,Carrier
+191,Dragoon
+192,Dragoon Remnants
+193,Interceptor
+194,Probe
+195,Scout
+196,Shuttle
+197,High Templar
+198,Dark Templar (Hero)
+199,Reaver
+200,Scarab
+201,Zealot
+202,Observer
+203,Templar Archives
+204,Assimilator
+205,Observatory
+206,Citadel of Adun
+207,Forge
+208,Gateway
+209,Cybernetics Core
+210,Khaydarin Crystal Formation
+211,Nexus
+212,Photon Cannon
+213,Arbiter Tribunal
+214,Pylon
+215,Robotics Facility
+216,Shield Battery
+217,Stargate
+218,Stasis Cell/Prison
+219,Robotics Support Bay
+220,Protoss Temple
+221,Fleet Beacon
+222,Explosion (Large)
+223,Protoss Building Rubble (Small)
+224,Protoss Building Rubble (Large)
+225,Battlecruiser
+226,Civilian
+227,Dropship
+228,Firebat
+229,Ghost
+230,Ghost Remnants
+231,Nuke Target Dot
+232,Goliath Base
+233,Goliath Turret
+234,Sarah Kerrigan
+235,Marine
+236,Marine Remnants
+237,Scanner Sweep
+238,Wraith
+239,SCV
+240,Siege Tank (Tank) Base
+241,Siege Tank (Tank) Turret
+242,Siege Tank (Siege) Base
+243,Siege Tank (Siege) Turret
+244,Vulture
+245,Spider Mine
+246,Science Vessel (Base)
+247,Science Vessel (Turret)
+248,Terran Academy
+249,Barracks
+250,Armory
+251,Comsat Station
+252,Command Center
+253,Supply Depot
+254,Control Tower
+255,Factory
+256,Covert Ops
+257,Ion Cannon
+258,Machine Shop
+259,Missile Turret (Base)
+260,Crashed Batlecruiser
+261,Physics Lab
+262,Bunker
+263,Refinery
+264,Science Facility
+265,Nuclear Silo
+266,Nuclear Missile
+267,Nuke Hit
+268,Starport
+269,Engineering Bay
+270,Terran Construction (Large)
+271,Terran Construction (Small)
+272,Building Explosion (Large)
+273,Terran Building Rubble (Small)
+274,Terran Building Rubble (Large)
+275,Vespene Geyser
+276,Ragnasaur (Ash)
+277,Rhynadon (Badlands)
+278,Bengalaas (Jungle)
+279,Mineral Field Type1
+280,Mineral Field Type2
+281,Mineral Field Type3
+282,Independent Starport (Unused)
+283,Zerg Beacon
+284,Terran Beacon
+285,Protoss Beacon
+286,Dark Swarm
+287,Flag
+288,Young Chrysalis
+289,Psi Emitter
+290,Data Disc
+291,Khaydarin Crystal
+292,Mineral Chunk Type1
+293,Mineral Chunk Type2
+294,Protoss Gas Orb Type1
+295,Protoss Gas Orb Type2
+296,Zerg Gas Sac Type1
+297,Zerg Gas Sac Type2
+298,Terran Gas Tank Type1
+299,Terran Gas Tank Type2
+300,White Circle (Invisible)
+301,Start Location
+302,Map Revealer
+303,Floor Gun Trap
+304,Wall Missile Trap
+305,Wall Missile Trap2
+306,Wall Flame Trap
+307,Wall Flame Trap2
+308,Floor Missile Trap
+309,Longbolt/Gemini Missiles Trail
+310,Grenade Shot Smoke
+311,Vespene Geyser Smoke1
+312,Vespene Geyser Smoke2
+313,Vespene Geyser Smoke3
+314,Vespene Geyser Smoke4
+315,Vespene Geyser Smoke5
+316,Small Explosion (Unused)
+317,Double Explosion
+318,Cursor Marker
+319,Egg Spawn
+320,High Templar Glow
+321,Psi Field (Right Upper)
+322,Burrowing Dust
+323,Building Landing Dust Type1
+324,Building Landing Dust Type2
+325,Building Landing Dust Type3
+326,Building Landing Dust Type4
+327,Building Landing Dust Type5
+328,Building Lifting Dust Type1
+329,Building Lifting Dust Type2
+330,Building Lifting Dust Type3
+331,Building Lifting Dust Type4
+332,Needle Spines
+333,Dual Photon Blasters Hit
+334,Particle Beam Hit
+335,Anti-Matter Missile
+336,Pulse Cannon
+337,Phase Disruptor
+338,STA/STS Photon Cannon Overlay
+339,Psionic Storm
+340,Fusion Cutter Hit
+341,Gauss Rifle Hit
+342,Gemini Missiles
+343,Fragmentation Grenade
+344,Magna Pulse (Unused)
+345,Lockdown/LongBolt/Hellfire Missile
+346,C-10 Canister Rifle Hit
+347,ATS/ATA Laser Battery
+348,Burst Lasers
+349,Arclite Shock Cannon Hit
+350,Yamato Gun
+351,Yamato Gun Trail
+352,EMP Shockwave Missile
+353,Needle Spine Hit
+354,Plasma Drip Hit (Unused)
+355,Sunken Colony Tentacle
+356,Venom (Unused Zerg Weapon)
+357,Acid Spore
+358,Glave Wurm
+359,Seeker Spores
+360,Queen Spell Holder
+361,Stasis Field Hit
+362,Plague Cloud
+363,Consume
+364,Ensnare
+365,Glave Wurm/Seeker Spores Hit
+366,Psionic Shockwave Hit
+367,Glave Wurm Trail
+368,Seeker Spores Overlay
+369,Phase Disruptor (Unused)
+370,White Circle
+371,Acid Spray (Unused)
+372,Plasma Drip (Unused)
+373,Scarab/Anti-Matter Missile Overlay
+374,Hallucination Death1
+375,Hallucination Death2
+376,Hallucination Death3
+377,Bunker Overlay
+378,FlameThrower
+379,Recall Field
+380,Scanner Sweep Hit
+381,Left Upper Level Door
+382,Right Upper Level Door
+383,Substructure Left Door
+384,Substructure Right Door
+385,Substructure Opening Hole
+386,7/13 Twilight
+387,7/14 Twilight
+388,7/16 Twilight
+389,7/15 Twilight
+390,7/19 Twilight
+391,7/20 Twilight
+392,7/21 Twilight
+393,Unknown Twilight
+394,7/17 Twilight
+395,6/1 Twilight
+396,6/2 Twilight
+397,6/3 Twilight
+398,6/4 Twilight
+399,6/5 Twilight
+400,8/3 Twilight
 401,8/3 Twilight
-402,8/3 Twilight
-403,9/29 Ice
-404,9/28 Ice
-405,12/38 Ice 
-406,12/37 Ice
-407,12/33 Ice
-408,9/21 Ice
-409,9/15 Ice
-410,9/16 Ice
-411,Unknown410
-412,Unknown411
-413,12/9 Ice1
-414,12/10 Ice
-415,9/24 Ice 
-416,9/23 Ice
-417,Unknown416
-418,12/7 Ice
-419,12/8 Ice
-420,12/9 Ice2
-421,12/10 Ice
-422,12/40 Ice
-423,12/41 Ice
-424,12/42 Ice
-425,12/5 Ice
-426,12/6 Ice 
-427,12/36 Ice
-428,12/32 Ice
-429,12/33 Ice
-430,12/34 Ice
-431,12/24 Ice
-432,12/25 Ice
-433,9/22 Ice
-434,12/31 Ice
-435,12/20 Ice
-436,12/24 Ice
-437,12/25 Ice
+402,9/29 Ice
+403,9/28 Ice
+404,12/38 Ice 
+405,12/37 Ice
+406,12/33 Ice
+407,9/21 Ice
+408,9/15 Ice
+409,9/16 Ice
+410,Unknown410
+411,Unknown411
+412,12/9 Ice1
+413,12/10 Ice
+414,9/24 Ice 
+415,9/23 Ice
+416,Unknown416
+417,12/7 Ice
+418,12/8 Ice
+419,12/9 Ice2
+420,12/10 Ice
+421,12/40 Ice
+422,12/41 Ice
+423,12/42 Ice
+424,12/5 Ice
+425,12/6 Ice 
+426,12/36 Ice
+427,12/32 Ice
+428,12/33 Ice
+429,12/34 Ice
+430,12/24 Ice
+431,12/25 Ice
+432,9/22 Ice
+433,12/31 Ice
+434,12/20 Ice
+435,12/24 Ice
+436,12/25 Ice
+437,12/30 Ice
 438,12/30 Ice
-439,12/30 Ice
-440,Unknown439
-441,4/1 Ice
-442,6/1 Ice
-443,5/6 Ice 
-444,5/7 Ice 
-445,5/8 Ice 
-446,5/9 Ice
-447,10/10 Desert1
-448,10/12 Desert1
-449,10/8 Desert
-450,10/9 Desert1
-451,6/10 Desert
-452,6/13 Desert
-453,Unknown Desert
-454,10/12 Desert2
-455,10/9 Desert2
-456,10/10 Desert2
-457,10/11 Desert
-458,10/14 Desert
-459,10/41 Desert
-460,10/39 Desert
-461,10/8 Desert
-462,10/6 Desert
-463,10/7 Desert
-464,4/6 Desert
-465,4/11 Desert
-466,4/10 Desert
-467,4/9 Desert
-468,4/7 Desert
-469,4/12 Desert
-470,4/8 Desert
-471,4/13 Desert
-472,6/13 Desert
-473,4/17 Desert
-474,6/20 Desert
-475,4/15 Desert1
-476,4/15 Desert2
-477,10/23 Desert
-478,8/23 Desert
-479,10/5 Desert
-480,12/1 Desert Overlay
-481,11/3 Desert
-482,Lurker Egg
-483,Devourer
-484,Devourer Death
-485,Lurker Remnants
-486,Lurker
-487,Dark Archon Energy
-488,Corsair
-489,Dark Templar (Unit)
-490,Medic
-491,Medic Remnants
-492,Valkyrie
-493,Scantid (Desert)
-494,Kakaru (Twilight)
-495,Ursadon (Ice)
-496,Overmind Cocoon
-497,Power Generator
-498,Xel'Naga Temple
-499,Psi Disrupter
-500,Warp Gate
-501,Feedback Hit (Small)
-502,Feedback Hit (Medium)
-503,Feedback Hit (Large)
-504,Disruption Web
-505,White Circle
-506,Halo Rockets Trail
-507,Neutron Flare
-508,Neutron Flare Overlay (Unused)
-509,Optical Flare Grenade
-510,Halo Rockets
-511,Subterranean Spines Hit
-512,Subterranean Spines
-513,Corrosive Acid Shot
-514,Corrosive Acid Hit
-515,Maelstrom Hit
-516,Uraj
-517,Khalis
+439,Unknown439
+440,4/1 Ice
+441,6/1 Ice
+442,5/6 Ice 
+443,5/7 Ice 
+444,5/8 Ice 
+445,5/9 Ice
+446,10/10 Desert1
+447,10/12 Desert1
+448,10/8 Desert
+449,10/9 Desert1
+450,6/10 Desert
+451,6/13 Desert
+452,Unknown Desert
+453,10/12 Desert2
+454,10/9 Desert2
+455,10/10 Desert2
+456,10/11 Desert
+457,10/14 Desert
+458,10/41 Desert
+459,10/39 Desert
+460,10/8 Desert
+461,10/6 Desert
+462,10/7 Desert
+463,4/6 Desert
+464,4/11 Desert
+465,4/10 Desert
+466,4/9 Desert
+467,4/7 Desert
+468,4/12 Desert
+469,4/8 Desert
+470,4/13 Desert
+471,6/13 Desert
+472,4/17 Desert
+473,6/20 Desert
+474,4/15 Desert1
+475,4/15 Desert2
+476,10/23 Desert
+477,8/23 Desert
+478,10/5 Desert
+479,12/1 Desert Overlay
+480,11/3 Desert
+481,Lurker Egg
+482,Devourer
+483,Devourer Death
+484,Lurker Remnants
+485,Lurker
+486,Dark Archon Energy
+487,Corsair
+488,Dark Templar (Unit)
+489,Medic
+490,Medic Remnants
+491,Valkyrie
+492,Scantid (Desert)
+493,Kakaru (Twilight)
+494,Ursadon (Ice)
+495,Overmind Cocoon
+496,Power Generator
+497,Xel'Naga Temple
+498,Psi Disrupter
+499,Warp Gate
+500,Feedback Hit (Small)
+501,Feedback Hit (Medium)
+502,Feedback Hit (Large)
+503,Disruption Web
+504,White Circle
+505,Halo Rockets Trail
+506,Neutron Flare
+507,Neutron Flare Overlay (Unused)
+508,Optical Flare Grenade
+509,Halo Rockets
+510,Subterranean Spines Hit
+511,Subterranean Spines
+512,Corrosive Acid Shot
+513,Corrosive Acid Hit
+514,Maelstrom Hit
+515,Uraj
+516,Khalis
