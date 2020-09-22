@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />
+		<title>Button Maker</title>
+		<link rel="stylesheet" type="text/css" href="../Program/common.css" />
+		<link rel="stylesheet" type="text/css" href="buttonmaker/buttonmaker.css" />
+		<script src="../Program/common.js" type="text/javascript"></script>
+		<script src="../Program/eudtools_data.js" type="text/javascript"></script>
+		<script src="../Program/trigger_slicer.js" type="text/javascript"></script>
+		<script src="buttonmaker/buttonmaker.js" type="text/javascript"></script>
+		<style>
+
+		</style>
+		<script>
+
+		</script>
+	</head>
+	<body>
+	<div id="title_text" class="c_title">ButtonMaker v1.00</div>
+	<div id="container">
+		<div id="units-container">
+			<div id="unitlist-container"></div>
+			<div id="redirect-container">
+				<select id="redirect-units-select"></select>
+				<div id="redirect-action-container">
+					<div id="redirect-action" class="soft-button">Redirect</div>
+				</div>
+				<div id="redirect-cancel-container">
+					<div id="redirect-cancel" class="soft-button">Cancel</div>
+				</div>
+			</div>
+		</div>
+	<div id="button-container">
+		<div id="button-list-container">
+			<div id="button-list" class="divselect"></div>
+		</div>
+		<div id="button-preview-container">
+			<div class="button-preview-grid" id="button-preview-1">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-1"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-2">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-2"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-3">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-3"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-4">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-4"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-5">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-5"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-6">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-6"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-7">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-7"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-8">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-8"></div>
+			</div>
+			<div class="button-preview-grid" id="button-preview-9">
+				<div class="icon-container"><img src="cmdicons.png" id="icon-preview-img-9"></div>
+			</div>
+		</div>
+		<div id="button-add-container">
+			<select id="button-add-type"></select>
+			<select id="button-add-id"></select>
+			<div id="button-add-action" class="soft-button">Add Button</div>
+		</div>
+		<div id="button-sort-container">
+			<div id="button-sort-action" class="soft-button">Sort</div>
+		</div>
+		<div id="button-delete-container">
+			<div id="button-delete-action" class="soft-button">Delete</div>
+		</div>
+		<div id="button-reset-container">
+			<div id="button-reset-action" class="soft-button">Reset</div>
+		</div>
+	</div>
+	<div id="trait-container">
+		<div class="trait-label" id="trait-position-label">Position:</div>
+		<div class="trait-label" id="trait-icon-label"><a href="Icons.html" target="_blank">Icon</a>:</div>
+		<div class="trait-label" id="trait-reqfun-container">Req Function:</div>
+		<div class="trait-label" id="trait-reqvar-container">Req Variable:</div>
+		<div class="trait-label" id="trait-actfun-container">Act Function:</div>
+		<div class="trait-label" id="trait-actvar-container">Act Variable:</div>
+		<div class="trait-label" id="trait-reqstr-container">Req <a href="StatStrings.html" target="_blank">String</a>:</div>
+		<div class="trait-label" id="trait-actstr-container">Act String:</div>
+		<div class="trait-input-container" id="trait-position-container">
+			<input class="trait-input" type="text" id="trait-position" />
+		</div>
+		<div class="trait-input-container" id="trait-icon-container">
+			<input class="trait-input" type="text" id="trait-icon" />
+			<select class="trait-select" id="trait-icon-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-reqfun-container">
+			<input class="trait-input" type="text" id="trait-reqfun" />
+			<select class="trait-select" id="trait-reqfun-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-reqvar-container">
+			<input class="trait-input" type="text" id="trait-reqvar" />
+			<select class="trait-select" id="trait-reqvar-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-actfun-container">
+			<input class="trait-input" type="text" id="trait-actfun" />
+			<select class="trait-select" id="trait-actfun-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-actvar-container">
+			<input class="trait-input" type="text" id="trait-actvar" />
+			<select class="trait-select" id="trait-actvar-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-reqstr-container">
+			<input class="trait-input" type="text" id="trait-reqstr" />
+			<select class="trait-select" id="trait-reqstr-select"></select>
+		</div>
+		<div class="trait-input-container" id="trait-actstr-container">
+			<input class="trait-input" type="text" id="trait-actstr" />
+			<select class="trait-select" id="trait-actstr-select"></select>
+		</div>
+		<div id="generate-json-container">
+			<div id="generate-json-action" class="soft-button">Generate JSON</div>
+		</div>
+		<div id="button-json-container">
+			<textarea id="button-json-area" spellcheck="false"></textarea>
+		</div>
+	</div>
+	<div id="output-container">
+		<div class="output-label" id="input-player-label">Player:</div>
+		<div class="output-label" id="input-cond-label">Conds:</div>
+		<div class="output-label" id="input-act-label">Actions:</div>
+		<div class="output-label" id="input-offset-label">Offset:</div>
+		<div class="output-input-container" id="input-player-container">
+			<input type="text" id="input-player" value="" />
+		</div>
+		<div class="output-input-container" id="input-cond-container">
+			<textarea id="input-cond" spellcheck="false"></textarea>
+		</div>
+		<div class="output-input-container" id="input-act-container">
+			<textarea id="input-act" spellcheck="false"></textarea>
+		</div>
+		<div class="output-input-container" id="input-offset-container">
+			<input type="text" id="input-offset" value="" />
+		</div>
+		<div class="output-input-container" id="generate-trigger-container">
+			<div id="generate-trigger-action" class="soft-button">Generate Trigger</div>
+		</div>
+		<div class="output-input-container" id="output-trigger-container">
+			<textarea id="output-trigger" spellcheck="false"></textarea>
+		</div>
+	</div>
+	</div>
+
+	<script>
+	init();
+	</script>
+	</body>
+</html>

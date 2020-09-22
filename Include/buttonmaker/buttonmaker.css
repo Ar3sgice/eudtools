@@ -1,0 +1,350 @@
+/* Writing 350 lines of CSS and 800+ lines of code knowing no one will ever use it... true boredom */
+
+#container {
+	position: absolute;
+	top: 70px;
+	left: 0;
+	width: 100vw;
+	height: calc(100vh - 100px);
+	display: grid;
+	grid-template-columns: 60px 0.75fr 160px 1fr 1fr 60px;
+	grid-template-rows: calc(100vh - 100px);
+	grid-gap: 15px;
+}
+
+#units-container {
+	grid-column: 2/3;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 30px;
+	grid-gap: 5px;
+}
+
+#random-item {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+#button-container {
+	grid-column: 3/4;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 160px 100px 30px 30px 30px;
+	grid-gap: 5px;
+}
+
+#trait-container {
+	grid-column: 4/5;
+	display: grid;
+	grid-template-columns: 100px 1fr;
+	grid-template-rows: 32px 32px 32px 32px 32px 32px 32px 32px 32px 2fr;
+	grid-gap: 10px;
+}
+
+#output-container {
+	grid-column: 5/6;
+	display: grid;
+	grid-template-columns: 60px 1fr;
+	grid-template-rows: 25px 1fr 1fr 25px 32px 2fr;
+	grid-gap: 10px;
+}
+
+#redirect-container {
+	grid-column: 1/2;
+	grid-row: 2/3;
+	display: grid;
+	grid-template-columns: 1fr 90px 80px;
+	grid-template-rows: auto;
+	grid-gap: 5px;
+}
+
+#redirect-units-select {
+	border: solid 2px white;
+	background: #222;
+}
+
+#button-list-container {
+    height: 100%;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+#button-list {
+	border: solid 2px white;
+	background: #222;
+	height: 100%;
+	box-sizing: border-box;
+	padding-bottom: 2px;
+}
+#button-list option {
+	font-family: "Corbel", "Roboto", "Trebuchet MS", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+}
+
+#button-list.button-list-redirected {
+	background: #224;
+}
+
+#button-preview-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	grid-gap: 5px;
+}
+
+.button-preview-grid {
+	border: solid 2px white;
+	background: #222;
+}
+
+.button-preview-grid div {
+	transform: scale(1.275) translateY(2px); /* (160-10-2*6)/3/36 */
+	transform-origin: 0 0;
+}
+
+#button-add-container {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 1fr 30px;
+	grid-gap: 1px;
+}
+
+#button-add-container select{
+	border: solid 2px white;
+	background: #222;
+}
+
+.trait-label, .trait-label a {
+	color: #ce7;
+	font-family: "Corbel", "Roboto", "Trebuchet MS", sans-serif;
+	text-align: right;
+	font-size: 16px;
+	line-height: 32px;
+	grid-column: 1/2;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.trait-label a {
+	color: #fe9;
+	font-weight: bold;
+}
+
+.trait-label a:hover {
+	text-decoration: underline;
+}
+
+.trait-input-container {
+	grid-column: 2/3;
+}
+.trait-input-container input {
+	font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+	font-size: 14px;
+}
+#trait-position-label, #trait-position-container {
+	grid-row: 1/2;
+}
+#trait-icon-label, #trait-icon-container {
+	grid-row: 2/3;
+}
+#trait-reqfun-label, #trait-reqfun-container {
+	grid-row: 3/4;
+}
+#trait-reqvar-label, #trait-reqvar-container {
+	grid-row: 4/5;
+}
+#trait-actfun-label, #trait-actfun-container {
+	grid-row: 5/6;
+}
+#trait-actvar-label, #trait-actvar-container {
+	grid-row: 6/7;
+}
+#trait-reqstr-label, #trait-reqstr-container {
+	grid-row: 7/8;
+}
+#trait-actstr-label, #trait-actstr-container {
+	grid-row: 8/9;
+}
+#generate-json-container {
+	grid-column: 2/3;
+	grid-row: 9/10;
+}
+#button-json-container {
+	grid-column: 1/3;
+	grid-row: 10/11;
+}
+
+.trait-input-container {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: auto;
+	grid-gap: 10px;
+}
+
+.trait-input {
+	height: 32px;
+	line-height: 28px;
+	width: 100%;
+	border: solid 2px white;
+	box-sizing: border-box;
+	margin-bottom: 5px;
+}
+.trait-select {
+	height: 32px;
+	line-height: 28px;
+	width: 100%;
+	border: solid 2px white;
+	box-sizing: border-box;
+	font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+	font-size: 14px;
+}
+
+.output-label {
+	color: #ce7;
+	font-family: "Corbel", "Roboto", "Trebuchet MS", sans-serif;
+	text-align: right;
+	font-size: 16px;
+	line-height: 32px;
+	grid-column: 1/2;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.output-input-container {
+	grid-column: 2/3;
+}
+#input-player-label, #input-player-container {
+	grid-row: 1/2;
+}
+#input-cond-label, #input-cond-container {
+	grid-row: 2/3;
+}
+#input-act-label, #input-act-container {
+	grid-row: 3/4;
+}
+#input-offset-label, #input-offset-container {
+	grid-row: 4/5;
+}
+#generate-trigger-container {
+	grid-row: 5/6;
+}
+#output-trigger-container {
+	grid-column: 1/3;
+	grid-row: 6/7;
+}
+
+#output-container input, #output-container textarea, #button-json-area{
+	width: 100%;
+	height: 100%;
+	font-family: "Letter Gothic Std", "Courier New", monospace;
+	font-size: 14px;
+	border: solid 2px white;
+	box-sizing: border-box;
+}
+
+#output-container #input-player {
+	height: 28px;
+}
+
+#output-trigger-container #output-trigger {
+	font-size: 12px;
+}
+
+.soft-button {
+	border: solid 2px white;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+	font-family: "Constantia", "Book Antiqua", sans-serif;
+	font-size: 18px;
+	background: #222;
+	color: #ec4;
+	cursor: pointer;
+}
+
+.soft-button:hover {
+	background: #444;
+}
+
+#button-add-action, #button-sort-action, #button-delete-action, #button-reset-action, #redirect-action, #redirect-cancel {
+	font-size: 16px;
+	line-height: 26px;
+}
+
+#generate-trigger-action, #generate-json-action {
+	line-height: 28px;
+}
+
+#unitlist-container {
+	grid-column: 1/2;
+	grid-row: 1/2;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr;
+	height: calc(100vh - 140px);
+}
+
+.select-units {
+	grid-column: 1/2;
+	grid-row: 1/2;
+	width: 100%;
+	height: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.option-units {
+	font-family: "Corbel", "Roboto", "Trebuchet MS", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+}
+
+.option-button {
+	font-family: "Corbel", "Roboto", "Trebuchet MS", sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+	height: 20px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.option-selected {
+	background: #444444;
+}
+
+.option-edited:not(.option-selected) {
+	background: #224422;
+}
+.option-edited.option-selected {
+	background: #446644;
+}
+.option-redirected.option-selected {
+	background: #444466;
+}
+.option-redirected:not(.option-selected) {
+	background: #222244;
+}
+
+.icon-container {
+	width: 36px;
+	height: 34px;
+	overflow: hidden;
+}
+
+.icon-container > img {
+	position: relative;
+	display: none;
+}
+
+#title_text
+{
+	text-align:center;
+	line-height: 45px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no, email=no, address=no" />
+		<title>Icons</title>
+		<link rel="stylesheet" type="text/css" href="../Program/common.css" />
+		<script src="../Program/common.js" type="text/javascript"></script>
+		<style>
+		th, td {
+			background-color: #333333;
+		}
+		td {
+			white-space: pre;
+			vertical-align: middle;
+			padding: 2px 20px 2px 2px;
+		}
+		.icon {
+			width: 36px;
+			height: 34px;
+		}
+		</style>
+		<script>
+		function bytes2word(byte1, byte2) {
+			return (byte2 << 8) + byte1;
+		}
+		function bytes2dword(byte1, byte2, byte3, byte4) {
+			return (byte4 << 24) + (byte3 << 16) + (byte2 << 8) + byte1;
+		}
+		function leftPad(str, len, buffer) {
+			while(str.length < len) {
+				str = buffer + str;
+			}
+			return str;
+		}
+		async function init() {
+			let iconNames = await fetch("../Data/icon_names.txt").then(f => f.text());
+			iconNames.split(/\r?\n/).forEach((str, i) => {
+				let r = document.createElement("tr");
+				let d0 = document.createElement("td");
+				d0.textContent = i;
+				let d1 = document.createElement("td");
+				let div1 = document.createElement("div");
+				div1.style.backgroundImage = "url('cmdicons.png')";
+				div1.style.backgroundPosition = (i%200) * -36 + "px " + Math.floor(i/200) * -34 + "px";
+				div1.className="icon";
+				d1.appendChild(div1);
+				let d2 = document.createElement("td");
+				d2.textContent = str;
+				r.appendChild(d0);
+				r.appendChild(d1);
+				r.appendChild(d2);
+				document.getElementById("addItemsHere").appendChild(r);
+			})
+		}
+		</script>
+	</head>
+	<body>
+	<table>
+		<thead></thead>
+		<tbody id="addItemsHere">
+			<tr>
+				<th>ID</th>
+				<th>Icon</th>
+				<th>IconName</th>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+	init();
+	</script>
+	</body>
+</html>
