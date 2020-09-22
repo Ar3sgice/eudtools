@@ -17,6 +17,10 @@ Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools
 
 Please refer to the [wiki](https://github.com/Ar3sgice/eudtools/wiki).
 
+### Button Maker
+
+[https://ar3sgice.github.io/eudtools/Include/ButtonMaker.html](https://ar3sgice.github.io/eudtools/Include/ButtonMaker.html)
+
 ### EUD Database
 
 [http://farty1billion.dyndns.org/EUDDB/](http://farty1billion.dyndns.org/EUDDB/) & [Backup page](https://ar3sgice.github.io/eudtools/Include/EUDDB.html)
@@ -28,6 +32,10 @@ Please refer to the [wiki](https://github.com/Ar3sgice/eudtools/wiki).
 ### Stat_txt.tbl reference
 
 [https://ar3sgice.github.io/eudtools/Include/StatStrings.html](https://ar3sgice.github.io/eudtools/Include/StatStrings.html)
+
+### Icon reference
+
+[https://ar3sgice.github.io/eudtools/Include/Icons.html](https://ar3sgice.github.io/eudtools/Include/Icons.html)
 
 ### MapStrings.html
 
