@@ -307,6 +307,7 @@ select {
 	height: auto;
 	overflow-x: hidden;
 	overflow-y: auto;
+	box-sizing: border-box;
 }
 
 .option-units {
