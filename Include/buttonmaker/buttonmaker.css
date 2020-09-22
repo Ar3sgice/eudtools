@@ -59,6 +59,11 @@
 	grid-gap: 5px;
 }
 
+select {
+	overflow: hidden;
+	min-width: 30px;
+}
+
 #redirect-units-select {
 	border: solid 2px white;
 	background: #222;
