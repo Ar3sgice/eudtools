@@ -56,7 +56,6 @@ var memorylist = [ /* format: memory, length, type (0:padding, 1:memory), descri
     [0x51A280, 4,11, "Trigger Duplicator"],
     [0x519E50, 4,11, "Trigger Slicer"],
     [0x6D1238, 4,11, "Stat_txt.tbl Edits"],
-    [0x68C204, 4,11, "Wireframe Edits"],
 	[0x51398C, 4,11, "EUD108 Converter"],
 	[0       , 0, 0, ""],
 	[0       , 0, 0, "-----Units.Dat-----"],

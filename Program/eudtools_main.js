@@ -128,7 +128,6 @@ function useOption(evt)
 	$("playercolor_area").style.display = "none";
 	$("trigconv_area").style.display = "none";
 	$("stattbl_area").style.display = "none";
-	$("wireframes_area").style.display = "none";
 	$("reqwrite_area").style.display = "none";
 	$("flags_area").style.display = "none";
 	$("plugin_area").style.display = "none";
@@ -239,10 +238,6 @@ function useOption(evt)
 			case 0x6D1238:
 			$("input_offset").value = 0;
 			$("stattbl_area").style.display = "block";
-			break;
-			case 0x68C204:
-			$("input_offset").value = 0;
-			$("wireframes_area").style.display = "block";
 			break;
 		}
 		break;
@@ -942,7 +937,6 @@ function init()
 	slicerInit();
 	converterInit();
 	stattblInit();
-	wireframesInit();
 	reqwriterInit();
 	playerColorsInit();
 	flagsInit();

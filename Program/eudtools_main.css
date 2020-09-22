@@ -777,91 +777,6 @@ textarea
 	padding: 8px 10px 10px 10px;
 }
 
-/* Wireframes */
-
-#label_wireframes_player
-{
-    top: 288px;
-    left: 587px;
-}
-#label_wireframes_cond
-{
-    top: 314px;
-    left: 589px;
-}
-#label_wireframes_type
-{
-	top: 288px;
-	left: 626px;
-}
-#input_wireframes_player
-{
-    position: absolute;
-    top: 288px;
-    left: 680px;
-    width: 445px;
-}
-#inputarea_wireframes_cond
-{
-    position: absolute;
-    top: 314px;
-    left: 680px;
-    width: 570px;
-    height: 90px;
-}
-#parse_wireframes_cpt
-{
-    position: absolute;
-    top: 367px;
-    left: 1260px;
-    padding: 8px 10px 10px 10px;
-}
-#select_wireframes_type
-{
-	position: absolute;
-	top: 288px;
-	left: 1135px;
-	width: 120px;
-}
-#hr_wireframes
-{
-    position: absolute;
-    top: 414px;
-    left: 680px;
-    width: 570px;
-}
-#label_wireframes_uid
-{
-	top: 439px;
-    left: 615px;
-}
-#label_wireframes_target
-{
-    top: 465px;
-    left: 592px;
-}
-#input_wireframes_uid
-{
-    position: absolute;
-    top: 439px;
-    left: 680px;
-    width: 570px;
-}
-#input_wireframes_target
-{
-    position: absolute;
-    top: 465px;
-    left: 680px;
-    width: 570px;
-}
-#parse_wireframes
-{
-    position: absolute;
-    top: 443px;
-    left: 1260px;
-    padding: 8px 10px 10px 10px;
-}
-
 /* ReqWrite */
 
 #label_reqwrite_type
@@ -1132,7 +1047,6 @@ textarea
 #trigconv_area {display: none;}
 #reqwrite_area {display: none;}
 #stattbl_area {display: none;}
-#wireframes_area {display: none;}
 #playercolor_area {display: none;}
 #flags_area {display: none;}
 #make_memory
