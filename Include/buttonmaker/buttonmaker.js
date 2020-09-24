@@ -840,21 +840,25 @@ function getEditedButtonJSON() {
 	let buttonset = [];
 	let editedIDs = [];
 	for(let i in currentEditedButtonsets) {
-		editedIDs.push([parseInt(i), buttonset.length, currentEditedButtonsets[i].length]);
+		editedIDs.push({
+			id: parseInt(i),
+			start: buttonset.length,
+			count: currentEditedButtonsets[i].length
+		});
 		buttonset = buttonset.concat(currentEditedButtonsets[i]);
 	}
 
-	let redirectFrom = [];
-	let redirectTo = [];
+	let redirects = [];
 	for(let i in redirectedUnits) {
-		redirectFrom.push(parseInt(i));
-		redirectTo.push(redirectedUnits[i]);
+		redirects.push({
+			from: parseInt(i),
+			to: redirectedUnits[i]
+		});
 	}
 	return JSON.stringify({
 		"buttons" : buttonset,
 		"units" : editedIDs,
-		"redirFrom" : redirectFrom,
-		"redirTo" : redirectTo
+		"redir" : redirects
 	}, 2, " ");
 }
 
@@ -862,11 +866,11 @@ function setEditedButtonJSON(json) {
 	let obj = JSON.parse(json);
 	let ebs = [];
 	let rdu = [];
-	obj.redirFrom.forEach((a,i) => {
-		rdu[a] = obj.redirTo[i];
+	obj.redir.forEach(a => {
+		rdu[a.from] = a.to;
 	});
 	obj.units.forEach(u => {
-		ebs[u[0]] = obj.buttons.slice(u[1], u[1] + u[2]);
+		ebs[u.id] = obj.buttons.slice(u.start, u.start + u.count);
 	});
 	currentEditedButtonsets = ebs;
 	redirectedUnits = rdu;
@@ -895,8 +899,8 @@ function buttonToTrigger(button, offset, template) {
 
 function unitToTrigger(unit, offset, template) {
 	const unitButtonAddr = 0x5187E8;
-	return template.replace(/\^1/g, hex0x(unitButtonAddr + 0x0C * unit[0] + 0x00)).replace(/\^2/g, unit[2]) + "\n"
-	     + template.replace(/\^1/g, hex0x(unitButtonAddr + 0x0C * unit[0] + 0x04)).replace(/\^2/g, offset + unit[1] * 0x14) + "\n";
+	return template.replace(/\^1/g, hex0x(unitButtonAddr + 0x0C * unit.id + 0x00)).replace(/\^2/g, unit.count) + "\n"
+	     + template.replace(/\^1/g, hex0x(unitButtonAddr + 0x0C * unit.id + 0x04)).replace(/\^2/g, offset + unit.start * 0x14) + "\n";
 }
 
 function redirToTrigger(unitID, count, redirAddr, template) {
@@ -911,8 +915,7 @@ function convertJSONToTriggerActions(json, offset) {
 	if(!(obj.buttons && obj.units)) {
 		return "ERROR: incorrect JSON object";
 	}
-	obj.redirFrom = obj.redirFrom || [];
-	obj.redirTo = obj.redirTo || [];
+	obj.redir = obj.redir || [];
 
 	const triggerTemplate = "MemoryAddr(^1, Set To, ^2);";
 
@@ -920,15 +923,15 @@ function convertJSONToTriggerActions(json, offset) {
 	out += obj.buttons.map((button, i) => buttonToTrigger(button, offset + i * 0x14, triggerTemplate)).join("");
 	out += obj.units.map((unit, i) => unitToTrigger(unit, offset, triggerTemplate)).join("");
 
-	let editedUnits = obj.units.map(u => u[0]);
-	for(let i=0; i<obj.redirFrom.length; i++) {
-		let unitID = obj.redirFrom[i];
-		let target = obj.redirTo[i];
+	let editedUnits = obj.units.map(u => u.id);
+	for(let i=0; i<obj.redir.length; i++) {
+		let unitID = obj.redir[i].from;
+		let target = obj.redir[i].to;
 		let index = editedUnits.indexOf(target);
 		var redirAddr, count;
 		if(index != -1) {
-			count = obj.units[index][2];
-			redirAddr = offset + obj.units[index][1] * 0x14;
+			count = obj.units[index].count;
+			redirAddr = offset + obj.units[index].start * 0x14;
 		}
 		else {
 			count = buttonPointers[target].length;
@@ -937,6 +940,18 @@ function convertJSONToTriggerActions(json, offset) {
 		out += redirToTrigger(unitID, count, redirAddr, triggerTemplate);
 	}
 	return out;
+}
+
+function calculateNextOffset(json, offset) {
+	let obj = JSON.parse(json);
+
+	if(!(obj.buttons && obj.units)) {
+		return hex0x(offset);
+	}
+
+	let buttonCount = obj.buttons.length;
+	let newOffset = offset + buttonCount * 0x14;
+	return hex0x(offset) + " // Next " + hex0x(newOffset);
 }
 
 function triggerFormat(trg) {
@@ -975,6 +990,9 @@ function generateTriggerEvt(evt) {
 
 	let out = convertJSONToTriggerActions(json, offset);
 
+	if(out.indexOf("Error") == -1 && out.length > 1) {
+		qs("#input-offset").value = calculateNextOffset(json, offset);
+	}
 
 	let player = qs("#input-player").value;
 	let conds = qs("#input-cond").value;
