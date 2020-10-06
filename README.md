@@ -3,6 +3,8 @@ EUD tools for SC remastered
 
 Link: [https://ar3sgice.github.io/eudtools/](https://ar3sgice.github.io/eudtools/)
 
+IMPORTANT: If possible, you should make your own EUD Tools too. Don't let this or EUD Editor discourage you, programming it is more fun than playing the actual game.
+
 ## Usage
 
 0. Tick "use MaskedMemory" in Settings
